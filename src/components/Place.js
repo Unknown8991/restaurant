@@ -1,0 +1,65 @@
+import React from 'react';
+import TogglePlace from './TogglePlace';
+import FormRestaurant from './FormRestaurant';
+import FormHome from './FormHome';
+
+const Place = (props) => {
+
+
+const formPlace = props.place.filter(item => item.isActive);
+
+    const places = props.place.map(place =>(
+        <TogglePlace 
+            key={place.id}
+            id={place.id}
+            name={place.place}
+            isActive={place.isActive}
+            changePlaceActive={props.changePlaceActive}
+        />
+    ))
+    return ( 
+        <>
+            <div className="header">
+                Where will you eat your meal?
+            </div>
+            <div className="col-12 place">
+                {places}
+            </div>
+            <>
+                { formPlace[0].id === 1 ? 
+                <FormRestaurant 
+                    formOrder={props.formOrder} 
+                    handleChange={props.handleChange} 
+                    handleDateValue={props.handleDateValue}
+                    date={props.date}
+                    time={props.time}
+                    table={props.table}
+                    saveForm={props.saveForm}
+                    handleSaveForm={props.handleSaveForm}
+                />
+                : 
+                <FormHome 
+                    formOrder={props.formOrder} 
+                    handleChange={props.handleChange}
+                    form={props.form}
+                    saveForm={props.saveForm}
+                    deliveryTime={props.deliveryTime}
+                    nameClient={props.nameClient}
+                    surnameClient={props.surnameClient}
+                    phoneNumberClient={props.phoneNumberClient}
+                    cityClient={props.cityClient}
+                    streetClient={props.streetClient}
+                    homeClient={props.homeClient}
+                    textDateForDelivery={props.textDateForDelivery}
+                /> }
+            </>
+            <div className="button-container button-container--center">
+                <button className="action-button action-button--revert" onClick={props.handleSaveForm}>
+                    {props.saveForm ? "Don't save":'Save' }
+                </button>
+            </div>
+        </>
+     );
+}
+ 
+export default Place;
