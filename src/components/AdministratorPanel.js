@@ -6,7 +6,7 @@ const AdministratorPanel = (props) => {
         <div className='panel-admin'>
             <div className='home'>
                 <div className='container'>
-                    <div className='header-panel-admin'>Today</div>
+                    <div className='header-panel-admin'>Dziś</div>
                     <div className='col-12'>
                         <div className='red-board container'>
                             {/* <div className='container'> */}
@@ -22,8 +22,8 @@ const AdministratorPanel = (props) => {
                             {/* </div> */}
                         </div>
                     </div>
-                    <div className='header-panel-admin'>Orders</div>
-                    <div className='header-panel-admin--text'>orders to processed</div>
+                    <div className='header-panel-admin'>Zamówienia</div>
+                    <div className='header-panel-admin--text'>zamówienia do wykonania</div>
                     <div className='order-items'>
                         <OrderList  orders={props.orders} handleOpenStatus={props.handleOpenStatus} />
                         {/* <div className='col-12 order'>

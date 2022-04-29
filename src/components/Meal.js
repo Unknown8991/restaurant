@@ -9,7 +9,7 @@ const Meal = (props) => {
         <div className={props.isChecked ? "col-6 meal-list__item meal-list__item--active" : "col-6 meal-list__item"}>
             <div className="controls-meals">
 
-            <div className={props.isChecked ? "col-8 meal-list__element meal-list__element--column" : "col-8 meal-list__element meal-list__element--column meal-list__element--no-visibility" }>Number
+            <div className={props.isChecked ? "col-8 meal-list__element meal-list__element--column" : "col-8 meal-list__element meal-list__element--column meal-list__element--no-visibility" }>Ilość
                 <div className="col-8 meal-list__counter">
                     
                     <button className={props.choosedNumberMeal > 1 ? "button-counter button-counter--left button " : "button-counter--zero"} onClick={() => props.substractNumberMeal(props.id)}>-</button>
@@ -43,7 +43,7 @@ const Meal = (props) => {
                             {props.name}
                         </div>
                         <div className="col-4">
-                            <div className="wrapper-header-description__back" onClick={()=> props.handleShowInfoAboutMeal(props.id)}> Back </div>
+                            <div className="wrapper-header-description__back" onClick={()=> props.handleShowInfoAboutMeal(props.id)}> Wróć </div>
                         </div>
                     </div>
                     <div className="col-12 wrapper-header-description__photo">IMG</div>

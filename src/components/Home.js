@@ -28,10 +28,62 @@ const Home = (props) => {
         />
     ))
 // Stała pod placeholder w inpucie
-    const placeholderText = 'Search'; 
+    const placeholderText = 'Odszukaj swoje ulubione danie..'; 
 
-    return ( 
+    return (
+        <>
+        <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>N</div>
+        <div className='profile-box__counter'>
+            {props.counterNotification}
+        </div>
+        <div className='profile-box' onClick={props.handleProfileSettingActive}>P</div>
+        {/* Wyswietlenie ustawień */}
+        {props.isProfileSettingsActive ? <div className='profile-box__content'>
+            <div className='container'> 
+                <div className='profile-box__content--text'> {props.activeUserLogin}</div>
+                <div>Historia zamówień</div>
+            </div>
+        </div> : null }
+        {/* Wyswietlenie powiadomień */}
+        {props.isShowNotification ? 
+            <div className='profile-box__notification-content'>
+                <div className='container'>
+                    <div className='row'>
+                        <div className='profile-box__counter--text col-10'>Twoje powiadomienia</div>
+                        <div className='profile-box__counter--back col-2' onClick={props.handleCloseNotification}>X</div>
+                    </div>
+                    {props.counterNotification === 0 ? 
+                        <>
+                            <div className='profile-box__counter--none'>Brak nowych powiadomień</div>
+                            {props.randomBlikGenerateCode}
+                        </>
+                        
+                        :
+                        null
+                    }
+                </div>
+            </div>
+    
+        :
+            null
+        }
+        {props.blikNotifications ? 
+                    
+                    <div className='profile-box__blik'>
+                        <div className='col-12 profile-box__blik--back' onClick={props.handleCloseBlikNotification}>X</div>
+                        <div className='row col-12'>
+                            <div className='col-10 profile-box__blik--text'> Twój numer blik: {props.randomBlikGenerateCode}</div>
+                            <div className='col-2'>
+                                <div className='profile-box__blik--timer'>{props.timerValue}</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+            :
+            null
+        }
         <div className="home">
+            
             <div className="container">
                 <div className={props.activeSearch ? "search search--active" : "search"} >
                     <i className="fa fa-search" aria-hidden="true"></i>
@@ -107,6 +159,7 @@ const Home = (props) => {
             /> : null }
             
         </div>
+        </> 
      );
 }
  

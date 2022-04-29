@@ -127,7 +127,7 @@ const MealList = (props) => {
             
             {/* {props.typeMeal ? meatFoods : vegeFoods} */}
         </div>
-            <div className="header">Something to drink?</div>
+            <div className="header">Coś do picia?</div>
         <div className="meal-list">
             {drinks}
         </div>

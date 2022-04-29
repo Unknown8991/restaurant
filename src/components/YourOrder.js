@@ -35,7 +35,7 @@ const YourOrder = (props) => {
 
                 <div className="bar" onClick={props.changeActiveYourOrder}></div>
                 <div className="col-12 your-order__text">
-                    Your order
+                    Twoje zamówienie
                 </div>
 
                 {props.activeYourOrder ? <div className="container">
@@ -75,38 +75,38 @@ const YourOrder = (props) => {
                     {/* test */}
 
 
-                    <div className="header header--summary">Summary</div>
+                    <div className="header header--summary">Podsumowanie</div>
                     <div className="container-your-order-summary">
                 
 
                 {activeOrder[0].id === 1 ? 
                         <div className="col-12 top-order-summary">
-                        <div className="order-summary__text">Personal details</div>
-                            <div className="col-12 order-summary__client-info">Name: {props.nameClient}</div>
-                            <div className="col-12 order-summary__client-info">Surname: {props.surnameClient}</div>
-                            <div className="col-12 order-summary__client-info">Phone number: {props.phoneNumberClient}</div>
-                            <div className="col-12 order-summary__client-info">Hour: {props.time}</div>
-                            <div className="col-12 order-summary__client-info order-summary--last">Date reservation: {props.date}</div>
+                        <div className="order-summary__text">Dane osobowe</div>
+                            <div className="col-12 order-summary__client-info">Imię: {props.nameClient}</div>
+                            <div className="col-12 order-summary__client-info">Nazwisko: {props.surnameClient}</div>
+                            <div className="col-12 order-summary__client-info">Numer telefonu: {props.phoneNumberClient}</div>
+                            <div className="col-12 order-summary__client-info">Godzina: {props.time}</div>
+                            <div className="col-12 order-summary__client-info order-summary--last">Data rezerwacji: {props.date}</div>
                         </div>
                         
                     :
                     <div className="col-12  top-order-summary">
-                    <div className="order-summary__text">Personal details</div>
-                        <div>Name: {props.nameClient}</div>
-                        <div>Surname: {props.surnameClient}</div>
-                        <div>Phone number: {props.phoneNumberClient}</div>
-                        <div>City: {props.cityClient}</div>
-                        <div>Street: {props.streetClient}</div>
-                        <div>Home number: {props.homeClient}</div>
+                    <div className="order-summary__text">Dane osobowe</div>
+                        <div>Imię: {props.nameClient}</div>
+                        <div>Nazwisko: {props.surnameClient}</div>
+                        <div>Numer telefonu: {props.phoneNumberClient}</div>
+                        <div>Miasto: {props.cityClient}</div>
+                        <div>Ulica: {props.streetClient}</div>
+                        <div>Numer domu: {props.homeClient}</div>
                     </div>
                     
                     }
                 <div className="col-12 bottom-order-summary">
-                    <div className="order-summary__text">Your order</div>
+                    <div className="order-summary__text">Twoje zamówienie</div>
                     {listMeals}
                     <div className="divider"></div>
                     <div className="col-12 order-summary__list-item">
-                        <div className="col-9 item-order-name">Total</div>
+                        <div className="col-9 item-order-name">Razem</div>
                         <div className="col-3 item-order-cost item-order-cost--total">{total} PLN</div>
                     </div>
                 </div>

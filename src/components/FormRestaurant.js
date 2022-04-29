@@ -7,13 +7,13 @@ const FormRestaurant = (props) => {
         <>
         <form className={props.saveForm ? 'input-form input-form__visibility' : 'col-12 input-form'}>   
                  
-            <div className="col-12 header--form">Personal data</div>
+            <div className="col-12 header--form">Dane osobiste</div>
             <input 
                 onChange={props.handleChange} 
                 name="username"  
                 className="input-form__item" 
                 type="text"  
-                placeholder="Name"
+                placeholder="Imię"
                 maxLength="11"
 
             />
@@ -22,17 +22,17 @@ const FormRestaurant = (props) => {
                 name="user-surname"  
                 className="input-form__item" 
                 type="text"  
-                placeholder="Surname"
+                placeholder="Nazwisko"
             />
             <input 
                 onChange={props.handleChange} 
                 name="phone"  
                 className="input-form__item" 
                 type="text"  
-                placeholder="Phone Number"
+                placeholder="Numer telefonu"
                 maxLength="9"
             />
-            <div className="col-12 header--form">Please select a date</div>
+            <div className="col-12 header--form">Proszę wybrać datę</div>
             <div className="form-input-date">
             <div className="col-6 form-input-date__item">
             <input 
@@ -55,13 +55,13 @@ const FormRestaurant = (props) => {
             {props.date ? null: <div className="col-12 form-input-date__item--text">Pole wymagane</div>}
             </div>
             </div>
-            <div className="col-12 form-info">Number of tables available: {props.table}</div>
-            <div className="col-12 form-info">To cancel a booking, please call to the number: 890 213 412</div>
-            <div className="col-12 form-info--reservation">Table reservation costs 5 PLN</div>
+            <div className="col-12 form-info">Liczba dostępnych stolików: {props.table}</div>
+            <div className="col-12 form-info">Aby anulować rezerwację zadzwoń pod numer: 890 213 412</div>
+            <div className="col-12 form-info--reservation">Rezerwacja stolika kosztuje 5 PLN</div>
         </form>
-        {props.saveForm ? <div className="col-8 save-form">Your data has been saved
+        {props.saveForm ? <div className="col-8 save-form">Twoje dane zostały zapisane
         <br />
-        <div className="cancel-save" onClick={props.handleSaveForm}>Cancel</div>
+        <div className="cancel-save" onClick={props.handleSaveForm}>Anuluj</div>
         </div> : null}   
         </>
      );

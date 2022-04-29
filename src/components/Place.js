@@ -20,7 +20,7 @@ const formPlace = props.place.filter(item => item.isActive);
     return ( 
         <>
             <div className="header">
-                Where will you eat your meal?
+                Gdzie będziesz spożywał swój posiłek?
             </div>
             <div className="col-12 place">
                 {places}
@@ -55,7 +55,7 @@ const formPlace = props.place.filter(item => item.isActive);
             </>
             <div className="button-container button-container--center">
                 <button className="action-button action-button--revert" onClick={props.handleSaveForm}>
-                    {props.saveForm ? "Don't save":'Save' }
+                    {props.saveForm ? "Nie zapisuj":'Zapisz' }
                 </button>
             </div>
         </>

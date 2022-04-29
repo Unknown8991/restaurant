@@ -35,13 +35,13 @@ const OrderList = (props) => {
     ))
     return (  
         <>
-            <div className='header-panel-admin'>Orders</div>
-            <div className='header-panel-admin--text'>orders to processed</div>
+            <div className='header-panel-admin'>Zamówienia</div>
+            <div className='header-panel-admin--text'>zamówienia do realizacji</div>
             <div className='order-items'></div>
             <div>{orders}</div>
 
-            <div className='header-panel-admin'>Orders</div>
-            <div className='header-panel-admin--text'>orders to done</div>
+            <div className='header-panel-admin'>Zamówienia</div>
+            <div className='header-panel-admin--text'>zamównienia zrealizowane</div>
             <div className='order-items'></div>
             <div>{ordersDone}</div>
 

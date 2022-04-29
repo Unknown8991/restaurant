@@ -9,51 +9,51 @@ const FormHome = (props) => {
             name="username"  
             className="input-form__item" 
             type="text"  
-            placeholder="Name"
+            placeholder="Imię"
         />
         <input 
             onChange={props.handleChange} 
             name="user-surname"  
             className="input-form__item" 
             type="text"  
-            placeholder="Surname"
+            placeholder="Nazwisko"
         />
         <input 
             onChange={props.handleChange} 
             name="phone"  
             className="input-form__item" 
             type="text"  
-            placeholder="Phone Number"
+            placeholder="Numer telefonu"
         />
         <input 
             onChange={props.handleChange} 
             name="city"  
             className="input-form__item" 
             type="text"  
-            placeholder="City"
+            placeholder="Miasto"
         />
         <input 
             onChange={props.handleChange} 
             name="street"  
             className="input-form__item" 
             type="text"  
-            placeholder="Street"
+            placeholder="Ulica"
         />
         <input 
             onChange={props.handleChange} 
             name="numberHome"  
             className="input-form__item" 
             type="text"  
-            placeholder="Home number"
+            placeholder="Numer budynku"
         />
     </form>
     {props.cityClient === "" ? 
     null
     :
     <div className='delivery-time-container col-12'>
-        <div className='col-12 delivery-time-container__title'>Expected delivery time</div>
+        <div className='col-12 delivery-time-container__title'>Oczekiwany czas dostawy</div>
         <div className='col-12 delivery-time-container__content'>
-            <div className='col-6'>CAR</div>
+            <div className='col-6'>AUTO</div>
             <div className='col-6 delivery-time-text'>{props.textDateForDelivery}{props.deliveryTime}</div>
         </div>
     </div>

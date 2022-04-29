@@ -20,7 +20,7 @@ const MethodPayments = (props) => {
         <>
         {props.activeYourOrder ? 
             <div className="container">
-                <div className="header header--payments">Payments</div>
+                <div className="header header--payments">Płatność</div>
                 <div className="col-12 payments">
                     {payments}
                 </div>

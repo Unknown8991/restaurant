@@ -10,23 +10,33 @@ const MethodBlik = (props) => {
 
 
             <div className="generate-code-container">
-            <div className={props.showBlikContent ? "col-12 popup-blik-code" : "visibility-box" }>
-            <div className="col-12 container-timer-value">
-                <div className= {props.showBlikContent ? "timer-value":"visibility-box__none"}>{props.timerValue}</div>
-                <div className="containter-blik">
-                <div className={props.showBlikContent ? "blik-text" : "visibility-box__none"}>Your code:{props.randomBlikCode}
+                {/* <div className={props.showBlikContent ? "col-12 popup-blik-code" : "visibility-box" }> */}
+                <div className="col-12 container-timer-value">
+                    {/* <div className= {props.showBlikContent ? "timer-value":"visibility-box__none"}>{props.timerValue}</div>
+                    <div className="containter-blik">
+                        <div className={props.showBlikContent ? "blik-text" : "visibility-box__none"}>Twój kod:{props.randomBlikCode}</div>
+                    </div> */}
+                    { props.timerValue ===5 || props.timerValue === 0 ?   
+                                          
+                        <div className="blik-icon"   onClick={props.handleBlikCode} >
+                            <img src={payment} alt="" />
+                            {props.timerValue === 0 ?
+                                <div>Odśwież</div>
+                                :
+                                null
+                            }
+                        </div>
+                        : 
+                        <div className="blik-icon--hidden"   onClick={props.handleBlikCode} >
+                            <img src={payment} alt="" />
+                        </div>                   
+                    }
                 </div>
-            </div>
-                <div className="blik-icon"   onClick={props.handleBlikCode} >
-                    <img src={payment} alt="" />
-                </div>
-                
-            </div>
-        </div> 
+                {/* </div>  */}
             </div>
 
             <div className="header--blik">
-                Enter the blik code
+                Wprowadź kod blik
             </div>
             {props.blikResult ? 'Blik code positive' : null}
             <div className="col-12 code-input">

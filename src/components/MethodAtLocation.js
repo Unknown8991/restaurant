@@ -3,7 +3,7 @@ import React from 'react';
 const MethodAtLocation = () => {
     return ( 
         <div>
-            At location
+            Na miejscu
         </div>
      );
 }

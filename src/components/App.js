@@ -4,23 +4,43 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import clickpng from '../icons/clicking.png';
 import Home from './Home';
 import AdministratorPanel from './AdministratorPanel';
+import LoginPanel from './LoginPanel';
 
 class App extends Component {
   state = {
     // false default
-    administrator: true,
-    client: false,
+    administrator: false,
+    //  false default pominięcie logowania
+    client: true,
     loginName:'',
     loginPassword:'',
     // false default
-    isCorrectLogin: true,
+    isCorrectLogin: false,
     // false default
-    isCorrectPassword: true,
+    isCorrectPassword: false,
     // false default
-    adminPanel: true,
+    adminPanel: false,
+    // rejestracja użytkownika
+    isRegister: false,
     account:[
-      {id:1, login: 'admin', password: '123qwe'}
+      {id:1, login: 'admin', password: '123qwe'},
+      {id:2, login: 'jkowalski', password: '123qwe'},
+      {id:3, login: 'pnowak', password: '123qwe'},
+      {id:4, login: 'abak', password: '123qwe'},
     ],
+    // Powiadomienia nie mogą być kasowane po zmianie klient -> admin
+    notifications:[],
+    // powiadomienia
+    isShowNotification: false,
+    counterNotification: 0,
+    blikNotifications: false,
+    // logowanie
+    activeUserLogin: '',
+    activeUserPassword: '',
+    adminActive: false,
+    userAccountActive: false,
+    userNoAccountActive: false,
+    isProfileSettingsActive: false,
     isActiveScreen: false,
     isActiveSearch: false,
     isYourOrder: false,
@@ -38,15 +58,15 @@ class App extends Component {
       {id:9, name: 'dziewięć', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
     ],
     orders:[
-      {id:1, name: 'jeden',place:'In Restaurant', tableNumber:2, price: 20, timeOfRelease:'18:20', status: 0, isChangeStatus:false,},
-      {id:2, name: 'dwa', place:'In Restaurant', tableNumber:3, price: 10, timeOfRelease:'18:25', status: 0, isChangeStatus:false,},
-      {id:3, name: 'trzy', place:'Delivery', tableNumber:null, price: 30, timeOfRelease:'17:30', status: 0, isChangeStatus:false,},
-      {id:4, name: 'cztery', place:'Restaurant', tableNumber:9, price: 10, timeOfRelease:'18:05', status: 0, isChangeStatus:false,},
+      {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, timeOfRelease:'18:20', status: 0, isChangeStatus:false,},
+      {id:2, name: 'dwa', place:'W restauracji', tableNumber:3, price: 10, timeOfRelease:'18:25', status: 0, isChangeStatus:false,},
+      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, timeOfRelease:'17:30', status: 0, isChangeStatus:false,},
+      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, timeOfRelease:'18:05', status: 0, isChangeStatus:false,},
     ],
     typeMeal: false,
     place: [
-      {id:1, place:'Restaurant', isActive: true,},
-      {id:2, place:'Home',isActive: false,},
+      {id:1, place:'W restauracji', isActive: true,},
+      {id:2, place:'W domu',isActive: false,},
     ],
     // REZYGNACJA Z formOrder
     formOrder: [
@@ -73,7 +93,7 @@ class App extends Component {
     randomBlikGenerateCode:'',
     blikCode:'',
     isActiveBlikCode: false,
-    timerValue:30,
+    timerValue:5,
     showBlikContent: false,
     blikResult:false,
     saveForm: false,
@@ -93,6 +113,105 @@ class App extends Component {
   handleChoiceClient = () =>{
     this.setState({
       client: true,
+    })
+  }
+  // Logowanie do aplikacji
+  handleLoginProfile =() =>{
+    console.log('logowanie')
+    // logowanie dla admina
+    if(this.state.isCorrectLogin && this.state.isCorrectPassword){
+      console.log('hasło i login sa poprawne')
+      this.setState({
+        adminPanel: true,
+        activeUserLogin: this.state.loginName,
+        activeUserPassword: this.state.loginPassword,
+        adminActive: true,
+      })
+   }else{
+     console.log('hasło i login nie są poprawne')
+   }
+    let arrayUsers = this.state.account;
+    console.log(arrayUsers)
+    const findUserLogin = arrayUsers.filter(item => item.login.includes(this.state.loginName))
+    console.log(findUserLogin)
+    // console.log(findUserLogin[0].login)
+    if(findUserLogin[0] !== undefined){
+      // Jeśli dane logowania są prawidłowe hasło oraz login
+      if(findUserLogin[0].login === this.state.loginName && findUserLogin[0].password === this.state.loginPassword){
+        console.log('Istnieje taki login oraz hasło')
+        this.setState({
+          adminActive: false,
+          userAccountActive: true,
+          userNoAccountActive: false,
+          activeUserLogin: this.state.loginName,
+          activeUserPassword: this.state.loginPassword,
+        })
+        setTimeout(()=>{
+          this.setState({
+            client: true,
+          })
+        },1000)
+      }else{
+        console.log('Nie istnieje taki login i hasło')
+      }
+    }else{
+      console.log('Dane są niepoprawne')
+      return
+    }
+
+  }
+  handleChangeInputLogin = (e) =>{
+    // Logowanie dotyczy admina
+    // Aktualizacja state login do konta oraz sprawdzenie czy login jest poprawny
+    if(e.target.name === 'login'){
+      this.setState({
+        loginName: e.target.value,
+      }) 
+      if(e.target.value === this.state.account[0].login){
+        console.log('Poprawny login')
+        this.setState({
+          isCorrectLogin: true,
+        })
+      }
+    }
+    // Aktualizacja state hasło do konta oraz sprawdzenie czy hasło jest poprawne
+    if(e.target.name === 'pass'){
+      this.setState({
+        loginPassword: e.target.value,
+      })
+      if(e.target.value === this.state.account[0].password){
+        console.log('Poprawne hasło')
+        this.setState({
+          isCorrectPassword: true,
+        })
+      }
+    }
+    // logowanie dotyczy uzytkowników
+  }
+  // Rejestracja użytkownika
+  handleRegisterProfile = () =>{
+    console.log('rejestracja')
+    this.setState({
+      isRegister: true,
+    })
+  }
+  // Powrót do logowania (w rejestracji)
+  handleBackFromRegister = ()=>{
+    console.log('powrót z rejestracji')
+    this.setState({
+      isRegister: false,
+    })
+  }
+  // Logowanie bez konta
+  handleLoginNoneAccount = () =>{
+    console.log('logowanie bez konta')
+    this.setState({
+      client: true,
+    })
+  }
+  handleShowNotificationContent = () =>{
+    this.setState({
+      isShowNotification: !this.state.isShowNotification,
     })
   }
   // Powrót do wyboru profilu (administrator / klient)
@@ -153,6 +272,34 @@ class App extends Component {
     }else{
       console.log('hasło i login nie są poprawne')
     }
+  }
+  // Aktywacja profilu użytkownika (~ustawień)
+  handleProfileSettingActive = () =>{
+    this.setState({
+      isProfileSettingsActive: !this.state.isProfileSettingsActive,
+    })
+  }
+  // Licznik powiadomień
+  handleCounterNotification = () =>{
+    // counter++
+  }
+  // Zamknięcie powiadomień
+  handleCloseNotification = () =>{
+    this.setState({
+      isShowNotification: false,
+    })
+  }
+  // Powiadomienie dla blika
+  handleShowBlikNotification = () =>{
+    this.setState({
+      blikNotifications: true,
+    })
+  }
+  // Zamknięcie powiadomienia blik
+  handleCloseBlikNotification = () =>{
+    this.setState({
+      blikNotifications: false,
+    })
   }
   // Działanie wyszykiwarki
   handleChangeSearch = (e)=>{
@@ -424,6 +571,7 @@ class App extends Component {
     this.setState({
       randomBlikGenerateCode: randomBlikCode,
       isActiveBlikCode: true,
+      blikNotifications: true,
       showBlikContent: !this.state.showBlikContent,
     })
     // Interwał dla funkcji odliczającej czas ważności kodu blik
@@ -436,6 +584,9 @@ class App extends Component {
         timerValue: this.state.timerValue-1,
       })
     }else{
+      this.setState({
+        isActiveBlikCode: false,
+      })
       return
     }
     console.log(this.state.timerValue)
@@ -638,11 +789,22 @@ class App extends Component {
       
       <div className={this.state.client=== true || this.state.administrator ? "container-choice-user--active-client" : "container-choice-user container" }>
         <div className='user-panel'>
-          <div className='col-12 logo-restaurant'>Restaurant</div>
-          <div className='user-choice'>
-            <div className='col-5 user-choice__admin' onClick={this.handleChoiceAdmin}>Admin</div>
-            <div className='col-5 user-choice__client' onClick={this.handleChoiceClient}>Client</div>
-          </div>
+          {/* <div className='col-12 logo-restaurant'>Restaurant</div> */}
+          <LoginPanel
+            handleChoiceAdmin= {this.handleChoiceAdmin}
+            handleChoiceClient= {this.handleChoiceClient}
+            handleLoginNoneAccount={this.handleLoginNoneAccount}
+            handleRegisterProfile={this.handleRegisterProfile}
+            isRegister={this.state.isRegister}
+            handleBackFromRegister={this.handleBackFromRegister}
+            handleChangeInputLogin={this.handleChangeInputLogin}
+            handleLoginProfile={this.handleLoginProfile}
+            
+          />
+          {/* <div className='user-choice'>
+            <div className='col-5 user-choice__admin' onClick={this.handleChoiceAdmin}>Administrator</div>
+            <div className='col-5 user-choice__client' onClick={this.handleChoiceClient}>Klient bez logowania</div>
+          </div> */}
         </div>
       </div>
       {/* Wybór klienta */}
@@ -650,8 +812,8 @@ class App extends Component {
       <div className={this.state.activeYourOrder ? "App background-app" : "App background-app"}>
         <div className="welcome-user">
           <div className="col-12 welcome-user__text" >
-            Welcome to app!
-            <div>Touch screen to start</div>
+            Witaj w aplikacji!
+            <div>Dotknij ekranu, aby rozpocząć</div>
           </div>
         </div>
             <div className="icon-touch" onClick={this.handleStartApp}>
@@ -663,6 +825,7 @@ class App extends Component {
                 place={this.state.place} 
                 changePlaceActive={this.handleChangePlaceActive}
                 handleChange={this.handleChangeInput} 
+                activeUserLogin={this.state.activeUserLogin}
                 formOrder={this.state.formOrder} 
                 handleDateValue={this.handleDateValue} 
                 date={this.state.date}
@@ -708,6 +871,15 @@ class App extends Component {
                 handleShowInfoAboutMealFromSearch={this.handleShowInfoAboutMealFromSearch}
                 deliveryTime={this.state.deliveryTime}
                 textDateForDelivery={this.state.textDateForDelivery}
+                isProfileSettingsActive={this.state.isProfileSettingsActive}
+                handleProfileSettingActive={this.handleProfileSettingActive}
+                handleShowNotificationContent={this.handleShowNotificationContent}
+                isShowNotification={this.state.isShowNotification}
+                counterNotification={this.state.counterNotification}
+                handleCloseNotification={this.handleCloseNotification}
+                randomBlikGenerateCode={this.state.randomBlikGenerateCode}
+                blikNotifications={this.state.blikNotifications}
+                handleCloseBlikNotification={this.handleCloseBlikNotification}
               /> : null}
               
             
