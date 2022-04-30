@@ -20,14 +20,9 @@ const MethodBlik = (props) => {
                                           
                         <div className="blik-icon"   onClick={props.handleBlikCode} >
                             <img src={payment} alt="" />
-                            {props.timerValue === 0 ?
-                                <div>Odśwież</div>
-                                :
-                                null
-                            }
                         </div>
                         : 
-                        <div className="blik-icon--hidden"   onClick={props.handleBlikCode} >
+                        <div className="blik-icon--disable"   onClick={props.handleBlikCode} >
                             <img src={payment} alt="" />
                         </div>                   
                     }

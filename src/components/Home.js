@@ -71,12 +71,19 @@ const Home = (props) => {
                     
                     <div className='profile-box__blik'>
                         <div className='col-12 profile-box__blik--back' onClick={props.handleCloseBlikNotification}>X</div>
-                        <div className='row col-12'>
-                            <div className='col-10 profile-box__blik--text'> Twój numer blik: {props.randomBlikGenerateCode}</div>
-                            <div className='col-2'>
+                        <div className=' col-12'>
+                            <div className='col-12 profile-box__blik--text'> Twój numer blik: {props.randomBlikGenerateCode}</div>
+                            <div className='col-12 profile-box__blik--center'>
                                 <div className='profile-box__blik--timer'>{props.timerValue}</div>
-                                
                             </div>
+                            {props.timerValue === 0 ? 
+                            <>                            
+                                <div className='profile-box__blik--text'>Twój kod płatności wygasł</div>
+                                <button onClick={props.resetBlikCode}>Resetuj kod</button>
+                            </>
+                                :
+                                null
+                            }
                         </div>
                     </div>
             :

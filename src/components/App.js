@@ -34,6 +34,7 @@ class App extends Component {
     isShowNotification: false,
     counterNotification: 0,
     blikNotifications: false,
+    resetBlikCode: false,
     // logowanie
     activeUserLogin: '',
     activeUserPassword: '',
@@ -103,6 +104,7 @@ class App extends Component {
     textDateForDelivery:'',
     isChangeStatus: false,
   }
+  
   // Wybór aplikacja jako administratora
   handleChoiceAdmin = ()=>{
     this.setState({
@@ -567,7 +569,9 @@ class App extends Component {
   }
   // funkcja generuje kod blik
   handleBlikCode = () =>{
-    const randomBlikCode = Math.floor(Math.random()*9999);
+    // const randomBlikCode = Math.floor(Math.random()*9999);
+    const randomBlikCode = Math.floor(1000 + Math.random() * 9000);
+    console.log(randomBlikCode)
     this.setState({
       randomBlikGenerateCode: randomBlikCode,
       isActiveBlikCode: true,
@@ -575,21 +579,55 @@ class App extends Component {
       showBlikContent: !this.state.showBlikContent,
     })
     // Interwał dla funkcji odliczającej czas ważności kodu blik
+    clearInterval()
     setInterval(() => this.timerBlik(), 1000);
+      
+  }
+  // Reset kodu blik
+  resetBlikCode = () =>{
+    const randomBlikCode = Math.floor(1000 + Math.random() * 9000);
+    console.log(randomBlikCode)
+    setTimeout(() =>{
+      this.setState({
+        timerValue: 5,
+        randomBlikGenerateCode: randomBlikCode,
+      })
+      let myinterval = setInterval(()=>{
+        if(this.state.timerValue > 0){
+          this.setState({
+            timerValue: this.state.timerValue-1,
+          })
+        }
+        if(this.state.timerValue === 0){
+          clearInterval(myinterval)
+        }
+      }, 1000)
+      
+    }, 1000
+    )
+
   }
   // Funkcja aktualizuje czas ważności kodu blik
   timerBlik = ()=>{
-    if(this.state.timerValue > 0){
+    if(this.state.timerValue > 0 && this.state.isActiveBlikCode){
       this.setState({
         timerValue: this.state.timerValue-1,
       })
     }else{
       this.setState({
         isActiveBlikCode: false,
+        resetBlikCode: true,
+        // timerValue: 5,
       })
       return
     }
     console.log(this.state.timerValue)
+    // if(this.state.timerValue === 0 && this.state.isActiveBlikCode){
+    //   this.setState({
+    //     timerValue: 5,
+    //   })
+    //   this.setState({})
+    // }
   }
   // Funkcja przyjmująca znaki w inpucie
   handleChangeInputBlikCode = (e) =>{
@@ -880,6 +918,7 @@ class App extends Component {
                 randomBlikGenerateCode={this.state.randomBlikGenerateCode}
                 blikNotifications={this.state.blikNotifications}
                 handleCloseBlikNotification={this.handleCloseBlikNotification}
+                resetBlikCode={this.resetBlikCode}
               /> : null}
               
             
