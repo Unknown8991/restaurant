@@ -37,6 +37,12 @@ const MethodPayments = (props) => {
                     timerValue={props.timerValue}
                     showBlikContent={props.showBlikContent}
                     blikResult={props.blikResult}
+                    isSummaryOrder={props.isSummaryOrder}
+                    handleCloseSummary={props.handleCloseSummary}
+                    nameClient={props.nameClient}
+                    surnameClient={props.surnameClient}
+                    phoneNumberClient={props.phoneNumberClient}
+                    cityClient={props.cityClient}
                 /> : <MethodAtLocation/>}
             </div> 
         : null }

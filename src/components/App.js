@@ -78,6 +78,7 @@ class App extends Component {
       {id:1, methods: 'Blik', isActive: true, },
       {id:2, methods: 'At location', isActive: false, }
     ],
+    // formularz danych osobowych 
     name: '',
     surname: '',
     phoneNumber: '',
@@ -103,6 +104,9 @@ class App extends Component {
     randomDeliveryTime: 0,
     textDateForDelivery:'',
     isChangeStatus: false,
+    // Pokazanie podsumowania zamówienia
+    isSummaryOrder: false,
+    isClosedSummary: false,
   }
   
   // Wybór aplikacja jako administratora
@@ -583,7 +587,7 @@ class App extends Component {
     setInterval(() => this.timerBlik(), 1000);
       
   }
-  // Reset kodu blik
+  // Funkcja resetuje kod blik --> kosmos
   resetBlikCode = () =>{
     const randomBlikCode = Math.floor(1000 + Math.random() * 9000);
     console.log(randomBlikCode)
@@ -673,14 +677,23 @@ class App extends Component {
     // let code = `${this.state.firstBlikNumber}${this.state.secondBlikNumber}${this.state.thirdBlikNumber}${this.state.fourthBlikNumber}`
     // console.log(code)
   }
-  // Funkcja ....... wpisany code blik
+  // Funkcja tworzy kod blik i porównuje czy jest poprawny z wygenerowanym kodem blik
   sendBlikCode = () =>{
     let code = parseInt(`${this.state.firstBlikNumber}${this.state.secondBlikNumber}${this.state.thirdBlikNumber}${this.state.fourthBlikNumber}`)
     console.log(code)
-    console.log(this.state.randomBlikGenerateCode)
-    this.setState({
-      blikResult: !this.state.blikResult,
-    })
+    // console.log(this.state.randomBlikGenerateCode)
+    if(code === this.state.randomBlikGenerateCode){
+      this.setState({
+        // blikCode: code
+        blikResult: true,
+        isSummaryOrder: true,
+      })
+    }
+    // if(this.state.randomBlikGenerateCode === this.state.blikCode){
+    //   this.setState({
+    //     blikResult: !this.state.blikResult,
+    //   })
+    // }
   }
   // Funkcja obsługująca przycisk SAVE, waliduje formularz i zmieniająca stan saveForm
   handleSaveForm = () =>{
@@ -742,7 +755,6 @@ class App extends Component {
       console.log('Jest ok')
     }    
   }
-
   //Funkcja ustalająca godzinę dostawy (losowa wartość z przedziału od 15-45 min + obecny czas)
   handleExpectedDeliveryTime = ()=>{
     // losowa wartość dodana do aktualnego czasu (minut) zakres 15-55 min
@@ -815,6 +827,13 @@ class App extends Component {
   }
   handleChangeStatus =(id)=>{
     console.log(id)
+  }
+  // Funkcja zamyka podsumowanie
+  handleCloseSummary = () =>{
+    this.setState({
+      isSummaryOrder: false,
+      
+    })
   }
 
   componentDidMount = ()=>{
@@ -919,6 +938,8 @@ class App extends Component {
                 blikNotifications={this.state.blikNotifications}
                 handleCloseBlikNotification={this.handleCloseBlikNotification}
                 resetBlikCode={this.resetBlikCode}
+                handleCloseSummary={this.handleCloseSummary}
+                isSummaryOrder={this.state.isSummaryOrder}
               /> : null}
               
             

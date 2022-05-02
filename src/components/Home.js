@@ -162,7 +162,8 @@ const Home = (props) => {
                 timerValue={props.timerValue}
                 showBlikContent={props.showBlikContent}
                 blikResult={props.blikResult}
-
+                handleCloseSummary={props.handleCloseSummary}
+                isSummaryOrder={props.isSummaryOrder}
             /> : null }
             
         </div>

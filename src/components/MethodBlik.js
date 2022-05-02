@@ -1,4 +1,5 @@
 import React from 'react';
+import SummaryOrder from './SummaryOrder';
 import ActionButton from './ActionButton';
 import payment from '../icons/payment.png';
 
@@ -33,7 +34,7 @@ const MethodBlik = (props) => {
             <div className="header--blik">
                 Wprowadź kod blik
             </div>
-            {props.blikResult ? 'Blik code positive' : null}
+            {props.blikResult ? 'Płatność zaakceptowana' : null}
             <div className="col-12 code-input">
 
                 <div className="col-1 blik-container">
@@ -55,7 +56,18 @@ const MethodBlik = (props) => {
             </div>
             {/*  loading */}
             {/* <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> */}
-            
+            {/* Wyświetlenie podsumowania */}
+            {props.isSummaryOrder ?
+                <SummaryOrder
+                    nameClient={props.nameClient}
+                    surnameClient={props.surnameClient}
+                    phoneNumberClient={props.phoneNumberClient}
+                    cityClient={props.cityClient}
+                    handleCloseSummary={props.handleCloseSummary}
+                />
+                :
+                null
+            }
         </div>
 
 

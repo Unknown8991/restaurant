@@ -1541,6 +1541,29 @@ margin-bottom: 20px;
 .delivery-time-text{
   padding: 40px 0px;
 }
+.summary{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: #fd4f4f;
+
+  width: 80%;
+  height: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-direction: column;
+  &__close{
+    display: flex;
+    justify-content: right;
+    padding-right: 20px;
+    font-weight: 700;
+  }
+}
 //loading css
 // .lds-roller {
 //   display: inline-block;

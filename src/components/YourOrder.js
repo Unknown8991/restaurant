@@ -160,6 +160,12 @@ const YourOrder = (props) => {
                     timerValue={props.timerValue}
                     showBlikContent={props.showBlikContent}
                     blikResult={props.blikResult}
+                    handleCloseSummary={props.handleCloseSummary}
+                    isSummaryOrder={props.isSummaryOrder}
+                    nameClient={props.nameClient}
+                    surnameClient={props.surnameClient}
+                    phoneNumberClient={props.phoneNumberClient}
+                    cityClient={props.cityClient}
                 />
         </div>
      );
