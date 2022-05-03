@@ -43,6 +43,7 @@ const MethodPayments = (props) => {
                     surnameClient={props.surnameClient}
                     phoneNumberClient={props.phoneNumberClient}
                     cityClient={props.cityClient}
+                    blikNotifications={props.blikNotifications}
                 /> : <MethodAtLocation/>}
             </div> 
         : null }

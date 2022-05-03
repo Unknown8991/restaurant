@@ -79,7 +79,9 @@ const Home = (props) => {
                             {props.timerValue === 0 ? 
                             <>                            
                                 <div className='profile-box__blik--text'>Twój kod płatności wygasł</div>
-                                <button onClick={props.resetBlikCode}>Resetuj kod</button>
+                                <div className='col-12 profile-box__reset-btn--center'>
+                                    <button className='profile-box__reset-btn' onClick={props.resetBlikCode}>Resetuj kod</button>
+                                </div>
                             </>
                                 :
                                 null
@@ -164,6 +166,7 @@ const Home = (props) => {
                 blikResult={props.blikResult}
                 handleCloseSummary={props.handleCloseSummary}
                 isSummaryOrder={props.isSummaryOrder}
+                blikNotifications={props.blikNotifications}
             /> : null }
             
         </div>

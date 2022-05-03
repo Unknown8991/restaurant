@@ -166,6 +166,7 @@ const YourOrder = (props) => {
                     surnameClient={props.surnameClient}
                     phoneNumberClient={props.phoneNumberClient}
                     cityClient={props.cityClient}
+                    blikNotifications={props.blikNotifications}
                 />
         </div>
      );

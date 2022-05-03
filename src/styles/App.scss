@@ -606,6 +606,21 @@
     
   }
 }
+&__reset-btn{
+  display: flex;
+  justify-content: center;
+  color:#fd4f4f;
+  background: white;
+  border: 2px solid #fd4f4f;
+  border-radius: 12px;
+  padding: 4px 8px;
+  margin: 6px 0px;
+  align-items: center;
+  &--center{
+    display: flex;
+    justify-content: center;
+  }
+}
 }
 .search{
   margin-top: 50px;
@@ -1308,6 +1323,10 @@ margin-bottom: 20px;
     color: white;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
+  &__disabled{
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 .button-generate-code{
   background: white;
@@ -1562,6 +1581,17 @@ margin-bottom: 20px;
     justify-content: right;
     padding-right: 20px;
     font-weight: 700;
+  }
+  &__header{
+    font-weight: 700;
+  }
+  &__text{
+    text-align: left;
+  }
+  &__items{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
   }
 }
 //loading css

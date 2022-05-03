@@ -687,6 +687,7 @@ class App extends Component {
         // blikCode: code
         blikResult: true,
         isSummaryOrder: true,
+        blikNotifications: false,
       })
     }
     // if(this.state.randomBlikGenerateCode === this.state.blikCode){
@@ -940,6 +941,7 @@ class App extends Component {
                 resetBlikCode={this.resetBlikCode}
                 handleCloseSummary={this.handleCloseSummary}
                 isSummaryOrder={this.state.isSummaryOrder}
+                
               /> : null}
               
             

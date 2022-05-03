@@ -17,7 +17,7 @@ const MethodBlik = (props) => {
                     <div className="containter-blik">
                         <div className={props.showBlikContent ? "blik-text" : "visibility-box__none"}>Twój kod:{props.randomBlikCode}</div>
                     </div> */}
-                    { props.timerValue ===5 || props.timerValue === 0 ?   
+                    {/* { props.timerValue ===5 || props.timerValue === 0 ?   
                                           
                         <div className="blik-icon"   onClick={props.handleBlikCode} >
                             <img src={payment} alt="" />
@@ -26,6 +26,13 @@ const MethodBlik = (props) => {
                         <div className="blik-icon--disable"   onClick={props.handleBlikCode} >
                             <img src={payment} alt="" />
                         </div>                   
+                    } */}
+                    {!props.blikNotifications ?
+                        <div className="blik-icon"  onClick={props.handleBlikCode} >
+                            <img src={payment} alt="" />
+                        </div>
+                        :
+                        null
                     }
                 </div>
                 {/* </div>  */}
@@ -52,7 +59,11 @@ const MethodBlik = (props) => {
                 </div>
             </div>
             <div className="button-container">
-                <ActionButton  sendBlikCode={props.sendBlikCode} blikResult={props.blikResult}/>
+                <ActionButton  
+                    sendBlikCode={props.sendBlikCode} 
+                    blikResult={props.blikResult}
+                    blikNotifications={props.blikNotifications}
+                />
             </div>
             {/*  loading */}
             {/* <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> */}
