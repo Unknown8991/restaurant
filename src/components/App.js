@@ -941,7 +941,7 @@ class App extends Component {
                 resetBlikCode={this.resetBlikCode}
                 handleCloseSummary={this.handleCloseSummary}
                 isSummaryOrder={this.state.isSummaryOrder}
-                
+                orders={this.state.orders}
               /> : null}
               
             

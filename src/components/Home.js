@@ -167,6 +167,7 @@ const Home = (props) => {
                 handleCloseSummary={props.handleCloseSummary}
                 isSummaryOrder={props.isSummaryOrder}
                 blikNotifications={props.blikNotifications}
+                orders={props.orders}
             /> : null }
             
         </div>
