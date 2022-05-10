@@ -30,9 +30,11 @@ const YourOrder = (props) => {
     }); 
     // Dodawanie zamówienia do listy zamówień
     const yourOrder = checkedMeals;
-    console.log(yourOrder)
-    console.log(yourOrder.length)
+    // console.log(yourOrder)
+    // console.log(yourOrder.length)
     // Zmienne dla zamówień
+    
+    
     let name1
     let name2;
     let name3;
@@ -43,95 +45,130 @@ const YourOrder = (props) => {
     let name8;
     let name9;
     let name10;
+
+    let price1;
+    let price2;
+    let price3;
+    let price4;
+    let price5;
+    let price6;
+    let price7;
+    let price8;
+    let price9;
+    let price10;
+
+    let number1
+    let number2;
+    let number3;
+    let number4;
+    let number5;
+    let number6;
+    let number7;
+    let number8;
+    let number9;
+    let number10;
+
     let place = 'W domu'
     let place2 = 'W domu'
+    console.log(yourOrder)
     if(yourOrder.length === 1){
          name1 = yourOrder[0].name;
+         number1 = yourOrder[0].number;
+         price1 = yourOrder[0].price * number1;
     }
-    console.log(name1)
+    // console.log(name1)
     if(yourOrder.length === 2){
          name2 = yourOrder[1].name;
-         console.log(name1)
-         console.log(name2)
+         number2 = yourOrder[1].number;
+         price2 = yourOrder[1].price * number2;
     }
     if(yourOrder.length === 3){
          name3 = yourOrder[2].name;
+         number3 = yourOrder[2].number;
+         price3 = yourOrder[2].price * number3;
     }
     if(yourOrder.length === 4){
          name4 = yourOrder[3].name;
+         number4 = yourOrder[3].number;
+         price4 = yourOrder[3].price * number4;
     }
     if(yourOrder.length === 5){
          name5 = yourOrder[4].name;
+         number5 = yourOrder[4].number;
+         price5 = yourOrder[4].price * number5;
     }
     if(yourOrder.length === 6){
          name6 = yourOrder[5].name;
+         number6 = yourOrder[5].number;
+         price6 = yourOrder[5].price * number6;
     }
     if(yourOrder.length === 7){
          name7 = yourOrder[6].name;
+         number7 = yourOrder[6].number;
+         price7 = yourOrder[6].price * number7;
     }
     if(yourOrder.length === 8){
          name8 = yourOrder[7].name;
+         number8 = yourOrder[7].number;
+         price8 = yourOrder[7].price * number8;
     }
     if(yourOrder.length === 9){
          name9 = yourOrder[8].name;
+         number9 = yourOrder[8].number;
+         price9 = yourOrder[8].price * number9;
     }
     if(yourOrder.length === 10){
          name10 = yourOrder[9].name;
+         number10 = yourOrder[9].number;
+         price10 = yourOrder[9].price * number10;
     }
-    console.log(name1)
-
-    if(yourOrder.length === 0){
-        const object0 = {id: 5, name: name1, place: place,}
+    // console.log(name1)
+    //  Dodawanie do tablicy obiektów powinno odbywać się po kliknięciu Zapłać w płatności
+    if(yourOrder.length === 1 && props.isSummaryOrder){
+        const object0 = {id: 5, name: name1, place: place, clientId: props.clientId, number:number1, price:price1, dateOfRelease:'', timeOfRelease:''}
         props.orders.push(object0)
     }
-    if(yourOrder.length === 1){
-    const object1 = {id: 6, name: name2, place: place,}
-    props.orders.push(object1)
+    if(yourOrder.length === 2 && props.isSummaryOrder){
+        const object1 = {id: 6, name: name2, place: place, clientId: props.clientId, number:number2, price:price2, dateOfRelease:'', timeOfRelease:''}
+        props.orders.push(object1)
    }
-   if(yourOrder.length === 2){
-    const object2 = {id: 7, name: name3, place: place,}
-    props.orders.push(object2)
+   if(yourOrder.length === 3 && props.isSummaryOrder){
+        const object2 = {id: 7, name: name3, place: place, clientId: props.clientId, number:number3, price:price3, dateOfRelease:'', timeOfRelease:''}
+        props.orders.push(object2)
    }
-   if(yourOrder.length === 3){
-    const object3 = {id: 8, name: name4, place: place,}
-    props.orders.push(object3)
+   if(yourOrder.length === 4 && props.isSummaryOrder){
+        const object3 = {id: 8, name: name4, place: place, clientId: props.clientId, number:number4, price:price4, dateOfRelease:'', timeOfRelease:''}
+        props.orders.push(object3)
    }
-   if(yourOrder.length === 4){
-    const object4 = {id: 9, name: name5, place: place,}
-    props.orders.push(object4)
+   if(yourOrder.length === 5 && props.isSummaryOrder){
+        const object4 = {id: 9, name: name5, place: place, clientId: props.clientId, number:number5, price:price5, dateOfRelease:'', timeOfRelease:''}
+        props.orders.push(object4)
    }
-   if(yourOrder.length === 5){
-    const object5 = {id: 10, name: name6, place: place,}
-    props.orders.push(object5)
+   if(yourOrder.length === 6 && props.isSummaryOrder){
+        const object5 = {id: 10, name: name6, place: place, clientId: props.clientId, number:number6, price:price6, dateOfRelease:'', timeOfRelease:''}
+        props.orders.push(object5)
    }
-   if(yourOrder.length === 6){
-    const object6 = {id: 11, name: name7, place: place,}
-    props.orders.push(object6)
+   if(yourOrder.length === 7 && props.isSummaryOrder){
+        const object6 = {id: 11, name: name7, place: place, clientId: props.clientId, number:number7, price:price7, dateOfRelease:'', timeOfRelease:''}
+        props.orders.push(object6)
    }
-   if(yourOrder.length === 7){
-    const object7 = {id: 12, name: name8, place: place,}
-    props.orders.push(object7)
+   if(yourOrder.length === 8 && props.isSummaryOrder){
+        const object7 = {id: 12, name: name8, place: place, clientId: props.clientId, number:number8, price:price8, dateOfRelease:'', timeOfRelease:''}
+        props.orders.push(object7)
    }
-   if(yourOrder.length === 8){
-    const object8 = {id: 13, name: name9, place: place,}
-    props.orders.push(object8)
+   if(yourOrder.length === 9 && props.isSummaryOrder){
+        const object8 = {id: 13, name: name9, place: place, clientId: props.clientId, number:number9, price:price9, dateOfRelease:'', timeOfRelease:''}
+        props.orders.push(object8)
    }
-   if(yourOrder.length === 9){
-    const object9 = {id: 14, name: name10, place: place,}
-    props.orders.push(object9)
+   if(yourOrder.length === 10 && props.isSummaryOrder){
+        const object9 = {id: 14, name: name10, place: place, clientId: props.clientId, number:number10, price:price10, dateOfRelease:'', timeOfRelease:''}
+        props.orders.push(object9)
    }
     
     // props.orders.push(object0)
-    console.log(props.orders)
+    // console.log(props.orders)
 
-    // const a3 = orders[2].name;
-    // const a4 = orders[3].name;
-    // const a5 = orders[4].name;
-    // const a6 = orders[5].name;
-    // const a7 = orders[6].name;
-    // const a8 = orders[7].name;
-    // const a9 = orders[8].name;
-    // const a10 = orders[10].name;
+ 
   
     
     // console.log(props.paymentMethod)

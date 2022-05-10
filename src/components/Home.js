@@ -168,6 +168,7 @@ const Home = (props) => {
                 isSummaryOrder={props.isSummaryOrder}
                 blikNotifications={props.blikNotifications}
                 orders={props.orders}
+                clientId={props.clientId}
             /> : null }
             
         </div>
