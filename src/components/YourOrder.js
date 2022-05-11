@@ -28,13 +28,12 @@ const YourOrder = (props) => {
     totalCost.forEach(item => {
         total += item;
     }); 
+
+
     // Dodawanie zamówienia do listy zamówień
     const yourOrder = checkedMeals;
-    // console.log(yourOrder)
-    // console.log(yourOrder.length)
     // Zmienne dla zamówień
-    
-    
+    // nazwa
     let name1
     let name2;
     let name3;
@@ -45,7 +44,7 @@ const YourOrder = (props) => {
     let name8;
     let name9;
     let name10;
-
+    // ceny 
     let price1;
     let price2;
     let price3;
@@ -56,7 +55,7 @@ const YourOrder = (props) => {
     let price8;
     let price9;
     let price10;
-
+    // ilość
     let number1
     let number2;
     let number3;
@@ -68,100 +67,105 @@ const YourOrder = (props) => {
     let number9;
     let number10;
 
+    let dateOfRelease = props.textDateForDelivery
     let place = 'W domu'
     let place2 = 'W domu'
-    console.log(yourOrder)
-    if(yourOrder.length === 1){
+    const orderPlace = props.place.filter(item => item.isActive);
+    console.log(orderPlace[0].place)
+    // console.log(yourOrder)
+    if(yourOrder.length >= 1){
          name1 = yourOrder[0].name;
          number1 = yourOrder[0].number;
          price1 = yourOrder[0].price * number1;
     }
     // console.log(name1)
-    if(yourOrder.length === 2){
+    if(yourOrder.length >= 2){
          name2 = yourOrder[1].name;
          number2 = yourOrder[1].number;
          price2 = yourOrder[1].price * number2;
     }
-    if(yourOrder.length === 3){
+    if(yourOrder.length >= 3){
          name3 = yourOrder[2].name;
          number3 = yourOrder[2].number;
          price3 = yourOrder[2].price * number3;
     }
-    if(yourOrder.length === 4){
+    if(yourOrder.length >= 4){
          name4 = yourOrder[3].name;
          number4 = yourOrder[3].number;
          price4 = yourOrder[3].price * number4;
     }
-    if(yourOrder.length === 5){
+    if(yourOrder.length >= 5){
          name5 = yourOrder[4].name;
          number5 = yourOrder[4].number;
          price5 = yourOrder[4].price * number5;
     }
-    if(yourOrder.length === 6){
+    if(yourOrder.length >= 6){
          name6 = yourOrder[5].name;
          number6 = yourOrder[5].number;
          price6 = yourOrder[5].price * number6;
     }
-    if(yourOrder.length === 7){
+    if(yourOrder.length >= 7){
          name7 = yourOrder[6].name;
          number7 = yourOrder[6].number;
          price7 = yourOrder[6].price * number7;
     }
-    if(yourOrder.length === 8){
+    if(yourOrder.length >= 8){
          name8 = yourOrder[7].name;
          number8 = yourOrder[7].number;
          price8 = yourOrder[7].price * number8;
     }
-    if(yourOrder.length === 9){
+    if(yourOrder.length >= 9){
          name9 = yourOrder[8].name;
          number9 = yourOrder[8].number;
          price9 = yourOrder[8].price * number9;
     }
-    if(yourOrder.length === 10){
+    if(yourOrder.length >= 10){
          name10 = yourOrder[9].name;
          number10 = yourOrder[9].number;
          price10 = yourOrder[9].price * number10;
     }
     // console.log(name1)
     //  Dodawanie do tablicy obiektów powinno odbywać się po kliknięciu Zapłać w płatności
-    if(yourOrder.length === 1 && props.isSummaryOrder){
-        const object0 = {id: 5, name: name1, place: place, clientId: props.clientId, number:number1, price:price1, dateOfRelease:'', timeOfRelease:''}
+    if( props.orders.length === 4  && props.isSummaryOrder){
+        const object0 = {id: 5, name: name1, place: orderPlace[0].place, clientId: props.clientId, number:number1, price:price1, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object0)
     }
-    if(yourOrder.length === 2 && props.isSummaryOrder){
-        const object1 = {id: 6, name: name2, place: place, clientId: props.clientId, number:number2, price:price2, dateOfRelease:'', timeOfRelease:''}
+    // if(yourOrder.length === 2 && props.isSummaryOrder)
+    if(props.orders.length === 5 && yourOrder.length >= 2 && props.isSummaryOrder){
+        const object1 = {id: 6, name: name2, place: orderPlace[0].place, clientId: props.clientId, number:number2, price:price2, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object1)
    }
-   if(yourOrder.length === 3 && props.isSummaryOrder){
-        const object2 = {id: 7, name: name3, place: place, clientId: props.clientId, number:number3, price:price3, dateOfRelease:'', timeOfRelease:''}
+
+   if(props.orders.length === 6 && yourOrder.length >= 3 && props.isSummaryOrder){
+        const object2 = {id: 7, name: name3, place: orderPlace[0].place, clientId: props.clientId, number:number3, price:price3, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object2)
    }
-   if(yourOrder.length === 4 && props.isSummaryOrder){
-        const object3 = {id: 8, name: name4, place: place, clientId: props.clientId, number:number4, price:price4, dateOfRelease:'', timeOfRelease:''}
+   if(props.orders.length === 7 && yourOrder.length >= 4 && props.isSummaryOrder){
+        const object3 = {id: 8, name: name4, place: orderPlace[0].place, clientId: props.clientId, number:number4, price:price4, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object3)
    }
-   if(yourOrder.length === 5 && props.isSummaryOrder){
-        const object4 = {id: 9, name: name5, place: place, clientId: props.clientId, number:number5, price:price5, dateOfRelease:'', timeOfRelease:''}
+   if(props.orders.length === 8 && yourOrder.length >= 5 && props.isSummaryOrder){
+        const object4 = {id: 9, name: name5, place: orderPlace[0].place, clientId: props.clientId, number:number5, price:price5, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object4)
    }
-   if(yourOrder.length === 6 && props.isSummaryOrder){
-        const object5 = {id: 10, name: name6, place: place, clientId: props.clientId, number:number6, price:price6, dateOfRelease:'', timeOfRelease:''}
+   if(props.orders.length === 9 && yourOrder.length >= 6 && props.isSummaryOrder){
+        const object5 = {id: 10, name: name6, place: orderPlace[0].place, clientId: props.clientId, number:number6, price:price6, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object5)
    }
-   if(yourOrder.length === 7 && props.isSummaryOrder){
-        const object6 = {id: 11, name: name7, place: place, clientId: props.clientId, number:number7, price:price7, dateOfRelease:'', timeOfRelease:''}
+   if(props.orders.length === 10 && yourOrder.length >= 7 && props.isSummaryOrder){
+        const object6 = {id: 11, name: name7, place: orderPlace[0].place, clientId: props.clientId, number:number7, price:price7, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object6)
    }
-   if(yourOrder.length === 8 && props.isSummaryOrder){
-        const object7 = {id: 12, name: name8, place: place, clientId: props.clientId, number:number8, price:price8, dateOfRelease:'', timeOfRelease:''}
+   if(props.orders.length === 11 && yourOrder.length >= 8 && props.isSummaryOrder){
+        const object7 = {id: 12, name: name8, place: orderPlace[0].place, clientId: props.clientId, number:number8, price:price8, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object7)
    }
-   if(yourOrder.length === 9 && props.isSummaryOrder){
-        const object8 = {id: 13, name: name9, place: place, clientId: props.clientId, number:number9, price:price9, dateOfRelease:'', timeOfRelease:''}
+   if(props.orders.length === 12 && yourOrder.length >= 9 && props.isSummaryOrder){
+        const object8 = {id: 13, name: name9, place: orderPlace[0].place, clientId: props.clientId, number:number9, price:price9, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object8)
    }
-   if(yourOrder.length === 10 && props.isSummaryOrder){
-        const object9 = {id: 14, name: name10, place: place, clientId: props.clientId, number:number10, price:price10, dateOfRelease:'', timeOfRelease:''}
+   if(props.orders.length === 13 && yourOrder.length >= 10 && props.isSummaryOrder){
+        const object9 = {id: 14, name: name10, place: orderPlace[0].place, clientId: props.clientId, number:number10, price:price10, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object9)
    }
     
