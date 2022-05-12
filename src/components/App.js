@@ -109,6 +109,8 @@ class App extends Component {
     // Pokazanie podsumowania zamówienia
     isSummaryOrder: false,
     isClosedSummary: false,
+    // historia zamówień na profilu
+    isHistoryActive: false,
   }
   
   // Wybór aplikacja jako administratora
@@ -842,6 +844,18 @@ class App extends Component {
       
     })
   }
+  // Funkcja uruchamiająca historię zamówień
+  handleOpenHistory = () =>{
+    this.setState({
+      isHistoryActive: true,
+    })
+  }
+  // Funkcja zamyka historię zamówień
+  handleCloseHistory = () =>{
+    this.setState({
+      isHistoryActive: false,
+    })
+  }
 
   componentDidMount = ()=>{
     this.handleExpectedDeliveryTime();
@@ -949,6 +963,9 @@ class App extends Component {
                 isSummaryOrder={this.state.isSummaryOrder}
                 orders={this.state.orders}
                 clientId={this.state.clientId}
+                isHistoryActive={this.state.isHistoryActive}
+                handleOpenHistory={this.handleOpenHistory}
+                handleCloseHistory={this.handleCloseHistory}
               /> : null}
               
             

@@ -3,6 +3,7 @@ import Menu from './Menu';
 import Place from './Place';
 import YourOrder from './YourOrder';
 import SearchMeal from './SearchMeal';
+import HistoryOrders from './HistoryOrders';
 
 const Home = (props) => {
 
@@ -41,9 +42,19 @@ const Home = (props) => {
         {props.isProfileSettingsActive ? <div className='profile-box__content'>
             <div className='container'> 
                 <div className='profile-box__content--text'> {props.activeUserLogin}</div>
-                <div>Historia zamówień</div>
+                <div onClick={props.handleOpenHistory}>Historia zamówień</div>
             </div>
         </div> : null }
+        {props.isHistoryActive ?
+            <HistoryOrders
+                isHistoryActive={props.isHistoryActive}
+                orders={props.orders}
+                handleCloseHistory={props.handleCloseHistory}
+                clientId={props.clientId}
+            />
+            :
+            null
+        }
         {/* Wyswietlenie powiadomień */}
         {props.isShowNotification ? 
             <div className='profile-box__notification-content'>
@@ -93,7 +104,7 @@ const Home = (props) => {
         }
         <div className="home">
             
-            <div className="container">
+            <div className={props.isHistoryActive ? 'container opacity-container' : 'container opacity-container__none'}>
                 <div className={props.activeSearch ? "search search--active" : "search"} >
                     <i className="fa fa-search" aria-hidden="true"></i>
                     <input type="text" placeholder={placeholderText}  onClick={props.startSearch}  onChange={props.changeSearch}   />

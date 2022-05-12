@@ -458,6 +458,31 @@
   // -moz-box-shadow: 0px -12px 24px 0px rgba(0, 0, 0, 0.62);
   // box-shadow: 0px -12px 24px 0px rgba(0, 0, 0, 0.62);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  // &__dark{
+  //   opacity: 0.3;
+  //   margin-top: 90px;
+  //   background-color: white;
+  //   z-index: 1;
+  //   width: 100%;
+  //   position: absolute;
+  //   border-top-left-radius:30px ;
+  //   border-top-right-radius:30px ;
+  //   color: #707070;
+  //   // -webkit-box-shadow: 0px -12px 24px 0px rgba(0, 0, 0, 0.62);
+  //   // -moz-box-shadow: 0px -12px 24px 0px rgba(0, 0, 0, 0.62);
+  //   // box-shadow: 0px -12px 24px 0px rgba(0, 0, 0, 0.62);
+  //   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  //   transition: opacity 0.5s ease;
+
+  // }
+}
+.opacity-container{
+  opacity: 0.2;
+  transition: opacity 0.2s ease-in;
+  &__none{
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+  }
 }
 .profile-box{
   position: absolute;
@@ -1594,6 +1619,69 @@ margin-bottom: 20px;
     justify-content: left;
   }
 }
+.history-orders{
+  position: absolute;
+  z-index: 5;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 90%;
+  border-radius: 12px;
+  padding: 8px 8px;
+  color: #707070;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  // opacity: 1;
+  height: 410px;
+  animation: heightHistory 0.5s ease-in-out;
+  overflow-y:scroll ;
+
+  &__item{
+    border-bottom: 1px solid #707070;
+    
+  }
+  &__header{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__details{
+    &--date{
+      display: flex;
+      justify-content: right;
+      color: #707070;
+      font-weight: 700;
+    }
+  }
+  &__button{
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    &--item{
+      color: #FF3D3D;
+      border: 2px solid #FF3D3D;
+      border-radius: 12px;
+      background: white;
+      padding: 2px 8px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+  &__row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  &__status{
+    background: #707070;
+    border-radius: 6px;
+    color: #d4d1d1;
+    padding: 4px 6px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
 //loading css
 // .lds-roller {
 //   display: inline-block;
@@ -1731,6 +1819,15 @@ margin-bottom: 20px;
     opacity: 1;
   }
 }
+@keyframes heightHistory {
+  0%{
+    height: 0px;
+  }
+  100%{
+    height: 420px;
+  }
+}
+
 // loading
 // @keyframes lds-roller {
 //   0% {
