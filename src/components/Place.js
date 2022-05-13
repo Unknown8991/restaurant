@@ -36,6 +36,10 @@ const formPlace = props.place.filter(item => item.isActive);
                     table={props.table}
                     saveForm={props.saveForm}
                     handleSaveForm={props.handleSaveForm}
+                    tables={props.tables}
+                    isActiveTablesView={props.isActiveTablesView}
+                    handleOpenTablesView={props.handleOpenTablesView}
+                    handleClosedTablesView={props.handleClosedTablesView}
                 />
                 : 
                 <FormHome 

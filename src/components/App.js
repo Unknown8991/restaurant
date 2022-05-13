@@ -71,6 +71,18 @@ class App extends Component {
       {id:1, place:'W restauracji', isActive: true,},
       {id:2, place:'W domu',isActive: false,},
     ],
+    tables:[
+      {id:1, isChecked: false},
+      {id:2, isChecked: false},
+      {id:3, isChecked: false},
+      {id:4, isChecked: false},
+      {id:5, isChecked: false},
+      {id:6, isChecked: false},
+      {id:7, isChecked: false},
+      {id:8, isChecked: false},
+      {id:9, isChecked: false},
+      {id:10, isChecked: false},
+    ],
     // REZYGNACJA Z formOrder
     formOrder: [
       {id: 1, name: '', surname: '', phoneNumber: '', today: '', hour: '',},
@@ -111,6 +123,8 @@ class App extends Component {
     isClosedSummary: false,
     // historia zamówień na profilu
     isHistoryActive: false,
+    // Stoliki
+    isActiveTablesView: false,
   }
   
   // Wybór aplikacja jako administratora
@@ -856,6 +870,17 @@ class App extends Component {
       isHistoryActive: false,
     })
   }
+  // Stoliki w restauracji
+  handleOpenTablesView = () =>{
+    this.setState({
+      isActiveTablesView: true,
+    })
+  }
+  handleClosedTablesView = () =>{
+    this.setState({
+      isActiveTablesView: false,
+    })
+  }
 
   componentDidMount = ()=>{
     this.handleExpectedDeliveryTime();
@@ -966,6 +991,10 @@ class App extends Component {
                 isHistoryActive={this.state.isHistoryActive}
                 handleOpenHistory={this.handleOpenHistory}
                 handleCloseHistory={this.handleCloseHistory}
+                tables={this.state.tables}
+                handleOpenTablesView={this.handleOpenTablesView}
+                isActiveTablesView={this.state.isActiveTablesView}
+                handleClosedTablesView={this.handleClosedTablesView}
               /> : null}
               
             

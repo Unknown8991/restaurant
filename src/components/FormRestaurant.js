@@ -1,4 +1,5 @@
 import React from 'react';
+import TablesView from './TablesView';
 
 const FormRestaurant = (props) => {
 
@@ -56,6 +57,17 @@ const FormRestaurant = (props) => {
             </div>
             </div>
             <div className="col-12 form-info">Liczba dostępnych stolików: {props.table}</div>
+            <div className='col-12 '>
+                <div className='action-button action-button--revert' onClick={props.handleOpenTablesView}>Wybierz stolik</div>
+            </div>
+            {props.isActiveTablesView ? 
+                <TablesView
+                    tables={props.tables}
+                    handleClosedTablesView={props.handleClosedTablesView}
+                />
+                :
+                null
+            }
             <div className="col-12 form-info">Aby anulować rezerwację zadzwoń pod numer: 890 213 412</div>
             <div className="col-12 form-info--reservation">Rezerwacja stolika kosztuje 5 PLN</div>
         </form>

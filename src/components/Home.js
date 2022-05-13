@@ -145,6 +145,10 @@ const Home = (props) => {
                 streetClient={props.streetClient}
                 homeClient={props.homeClient}
                 textDateForDelivery={props.textDateForDelivery}
+                isActiveTablesView={props.isActiveTablesView}
+                handleOpenTablesView={props.handleOpenTablesView}
+                tables={props.tables}
+                handleClosedTablesView={props.handleClosedTablesView}
             />
             </div>
             {props.yourOrder ? 
