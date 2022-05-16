@@ -149,6 +149,7 @@ const Home = (props) => {
                 handleOpenTablesView={props.handleOpenTablesView}
                 tables={props.tables}
                 handleClosedTablesView={props.handleClosedTablesView}
+                handleCheckedTable={props.handleCheckedTable}
             />
             </div>
             {props.yourOrder ? 

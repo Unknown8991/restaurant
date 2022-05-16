@@ -1705,6 +1705,8 @@ margin-bottom: 20px;
   &__center{
     display: flex;
     justify-content: center;
+    height: 60px;
+    align-items: center;
   }
 }
 .table-item{
@@ -1728,19 +1730,52 @@ margin-bottom: 20px;
   cursor: pointer;
   &__number{
     // background: #707070;
-    width: 50%;
-    height: 60%;
+    // width: 50%;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 2px;
     color: black;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    cursor: pointer;
+    &--active{
+      background: green;
+    }
   }
 }
 .table-width{
-  width: 50%;
-  
+  // width: 50%;
+  height: 60px;
+}
+.table-quit{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.button-table-quit{
+  background: white;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 50px;
+  font-size: 18px;
+  color: #FF3D3D;
+  font-weight: 600;
+  &--revert{
+    background: #ff3d3d;
+    color: white;
+  }
+  &:active{
+    animation: gradient ease-in 100ms;
+    background: #f88;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  &__disabled{
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 //loading css
 // .lds-roller {

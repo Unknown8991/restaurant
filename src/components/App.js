@@ -881,6 +881,35 @@ class App extends Component {
       isActiveTablesView: false,
     })
   }
+  // Zaznaczenie stolika
+  handleCheckedTable = (id) =>{
+    console.log(id)
+    const checkedTable = this.state.tables.map(item =>{
+      if(id === item.id){
+        item.isChecked = !item.isChecked;
+      }else{
+        item.isChecked = false;
+      }
+      const element = item.isChecked;
+      return element
+    })
+    this.setState({
+      checkedTable
+    })
+    console.log(checkedTable)
+  }
+  // handleCheckedMeal = (id) =>{
+  //   const checkedMeals = this.state.meals.map(item => {
+  //     if(id === item.id){
+  //         item.isChecked = !item.isChecked
+  //     }
+  //     const element = item.isChecked
+  //     return element
+  //   })
+    
+  //   this.setState({
+  //     checkedMeals,
+  //   })
 
   componentDidMount = ()=>{
     this.handleExpectedDeliveryTime();
@@ -995,6 +1024,7 @@ class App extends Component {
                 handleOpenTablesView={this.handleOpenTablesView}
                 isActiveTablesView={this.state.isActiveTablesView}
                 handleClosedTablesView={this.handleClosedTablesView}
+                handleCheckedTable={this.handleCheckedTable}
               /> : null}
               
             

@@ -5,14 +5,12 @@ const Tables = (props) => {
         <div className='col-6'>
             <div className='tables-view__center'>
             {/* {props.tableId} */}
-                <div className='table-width'>
-                <div className='table-item'>
-                    <div className='table-item__number'>
 
+                    <div className={props.table ? 'table-item__number table-item__number--active' : 'table-item__number' } onClick={()=>props.handleCheckedTable(props.tableId)}>
+                    
                     {props.tableId}
                     </div>
-                </div>
-                </div>
+
             </div>
         </div>
      );

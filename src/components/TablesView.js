@@ -7,6 +7,7 @@ const TablesView = (props) => {
             key={table.id}
             tableId={table.id}
             table ={table.isChecked}
+            handleCheckedTable={props.handleCheckedTable}
         />
     ))
 
@@ -18,8 +19,8 @@ const TablesView = (props) => {
             <div className='tables-view__row row'>
                 {tablesItem}
             </div>
-            <div>
-                <button onClick={props.handleClosedTablesView}>Zamknij</button>
+            <div className='table-quit'>
+                <button className='button-table-quit button-table-quit--revert' onClick={props.handleClosedTablesView}>Zamknij</button>
             </div>
         </div>
      );

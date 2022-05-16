@@ -40,6 +40,7 @@ const formPlace = props.place.filter(item => item.isActive);
                     isActiveTablesView={props.isActiveTablesView}
                     handleOpenTablesView={props.handleOpenTablesView}
                     handleClosedTablesView={props.handleClosedTablesView}
+                    handleCheckedTable={props.handleCheckedTable}
                 />
                 : 
                 <FormHome 

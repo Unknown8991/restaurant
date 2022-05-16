@@ -64,6 +64,7 @@ const FormRestaurant = (props) => {
                 <TablesView
                     tables={props.tables}
                     handleClosedTablesView={props.handleClosedTablesView}
+                    handleCheckedTable={props.handleCheckedTable}
                 />
                 :
                 null
