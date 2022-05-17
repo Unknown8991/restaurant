@@ -1342,6 +1342,10 @@ margin-bottom: 20px;
   &--revert{
     background: #ff3d3d;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
   &:active{
     animation: gradient ease-in 100ms;

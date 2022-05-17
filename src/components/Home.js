@@ -186,6 +186,7 @@ const Home = (props) => {
                 orders={props.orders}
                 clientId={props.clientId}
                 textDateForDelivery={props.textDateForDelivery}
+                chooseTable={props.chooseTable}
             /> : null }
             
         </div>

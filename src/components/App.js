@@ -83,6 +83,7 @@ class App extends Component {
       {id:9, isChecked: false},
       {id:10, isChecked: false},
     ],
+    chooseTable: '',
     // REZYGNACJA Z formOrder
     formOrder: [
       {id: 1, name: '', surname: '', phoneNumber: '', today: '', hour: '',},
@@ -887,11 +888,14 @@ class App extends Component {
     const checkedTable = this.state.tables.map(item =>{
       if(id === item.id){
         item.isChecked = !item.isChecked;
+        this.setState({
+          chooseTable: item.id,
+        })
       }else{
         item.isChecked = false;
       }
       const element = item.isChecked;
-      return element
+      return element;
     })
     this.setState({
       checkedTable
@@ -1025,6 +1029,7 @@ class App extends Component {
                 isActiveTablesView={this.state.isActiveTablesView}
                 handleClosedTablesView={this.handleClosedTablesView}
                 handleCheckedTable={this.handleCheckedTable}
+                chooseTable={this.state.chooseTable}
               /> : null}
               
             
