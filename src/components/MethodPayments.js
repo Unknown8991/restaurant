@@ -44,6 +44,9 @@ const MethodPayments = (props) => {
                     phoneNumberClient={props.phoneNumberClient}
                     cityClient={props.cityClient}
                     blikNotifications={props.blikNotifications}
+                    notifications={props.notifications}
+                    textNotification={props.textNotification}
+                    handleActionNotification={props.handleActionNotification}
                 /> : <MethodAtLocation/>}
             </div> 
         : null }

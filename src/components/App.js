@@ -31,12 +31,19 @@ class App extends Component {
       {id:4, clientId:3, login: 'jkret', password: '123qwe'},
     ],
     // Powiadomienia nie mogą być kasowane po zmianie klient -> admin
-    notifications:[],
+    notifications:[
+      {id: 0, clientId: 1, text: 'Testowe powiadomienie 1' },
+      {id: 1, clientId: 1, text: 'Testowe powiadomienie 2' },
+    ],
+    textNotification: '',
+    // Counter ustawiony ma być w zależności ile domyślnie bedzie obiektów w notifications
+    counterId:2,
     // powiadomienia
     isShowNotification: false,
     counterNotification: 0,
     blikNotifications: false,
     resetBlikCode: false,
+    obj: {id:'', clientId: '', text: '',},
     // logowanie
     activeUserLogin: '',
     activeUserPassword: '',
@@ -704,15 +711,28 @@ class App extends Component {
   sendBlikCode = () =>{
     let code = parseInt(`${this.state.firstBlikNumber}${this.state.secondBlikNumber}${this.state.thirdBlikNumber}${this.state.fourthBlikNumber}`)
     console.log(code)
+    this.setState({
+      counterId: this.state.counterId+1,
+    })
     // console.log(this.state.randomBlikGenerateCode)
+    
     if(code === this.state.randomBlikGenerateCode){
       this.setState({
         // blikCode: code
         blikResult: true,
         isSummaryOrder: true,
         blikNotifications: false,
+
+        activeYourOrder: false,
+          obj:{
+            id: this.state.counterId,
+            clientId: this.state.clientId,
+            text: 'Twoje zamówienie zostało opłacone',
+          },
+
       })
     }
+    // this.handleActionNotification()
     // if(this.state.randomBlikGenerateCode === this.state.blikCode){
     //   this.setState({
     //     blikResult: !this.state.blikResult,
@@ -854,10 +874,12 @@ class App extends Component {
   }
   // Funkcja zamyka podsumowanie
   handleCloseSummary = () =>{
-    this.setState({
-      isSummaryOrder: false,
-      
-    })
+    if(this.state.isSummaryOrder){
+      this.setState({
+        isSummaryOrder: false,
+      })
+      this.handleActionNotification()
+    }
   }
   // Funkcja uruchamiająca historię zamówień
   handleOpenHistory = () =>{
@@ -914,9 +936,28 @@ class App extends Component {
   //   this.setState({
   //     checkedMeals,
   //   })
+// Powiadomienia akcji
+  handleActionNotification = () =>{
+    console.log(this.state.notifications)
+    console.log(this.state.obj)
+    let arrayNotification = this.state.notifications;
+    // Dodanie obiektu do tablicy notifiactions
+    arrayNotification.push(this.state.obj)
+    console.log(arrayNotification)
+    
+      this.setState({
+        obj:{
+          id: '',
+          clientId: '',
+          text: '',
+        },
+        // counterId: this.state.counterId+1,
+      })
 
+  }
   componentDidMount = ()=>{
     this.handleExpectedDeliveryTime();
+    // this.handleActionNotification();
   }
 
   render() {
@@ -1030,6 +1071,9 @@ class App extends Component {
                 handleClosedTablesView={this.handleClosedTablesView}
                 handleCheckedTable={this.handleCheckedTable}
                 chooseTable={this.state.chooseTable}
+                notifications={this.state.notifications}
+                textNotification={this.state.textNotification}
+                handleActionNotification={this.handleActionNotification}
               /> : null}
               
             

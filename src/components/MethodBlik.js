@@ -67,8 +67,10 @@ const MethodBlik = (props) => {
             </div>
             {/*  loading */}
             {/* <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> */}
+
             {/* Wyświetlenie podsumowania */}
-            {props.isSummaryOrder ?
+            {/* Przeniesione do komponentu Home */}
+            {/* {props.isSummaryOrder ?
                 <SummaryOrder
                     nameClient={props.nameClient}
                     surnameClient={props.surnameClient}
@@ -78,7 +80,13 @@ const MethodBlik = (props) => {
                 />
                 :
                 null
-            }
+            } */}
+
+            {/* {props.isSummaryOrder ?
+                props.handleActionNotification()
+                :
+                null
+            } */}
         </div>
 
 

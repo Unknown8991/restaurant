@@ -4,6 +4,9 @@ import Place from './Place';
 import YourOrder from './YourOrder';
 import SearchMeal from './SearchMeal';
 import HistoryOrders from './HistoryOrders';
+import SummaryOrder from './SummaryOrder';
+import NotificationContent from './NotificationContent';
+
 
 const Home = (props) => {
 
@@ -57,27 +60,18 @@ const Home = (props) => {
         }
         {/* Wyswietlenie powiadomień */}
         {props.isShowNotification ? 
-            <div className='profile-box__notification-content'>
-                <div className='container'>
-                    <div className='row'>
-                        <div className='profile-box__counter--text col-10'>Twoje powiadomienia</div>
-                        <div className='profile-box__counter--back col-2' onClick={props.handleCloseNotification}>X</div>
-                    </div>
-                    {props.counterNotification === 0 ? 
-                        <>
-                            <div className='profile-box__counter--none'>Brak nowych powiadomień</div>
-                            {props.randomBlikGenerateCode}
-                        </>
-                        
-                        :
-                        null
-                    }
-                </div>
-            </div>
+        <NotificationContent 
+            handleCloseNotification = {props.handleCloseNotification}
+            counterNotification = {props.counterNotification}
+            randomBlikGenerateCode={props.randomBlikGenerateCode}
+            notifications={props.notifications}
+            clientId={props.clientId}
+        />
     
         :
             null
         }
+
         {props.blikNotifications ? 
                     
                     <div className='profile-box__blik'>
@@ -187,7 +181,21 @@ const Home = (props) => {
                 clientId={props.clientId}
                 textDateForDelivery={props.textDateForDelivery}
                 chooseTable={props.chooseTable}
+                notifications={props.notifications}
+                textNotification={props.textNotification}
+                handleActionNotification={props.handleActionNotification}
             /> : null }
+                        {props.isSummaryOrder ?
+                <SummaryOrder
+                    nameClient={props.nameClient}
+                    surnameClient={props.surnameClient}
+                    phoneNumberClient={props.phoneNumberClient}
+                    cityClient={props.cityClient}
+                    handleCloseSummary={props.handleCloseSummary}
+                />
+                :
+                null
+            }
             
         </div>
         </> 
