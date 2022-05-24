@@ -1,7 +1,12 @@
 import React from 'react';
 
 const Order = (props) => {
-
+// Tabela statusów
+// 1. Przyjęte zamówienie (niebieski)
+// 2. W trakcie realizacji (żółty)
+// 3. Przygotowany (różowy)
+// 4. Dostawa kurier/serwowanie przez kelnera (pomarańczowy)
+// 5. Zakończony (zielony)
     return ( 
         <>
             
@@ -9,7 +14,7 @@ const Order = (props) => {
                 {props.isChangeStatus ? <div className='status__position'>
                     <div>Zmień status</div>
                     <div className='button-status'>{props.status}.
-                        {props.status === 1 ? <div className='button-status--preparing'>Gotowe!</div> : null
+                        {props.status === 1 ? <div className='button-status--preparing'>GotowS!</div> : null
                         ||
                         props.status === 2 ? <div className='button-status--done'>Gotowe!</div> : null
                         }
@@ -24,11 +29,16 @@ const Order = (props) => {
                     <div className='order__elements--title'>{props.name}
  
                    <div className='status' onClick={() =>props.handleOpenStatus(props.id)}>
-                       {props.status}. {props.status === 0 ?<label className='status status--nodone'>Nie gotowe</label>: null
+                       {props.status}. {props.status === 0 ?<label className='status status--adopted'>NOWY</label>: null
                        ||
-                       props.status === 1 ?<label className='status--preparing'>Przygotowywanie..</label>: null
+                       props.status === 1 ?<label className='status status--progress'>REALIZACJA</label>: null
                        ||
-                       props.status === 2 ?<label className='status--done'>Gotowe</label>: null}
+                       props.status === 2 ?<label className='status status--prepared'>PRZYGOTOWANE</label>: null
+                       ||
+                       props.status === 3 ?<label className='status status--delivery'>DOSTAWA/SERWIS</label>: null
+                       ||
+                       props.status === 4 ?<label className='status status--done'>ZAKOŃCZONE</label>: null
+                       }
                     </div> 
                     </div>
                     <div className='order__elements--info'>{props.place} </div>

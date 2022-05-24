@@ -1,5 +1,5 @@
 import React from 'react';
-import SummaryOrder from './SummaryOrder';
+// import SummaryOrder from './SummaryOrder';
 import ActionButton from './ActionButton';
 import payment from '../icons/payment.png';
 

@@ -36,12 +36,12 @@ const OrderList = (props) => {
     return (  
         <>
             <div className='header-panel-admin'>Zamówienia</div>
-            <div className='header-panel-admin--text'>zamówienia do realizacji</div>
+            <div className='header-panel-admin--text'>Przyjęte zamówienia</div>
             <div className='order-items'></div>
             <div>{orders}</div>
 
-            <div className='header-panel-admin'>Zamówienia</div>
-            <div className='header-panel-admin--text'>zamównienia zrealizowane</div>
+            {/* <div className='header-panel-admin'>Zamówienia</div> */}
+            <div className='header-panel-admin--text'>W trakcie realizacji</div>
             <div className='order-items'></div>
             <div>{ordersDone}</div>
 

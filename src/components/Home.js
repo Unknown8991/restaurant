@@ -33,12 +33,15 @@ const Home = (props) => {
     ))
 // Stała pod placeholder w inpucie
     const placeholderText = 'Odszukaj swoje ulubione danie..'; 
-
+    const NotificationArrayForUser = props.notifications.filter(item => item.clientId === props.clientId)
+    console.log(NotificationArrayForUser.length)
+    let counterNotificationUser = NotificationArrayForUser.length;
     return (
         <>
         <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>N</div>
         <div className='profile-box__counter'>
-            {props.counterNotification}
+            {/* {props.counterNotification} */}
+            {counterNotificationUser}
         </div>
         <div className='profile-box' onClick={props.handleProfileSettingActive}>P</div>
         {/* Wyswietlenie ustawień */}

@@ -9,19 +9,20 @@ import LoginPanel from './LoginPanel';
 class App extends Component {
   state = {
     // false default
-    administrator: false,
+    administrator: true,
     //  false default pominięcie logowania
-    client: true,
-    loginName:'',
-    loginPassword:'',
+    client: false,
+    // defaultowo loginName oraz loginPassword puste powinno być
+    loginName:'admin',
+    loginPassword:'123qwe',
     // To id powinno być '', na czas pisania aplikacji default np. 1
     clientId:1,
     // false default
-    isCorrectLogin: false,
+    isCorrectLogin: true,
     // false default
     isCorrectPassword: false,
     // false default
-    adminPanel: false,
+    adminPanel: true,
     // rejestracja użytkownika
     isRegister: false,
     account:[
@@ -32,8 +33,8 @@ class App extends Component {
     ],
     // Powiadomienia nie mogą być kasowane po zmianie klient -> admin
     notifications:[
-      {id: 0, clientId: 1, text: 'Testowe powiadomienie 1' },
-      {id: 1, clientId: 1, text: 'Testowe powiadomienie 2' },
+      {id: 0, clientId: 1, text: 'Testowe powiadomienie 1', currentTime:'10:20' },
+      {id: 1, clientId: 1, text: 'Testowe powiadomienie 2', currentTime:'13:10' },
     ],
     textNotification: '',
     // Counter ustawiony ma być w zależności ile domyślnie bedzie obiektów w notifications
@@ -69,9 +70,10 @@ class App extends Component {
     ],
     orders:[
       {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: 0, isChangeStatus:false,},
-      {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: 0, isChangeStatus:false,},
-      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: 0, isChangeStatus:false,},
-      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: 0, isChangeStatus:false,},
+      {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: 1, isChangeStatus:false,},
+      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: 2, isChangeStatus:false,},
+      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: 3, isChangeStatus:false,},
+      {id:5, name: 'pięć', place:'W restauracji', tableNumber:1, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'10:05', status: 4, isChangeStatus:false,},
     ],
     typeMeal: false,
     place: [
@@ -126,6 +128,7 @@ class App extends Component {
     randomDeliveryTime: 0,
     textDateForDelivery:'',
     isChangeStatus: false,
+    currentTime: '',
     // Pokazanie podsumowania zamówienia
     isSummaryOrder: false,
     isClosedSummary: false,
@@ -728,9 +731,11 @@ class App extends Component {
             id: this.state.counterId,
             clientId: this.state.clientId,
             text: 'Twoje zamówienie zostało opłacone',
+            currentTime: this.state.currentTime
           },
 
       })
+      this.handleCurrentTime();
     }
     // this.handleActionNotification()
     // if(this.state.randomBlikGenerateCode === this.state.blikCode){
@@ -955,8 +960,40 @@ class App extends Component {
       })
 
   }
+  // Czas aktualny
+  handleCurrentTime = () =>{
+    let today = new Date();
+    let hour = today.getHours();
+    let minutes = today.getMinutes();
+    
+    let time = hour + ":" + minutes;
+
+    if(hour < 10 ){
+        hour = `${0}${hour}`
+        time = hour + ":" + minutes;
+        this.setState({
+          currentTime: time,
+      })
+        if(minutes < 10){
+            minutes = `${0}${minutes}`
+            time = hour + ":" + minutes;
+            this.setState({
+            currentTime: time,
+        })
+      }  
+    } 
+    console.log(hour)
+    console.log(minutes)
+    this.setState({
+      currentTime: time,
+    })
+
+
+  }
   componentDidMount = ()=>{
     this.handleExpectedDeliveryTime();
+    // uruchamiane dla aktualnej godziny powiadomień
+    this.handleCurrentTime();
     // this.handleActionNotification();
   }
 
