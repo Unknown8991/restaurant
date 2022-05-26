@@ -10,8 +10,9 @@ const Order = (props) => {
     return ( 
         <>
             
+            {/* <div className={props.isChangeStatus ? 'col-12 order order__change-status' : 'col-12 order'}> */}
             <div className={props.isChangeStatus ? 'col-12 order order__change-status' : 'col-12 order'}>
-                {props.isChangeStatus ? <div className='status__position'>
+                {/* {props.isChangeStatus ? <div className='status__position'>
                     <div>Zmień status</div>
                     <div className='button-status'>{props.status}.
                         {props.status === 1 ? <div className='button-status--preparing'>GotowS!</div> : null
@@ -19,13 +20,17 @@ const Order = (props) => {
                         props.status === 2 ? <div className='button-status--done'>Gotowe!</div> : null
                         }
                     </div>
-                </div> : null}
+                </div> : null} */}
                 
-                <div className={props.isChangeStatus ?'col-5 order--center order--blur' :'col-5 order--center'} >
+                {/* <div className={props.isChangeStatus ?'col-5 order--center order--blur' :'col-5 order--center'} >
+                    <div className='col-8 order__picture'></div>
+                </div> */}
+                <div className='col-5 order--center' >
                     <div className='col-8 order__picture'></div>
                 </div>
 
-                <div className={props.isChangeStatus? 'col-7 order__elements--blur' :'col-7 order__elements'}>
+                {/* <div className={props.isChangeStatus? 'col-7 order__elements--blur' :'col-7 order__elements'}> */}
+                <div className='col-7 order__elements'>
                     <div className='order__elements--title'>{props.name}
  
                    <div className='status' onClick={() =>props.handleOpenStatus(props.id)}>

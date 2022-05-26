@@ -25,7 +25,12 @@ const AdministratorPanel = (props) => {
                     {/* <div className='header-panel-admin'>Zamówienia</div>
                     <div className='header-panel-admin--text'>zamówienia do wykonania</div> */}
                     <div className='order-items'>
-                        <OrderList  orders={props.orders} handleOpenStatus={props.handleOpenStatus} />
+                        <OrderList  
+                            orders={props.orders} 
+                            handleOpenStatus={props.handleOpenStatus} 
+                            handleChangeActiveStatusForAdministratorPanel={props.handleChangeActiveStatusForAdministratorPanel}
+                            activeStatusForPanelAdministrator={props.activeStatusForPanelAdministrator}
+                        />
                         {/* <div className='col-12 order'>
                             <div className='col-5 order--center'>
                                 <div className='col-8 order__picture'></div>

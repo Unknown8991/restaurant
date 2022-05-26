@@ -129,6 +129,7 @@ class App extends Component {
     textDateForDelivery:'',
     isChangeStatus: false,
     currentTime: '',
+    activeStatusForPanelAdministrator: '1',
     // Pokazanie podsumowania zamówienia
     isSummaryOrder: false,
     isClosedSummary: false,
@@ -858,14 +859,25 @@ class App extends Component {
     const elements = this.state.orders.map(element =>{
       if(id === element.id){
         element.isChangeStatus = true;
-         if(element.isChangeStatus === true){
+         if(element.isChangeStatus === true && element.status < 4){
            console.log('Odblokowany status')
            element.status +=1
+           if(element.status === 4){
+  
+             this.setState({
+              isChangeStatus: false
+             }) 
+      
+           }
            console.log(element.status)
          }
-         if(element.status >= 3){
-           console.log('Przejdź jako DONE')
-         }
+        //  if(element.status >= 5){
+        //    console.log('Przejdź jako DONE')
+        //    element.status =
+        //    this.setState({
+        //     isChangeStatus: false
+        //    })
+        //  }
       }
       return elements
     })
@@ -989,6 +1001,47 @@ class App extends Component {
     })
 
 
+  }
+  // Przełącznik aktywnego statusu w panelu sterowania administratora
+  handleChangeActiveStatusForAdministratorPanel = (e) =>{
+    // console.log(e.target.id)
+    if(e.target.id === '1'){
+      this.setState({
+        activeStatusForPanelAdministrator: '1',
+      })
+      console.log(e.target.id)
+    }  
+    if(e.target.id === '2'){
+      this.setState({
+        activeStatusForPanelAdministrator: '2',
+      })
+      console.log(e.target.id)
+    }  
+    if(e.target.id === '3'){
+      this.setState({
+        activeStatusForPanelAdministrator: '3',
+      })
+    }  
+    if(e.target.id === '4'){
+      this.setState({
+        activeStatusForPanelAdministrator: '4',
+      })
+    }  
+    if(e.target.id === '5'){
+      this.setState({
+        activeStatusForPanelAdministrator: '5',
+      })
+    }  
+    // if(e.target.id === 1){
+    //   this.setState({
+    //     activeStatusForPanelAdministrator: 1,
+    //   })
+    // }  
+    // if(e.target.id === 1){
+    //   this.setState({
+    //     activeStatusForPanelAdministrator: 1,
+    //   })
+    // }  
   }
   componentDidMount = ()=>{
     this.handleExpectedDeliveryTime();
@@ -1138,7 +1191,14 @@ class App extends Component {
           </div>
           
         </div> : null}
-        {this.state.adminPanel ? <AdministratorPanel  orders={this.state.orders} handleOpenStatus={this.handleOpenStatus} /> : null }
+        {this.state.adminPanel ? 
+          <AdministratorPanel  
+            orders={this.state.orders} 
+            handleOpenStatus={this.handleOpenStatus} 
+            handleChangeActiveStatusForAdministratorPanel={this.handleChangeActiveStatusForAdministratorPanel}
+            activeStatusForPanelAdministrator={this.state.activeStatusForPanelAdministrator}
+          /> 
+          : null }
       {/* <div>Panel admin
         <div>
           <inuput></inuput>

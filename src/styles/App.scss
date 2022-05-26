@@ -475,6 +475,87 @@
     padding: 2px;
   }
 }
+.status-options{
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0px;
+  background: #e9e9e9;
+  border-radius: 12px;
+  // border: 1px solid black;
+  padding: 8px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  &--N{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    color: #0011a8;
+    background: #5a67d6;
+    font-weight: 600;
+    transition: border-radius 0.2s;
+    &:focus{
+      border-radius: 50%;
+      transition: border-radius 0.2s;
+    }
+  }
+  &--R{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    color: #777502;
+    background: #f0ed5f;
+    font-weight: 600;
+    transition: border-radius 0.2s;
+    &:focus{
+      border-radius: 50%;
+      transition: border-radius 0.2s;
+    }
+  }
+  &--P{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    color: #83063a;
+    background: #f0619c;
+    font-weight: 600;
+    transition: border-radius 0.2s;
+    &:focus{
+      border-radius: 50%;
+      transition: border-radius 0.2s;
+    }
+
+  }
+  &--D{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    color: #7e3000;
+    background: #fa7e30;
+    font-weight: 600;
+    transition: border-radius 0.2s;
+    &:focus{
+      border-radius: 50%;
+      transition: border-radius 0.2s;
+    }
+  }
+  &--Z{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    color: #1f5a0d;
+    background: #81ca6a;
+    font-weight: 600;
+        transition: border-radius 0.2s;
+    &:focus{
+      border-radius: 50%;
+      transition: border-radius 0.2s;
+    }
+  }
+}
 .icon-touch{  
   position: absolute;
   top: 65%;

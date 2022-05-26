@@ -2,6 +2,7 @@ import React from 'react';
 import Order from './Order';
 
 const OrderList = (props) => {
+    // Wszystkie
     const orders = props.orders.map(order =>(
         <Order
             key={order.id}
@@ -17,33 +18,120 @@ const OrderList = (props) => {
      
         />
     ))
-    const itemsOrder = props.orders.filter(itemOrder => itemOrder.status === 3)
-    const ordersDone = itemsOrder.map(orderDone =>(
+    // status 0-1
+    const itemsOrder1 = props.orders.filter(itemOrder => itemOrder.status === 0)
+    const ordersDone1 = itemsOrder1.map(orderDone =>(
         <Order
-        key={orderDone.id}
-        id={orderDone.id}
-        name={orderDone.name}
-        place={orderDone.place}
-        tableNumber={orderDone.tableNumber}
-        price={orderDone.price}
-        timeOfRelease={orderDone.timeOfRelease}
-        status={orderDone.status}
-        isChangeStatus={orderDone.isChangeStatus}
-        handleOpenStatus={props.handleOpenStatus}
- 
+            key={orderDone.id}
+            id={orderDone.id}
+            name={orderDone.name}
+            place={orderDone.place}
+            tableNumber={orderDone.tableNumber}
+            price={orderDone.price}
+            timeOfRelease={orderDone.timeOfRelease}
+            status={orderDone.status}
+            isChangeStatus={orderDone.isChangeStatus}
+            handleOpenStatus={props.handleOpenStatus}
+    />
+    ))
+    // status 2
+    const itemsOrder2 = props.orders.filter(itemOrder => itemOrder.status === 1)
+    const ordersDone2 = itemsOrder2.map(orderDone =>(
+        <Order
+            key={orderDone.id}
+            id={orderDone.id}
+            name={orderDone.name}
+            place={orderDone.place}
+            tableNumber={orderDone.tableNumber}
+            price={orderDone.price}
+            timeOfRelease={orderDone.timeOfRelease}
+            status={orderDone.status}
+            isChangeStatus={orderDone.isChangeStatus}
+            handleOpenStatus={props.handleOpenStatus}
+    />
+    ))
+    // status 3
+    const itemsOrder3 = props.orders.filter(itemOrder => itemOrder.status === 2)
+    const ordersDone3 = itemsOrder3.map(orderDone =>(
+        <Order
+            key={orderDone.id}
+            id={orderDone.id}
+            name={orderDone.name}
+            place={orderDone.place}
+            tableNumber={orderDone.tableNumber}
+            price={orderDone.price}
+            timeOfRelease={orderDone.timeOfRelease}
+            status={orderDone.status}
+            isChangeStatus={orderDone.isChangeStatus}
+            handleOpenStatus={props.handleOpenStatus}
+    />
+    ))
+    // status 4
+    const itemsOrder4 = props.orders.filter(itemOrder => itemOrder.status === 3)
+    const ordersDone4 = itemsOrder4.map(orderDone =>(
+        <Order
+            key={orderDone.id}
+            id={orderDone.id}
+            name={orderDone.name}
+            place={orderDone.place}
+            tableNumber={orderDone.tableNumber}
+            price={orderDone.price}
+            timeOfRelease={orderDone.timeOfRelease}
+            status={orderDone.status}
+            isChangeStatus={orderDone.isChangeStatus}
+            handleOpenStatus={props.handleOpenStatus}
+    />
+    ))
+    // status 5
+    const itemsOrder5 = props.orders.filter(itemOrder => itemOrder.status === 4)
+    const ordersDone5 = itemsOrder5.map(orderDone =>(
+        <Order
+            key={orderDone.id}
+            id={orderDone.id}
+            name={orderDone.name}
+            place={orderDone.place}
+            tableNumber={orderDone.tableNumber}
+            price={orderDone.price}
+            timeOfRelease={orderDone.timeOfRelease}
+            status={orderDone.status}
+            isChangeStatus={orderDone.isChangeStatus}
+            handleOpenStatus={props.handleOpenStatus}
     />
     ))
     return (  
         <>
+            {/* Wszystkie zamówienia */}
             <div className='header-panel-admin'>Zamówienia</div>
-            <div className='header-panel-admin--text'>Przyjęte zamówienia</div>
+            <div className='header-panel-admin--text'>Wszystkie zamówienia</div>
             <div className='order-items'></div>
             <div>{orders}</div>
 
+            {/* W trakcie realizacji */}
+            <div className='header-panel-admin'>Panel sterowania</div>
+            <div className='status-options'>
+                <button id="1" className='status-options--N' onClick={props.handleChangeActiveStatusForAdministratorPanel}>N</button>
+                <button id="2" className='status-options--R' onClick={props.handleChangeActiveStatusForAdministratorPanel}>R</button>
+                <button id="3" className='status-options--P' onClick={props.handleChangeActiveStatusForAdministratorPanel}>P</button>
+                <button id="4" className='status-options--D' onClick={props.handleChangeActiveStatusForAdministratorPanel}>D</button>
+                <button id="5" className='status-options--Z' onClick={props.handleChangeActiveStatusForAdministratorPanel}>Z</button>
+            </div>
             {/* <div className='header-panel-admin'>Zamówienia</div> */}
-            <div className='header-panel-admin--text'>W trakcie realizacji</div>
+            {/* activeStatusForPanelAdministrator wyświetlenie zamówień z danym statusem */}
+            { props.activeStatusForPanelAdministrator === '1' ? ordersDone1 : null }
+            { props.activeStatusForPanelAdministrator === '2' ? ordersDone2 : null }
+            { props.activeStatusForPanelAdministrator === '3' ? ordersDone3 : null }
+            { props.activeStatusForPanelAdministrator === '4' ? ordersDone4 : null }
+            { props.activeStatusForPanelAdministrator === '5' ? ordersDone5 : null }
             <div className='order-items'></div>
-            <div>{ordersDone}</div>
+            {/* <div>{ordersDone}</div> */}
+
+
+
+            {/* <div className='header-panel-admin--text'>W trakcie realizacji</div>
+            <div className='order-items'></div>
+            <div>{ordersDone}</div> */}
+            
+            {/*  */}
 
         </>
     );
