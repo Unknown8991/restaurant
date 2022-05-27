@@ -4,6 +4,7 @@ import Order from './Order';
 const OrderList = (props) => {
     // Wszystkie
     const orders = props.orders.map(order =>(
+        
         <Order
             key={order.id}
             id={order.id}
@@ -12,12 +13,14 @@ const OrderList = (props) => {
             tableNumber={order.tableNumber}
             price={order.price}
             timeOfRelease={order.timeOfRelease}
+            dateOfRelease={order.dateOfRelease}
             status={order.status}
             isChangeStatus={order.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
      
         />
     ))
+    console.log(props.orders)
     // status 0-1
     const itemsOrder1 = props.orders.filter(itemOrder => itemOrder.status === 0)
     const ordersDone1 = itemsOrder1.map(orderDone =>(
@@ -29,6 +32,7 @@ const OrderList = (props) => {
             tableNumber={orderDone.tableNumber}
             price={orderDone.price}
             timeOfRelease={orderDone.timeOfRelease}
+            dateOfRelease={orderDone.dateOfRelease}
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
@@ -45,6 +49,7 @@ const OrderList = (props) => {
             tableNumber={orderDone.tableNumber}
             price={orderDone.price}
             timeOfRelease={orderDone.timeOfRelease}
+            dateOfRelease={orderDone.dateOfRelease}
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
@@ -61,6 +66,7 @@ const OrderList = (props) => {
             tableNumber={orderDone.tableNumber}
             price={orderDone.price}
             timeOfRelease={orderDone.timeOfRelease}
+            dateOfRelease={orderDone.dateOfRelease}
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
@@ -77,6 +83,7 @@ const OrderList = (props) => {
             tableNumber={orderDone.tableNumber}
             price={orderDone.price}
             timeOfRelease={orderDone.timeOfRelease}
+            dateOfRelease={orderDone.dateOfRelease}
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
@@ -93,6 +100,7 @@ const OrderList = (props) => {
             tableNumber={orderDone.tableNumber}
             price={orderDone.price}
             timeOfRelease={orderDone.timeOfRelease}
+            dateOfRelease={orderDone.dateOfRelease}
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
@@ -117,11 +125,51 @@ const OrderList = (props) => {
             </div>
             {/* <div className='header-panel-admin'>Zamówienia</div> */}
             {/* activeStatusForPanelAdministrator wyświetlenie zamówień z danym statusem */}
-            { props.activeStatusForPanelAdministrator === '1' ? ordersDone1 : null }
-            { props.activeStatusForPanelAdministrator === '2' ? ordersDone2 : null }
-            { props.activeStatusForPanelAdministrator === '3' ? ordersDone3 : null }
-            { props.activeStatusForPanelAdministrator === '4' ? ordersDone4 : null }
-            { props.activeStatusForPanelAdministrator === '5' ? ordersDone5 : null }
+            { props.activeStatusForPanelAdministrator === '1' ? 
+                <div>
+                    <div className='header-panel-admin--text'>Nowe</div>
+                    {ordersDone1} 
+                </div>
+                : 
+                null 
+            }
+
+            { props.activeStatusForPanelAdministrator === '2' ? 
+                <div>
+                    <div className='header-panel-admin--text'>W trakcie realizacji</div>
+                    {ordersDone2} 
+                </div>
+                : 
+                null 
+            }
+
+            { props.activeStatusForPanelAdministrator === '3' ? 
+                <div>
+                    <div className='header-panel-admin--text'>Przygotowane</div>
+                    {ordersDone3} 
+                </div>
+                : 
+                null 
+            }
+
+            { props.activeStatusForPanelAdministrator === '4' ? 
+                <div>
+                    <div className='header-panel-admin--text'>Gotowe do dostarczenia</div>
+                    {ordersDone4} 
+                </div>
+                : 
+                null 
+            }
+
+            { props.activeStatusForPanelAdministrator === '5' ? 
+                <div>
+                    <div className='header-panel-admin--text'>Zakończone</div>
+                    {ordersDone5} 
+                </div>
+                : 
+                null 
+            }
+
             <div className='order-items'></div>
             {/* <div>{ordersDone}</div> */}
 
