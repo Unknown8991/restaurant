@@ -7,7 +7,7 @@ const Statistics = (props) => {
     const thirdValue = props.orders.filter(item => item.status === 2)
     const fourthValue = props.orders.filter(item => item.status === 3)
     const fifthValue = props.orders.filter(item => item.status === 4)
-    console.log(firstValue)
+    // console.log(firstValue)
     let all = firstValue.length + secondValue.length + thirdValue.length + fourthValue.length + fifthValue.length
 
     const first = `${firstValue.length*100}px`;
@@ -15,13 +15,38 @@ const Statistics = (props) => {
     const third = `${thirdValue.length*100}px`;
     const fourth = `${fourthValue.length*100}px`;
     const fifth = `${fifthValue.length*100}px`;
+
+    console.log(props.orders)
+    const dolars = props.orders.map(item => item.price * item.number)
+    // console.log(dolars)
+    const summaryPrice = dolars.reduce((a, b) => a + b, 0)
+    // console.log(summaryPrice)
+    
     return ( 
            <>
         
-        <div className='statistics-board  '>
-            <div className='statistics-board__item '>
+        <div className='statistics-board col-12'>
+            {/* Wszystkie */}
+            <div className='statistics-board__item col-12'>
+                <div className='statistics-board__item statistics-board__item--center '>
+                <div className='statistics-board__header'>Ilość zamówień</div>
+                    <div className='statistics-board__circle'>
+                        {all}
+                    </div>
+                </div>
+                <div className='statistics-board__item statistics-board__item--center '>
+                <div className='statistics-board__header'>Zarobki</div>
+                    <div className='statistics-board__circle statistics-board__circle--price'>
+                        {summaryPrice} PLN
+                    </div>
+                </div>
+            </div>
+            {/* Statystki */}
+            <div className='statistics-board__item col-12'>
                 <div className='statistics-board__direction'>
+                    
                     <div className='statistics-board__text'>Statystyki</div>
+                    
                     <div className='statistics-board__column'>
                     
                         <div style={{ 
@@ -107,13 +132,14 @@ const Statistics = (props) => {
                 
                 </div>
             </div>
-            <div className='statistics-board__item statistics-board__item--center '>
-                {/* Wszystkie zamówienia */}
-                <div className='statistics-board__circle'>
-                    {all}
-                </div>
+            {/* <div className='statistics-board__item col-12'>
+                <div className='statistics-board__item statistics-board__item--center '>
+                    <div className='statistics-board__circle'>
+                        {all}
+                    </div>
                 <div>Wszystkie zamówienia</div>
-            </div>
+                </div>
+            </div> */}
         </div>
         </>
     //     <div className='red-board container'>
