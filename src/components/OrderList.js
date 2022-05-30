@@ -112,10 +112,10 @@ const OrderList = (props) => {
             <div className='header-panel-admin'>Zamówienia</div>
             <div className='header-panel-admin--text'>Wszystkie zamówienia</div>
             <div className='order-items'></div>
-            <div>{orders}</div>
+            <div className='testowanie'>{orders}</div>
 
             {/* W trakcie realizacji */}
-            <div className='header-panel-admin'>Panel sterowania</div>
+            <div className='header-panel-admin' >Panel sterowania</div>
             <div className='status-options'>
                 <button id="1" className='status-options--N' onClick={props.handleChangeActiveStatusForAdministratorPanel}>N</button>
                 <button id="2" className='status-options--R' onClick={props.handleChangeActiveStatusForAdministratorPanel}>R</button>
@@ -127,18 +127,28 @@ const OrderList = (props) => {
             {/* activeStatusForPanelAdministrator wyświetlenie zamówień z danym statusem */}
             { props.activeStatusForPanelAdministrator === '1' ? 
                 <div>
-                    <div className='header-panel-admin--text'>Nowe</div>
+                    <div id='test1' className='header-panel-admin--text'>Nowe</div>
                     {ordersDone1} 
                 </div>
                 : 
                 null 
             }
+            { props.activeStatusForPanelAdministrator === '1' && ordersDone1.length < 1 ?
+                <div className='text-for-processes'>Brak zamówień dla tego etapu</div> 
+             : 
+                null 
+             }
 
             { props.activeStatusForPanelAdministrator === '2' ? 
                 <div>
                     <div className='header-panel-admin--text'>W trakcie realizacji</div>
                     {ordersDone2} 
                 </div>
+                : 
+                null 
+            }
+            { props.activeStatusForPanelAdministrator === '2' && ordersDone2.length < 1 ? 
+                <div className='text-for-processes'>Brak zamówień dla tego etapu</div> 
                 : 
                 null 
             }
@@ -151,6 +161,11 @@ const OrderList = (props) => {
                 : 
                 null 
             }
+            { props.activeStatusForPanelAdministrator === '3' && ordersDone3.length < 1 ?
+                 <div className='text-for-processes'>Brak zamówień dla tego etapu</div> 
+                 : 
+                 null 
+            }
 
             { props.activeStatusForPanelAdministrator === '4' ? 
                 <div>
@@ -160,12 +175,22 @@ const OrderList = (props) => {
                 : 
                 null 
             }
+            { props.activeStatusForPanelAdministrator === '4' && ordersDone4.length < 1 ? 
+                <div className='text-for-processes'>Brak zamówień dla tego etapu</div> 
+                : 
+                null 
+            }
 
             { props.activeStatusForPanelAdministrator === '5' ? 
                 <div>
                     <div className='header-panel-admin--text'>Zakończone</div>
                     {ordersDone5} 
                 </div>
+                : 
+                null 
+            }
+            { props.activeStatusForPanelAdministrator === '5' && ordersDone5.length < 1 ? 
+                <div className='text-for-processes'>Brak zamówień dla tego etapu</div> 
                 : 
                 null 
             }

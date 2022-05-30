@@ -9,9 +9,9 @@ import LoginPanel from './LoginPanel';
 class App extends Component {
   state = {
     // false default
-    administrator: true,
+    administrator: false,
     //  false default pominięcie logowania
-    client: false,
+    client: true,
     // defaultowo loginName oraz loginPassword puste powinno być
     loginName:'admin',
     loginPassword:'123qwe',
@@ -20,9 +20,9 @@ class App extends Component {
     // false default
     isCorrectLogin: true,
     // false default
-    isCorrectPassword: false,
+    isCorrectPassword: true,
     // false default
-    adminPanel: true,
+    adminPanel: false,
     // rejestracja użytkownika
     isRegister: false,
     account:[

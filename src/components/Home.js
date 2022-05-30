@@ -43,14 +43,26 @@ const Home = (props) => {
             {/* {props.counterNotification} */}
             {counterNotificationUser}
         </div>
-        <div className='profile-box' onClick={props.handleProfileSettingActive}>P</div>
+        {/* <div className='profile-box' onClick={props.handleProfileSettingActive}>P</div> */}
         {/* Wyswietlenie ustawień */}
-        {props.isProfileSettingsActive ? <div className='profile-box__content'>
+        {props.isProfileSettingsActive ? 
+        <>
+            <div className='profile-box profile-box--column-profile' onClick={props.handleProfileSettingActive}>
+                <div>P</div>
+                <div onClick={props.handleOpenHistory}>H</div>
+                <div>OFF</div>
+            </div>
+            
+        </>
+            :
+            <div className='profile-box' onClick={props.handleProfileSettingActive}>P</div>
+        }
+        {/* {props.isProfileSettingsActive ? <div className='profile-box__content'>
             <div className='container'> 
                 <div className='profile-box__content--text'> {props.activeUserLogin}</div>
                 <div onClick={props.handleOpenHistory}>Historia zamówień</div>
             </div>
-        </div> : null }
+        </div> : null } */}
         {props.isHistoryActive ?
             <HistoryOrders
                 isHistoryActive={props.isHistoryActive}
