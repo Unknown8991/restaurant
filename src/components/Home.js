@@ -207,6 +207,14 @@ const Home = (props) => {
                     phoneNumberClient={props.phoneNumberClient}
                     cityClient={props.cityClient}
                     handleCloseSummary={props.handleCloseSummary}
+                    place={props.place}
+                    dateForSummary={props.date}
+                    timeForSummary={props.time}
+                    mealsForCostSummary={props.meals}
+                    numberHome={props.numberHome}
+                    city={props.city}
+                    street={props.street}
+                    deliveryTime={props.deliveryTime}
                 />
                 :
                 null

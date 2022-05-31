@@ -33,8 +33,8 @@ class App extends Component {
     ],
     // Powiadomienia nie mogą być kasowane po zmianie klient -> admin
     notifications:[
-      {id: 0, clientId: 1, text: 'Testowe powiadomienie 1', currentTime:'10:20' },
-      {id: 1, clientId: 1, text: 'Testowe powiadomienie 2', currentTime:'13:10' },
+      {id: 0, clientId: 1, text: 'Twoje zamówienie zostało opłacone', currentTime:'10:20' },
+      {id: 1, clientId: 1, text: 'Twoje zamówienie zostało opłacone', currentTime:'13:10' },
     ],
     textNotification: '',
     // Counter ustawiony ma być w zależności ile domyślnie bedzie obiektów w notifications
@@ -69,11 +69,11 @@ class App extends Component {
       {id:9, name: 'dziewięć', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
     ],
     orders:[
-      {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: 0, isChangeStatus:false,},
-      {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: 1, isChangeStatus:false,},
-      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: 2, isChangeStatus:false,},
-      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: 3, isChangeStatus:false,},
-      {id:5, name: 'pięć', place:'W restauracji', tableNumber:1, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'10:05', status: 4, isChangeStatus:false,},
+      {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: '0', isChangeStatus:false,},
+      {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: '1', isChangeStatus:false,},
+      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: '2', isChangeStatus:false,},
+      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: '3', isChangeStatus:false,},
+      // {id:5, name: 'pięć', place:'W restauracji', tableNumber:1, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'10:05', status: 4, isChangeStatus:false,},
     ],
     typeMeal: false,
     place: [
@@ -99,8 +99,8 @@ class App extends Component {
       {id: 2, name: '', surname: '', phoneNumber: '', street: '', city: '',},
     ],
     paymentMethod:[
-      {id:1, methods: 'Blik', isActive: true, },
-      {id:2, methods: 'At location', isActive: false, }
+      {id:1, methods: 'Płatność Blik', isActive: true, },
+      {id:2, methods: 'Płatność na miejscu', isActive: false, }
     ],
     // formularz danych osobowych 
     name: '',
@@ -1164,6 +1164,11 @@ class App extends Component {
                 notifications={this.state.notifications}
                 textNotification={this.state.textNotification}
                 handleActionNotification={this.handleActionNotification}
+                numberHome={this.state.numberHome}
+                city={this.state.city}
+                street={this.state.street}
+                
+                
               /> : null}
               
             

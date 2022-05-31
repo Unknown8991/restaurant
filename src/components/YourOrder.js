@@ -169,45 +169,45 @@ const YourOrder = (props) => {
     // console.log(name1)
     //  Dodawanie do tablicy obiektów powinno odbywać się po kliknięciu Zapłać w płatności
     if( props.orders.length === 4  && props.isSummaryOrder){
-        const object0 = {id: 5, name: name1, place: orderPlace[0].place, clientId: props.clientId, number:number1, price:price1, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object0 = {id: 5, name: name1, place: orderPlace[0].place, clientId: props.clientId, number:number1, price:price1, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object0)
     }
     // if(yourOrder.length === 2 && props.isSummaryOrder)
     if(props.orders.length === 5 && yourOrder.length >= 2 && props.isSummaryOrder){
-        const object1 = {id: 6, name: name2, place: orderPlace[0].place, clientId: props.clientId, number:number2, price:price2, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object1 = {id: 6, name: name2, place: orderPlace[0].place, clientId: props.clientId, number:number2, price:price2, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object1)
    }
 
    if(props.orders.length === 6 && yourOrder.length >= 3 && props.isSummaryOrder){
-        const object2 = {id: 7, name: name3, place: orderPlace[0].place, clientId: props.clientId, number:number3, price:price3, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object2 = {id: 7, name: name3, place: orderPlace[0].place, clientId: props.clientId, number:number3, price:price3, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object2)
    }
    if(props.orders.length === 7 && yourOrder.length >= 4 && props.isSummaryOrder){
-        const object3 = {id: 8, name: name4, place: orderPlace[0].place, clientId: props.clientId, number:number4, price:price4, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object3 = {id: 8, name: name4, place: orderPlace[0].place, clientId: props.clientId, number:number4, price:price4, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object3)
    }
    if(props.orders.length === 8 && yourOrder.length >= 5 && props.isSummaryOrder){
-        const object4 = {id: 9, name: name5, place: orderPlace[0].place, clientId: props.clientId, number:number5, price:price5, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object4 = {id: 9, name: name5, place: orderPlace[0].place, clientId: props.clientId, number:number5, price:price5, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object4)
    }
    if(props.orders.length === 9 && yourOrder.length >= 6 && props.isSummaryOrder){
-        const object5 = {id: 10, name: name6, place: orderPlace[0].place, clientId: props.clientId, number:number6, price:price6, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object5 = {id: 10, name: name6, place: orderPlace[0].place, clientId: props.clientId, number:number6, price:price6, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object5)
    }
    if(props.orders.length === 10 && yourOrder.length >= 7 && props.isSummaryOrder){
-        const object6 = {id: 11, name: name7, place: orderPlace[0].place, clientId: props.clientId, number:number7, price:price7, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object6 = {id: 11, name: name7, place: orderPlace[0].place, clientId: props.clientId, number:number7, price:price7, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object6)
    }
    if(props.orders.length === 11 && yourOrder.length >= 8 && props.isSummaryOrder){
-        const object7 = {id: 12, name: name8, place: orderPlace[0].place, clientId: props.clientId, number:number8, price:price8, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object7 = {id: 12, name: name8, place: orderPlace[0].place, clientId: props.clientId, number:number8, price:price8, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object7)
    }
    if(props.orders.length === 12 && yourOrder.length >= 9 && props.isSummaryOrder){
-        const object8 = {id: 13, name: name9, place: orderPlace[0].place, clientId: props.clientId, number:number9, price:price9, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object8 = {id: 13, name: name9, place: orderPlace[0].place, clientId: props.clientId, number:number9, price:price9, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object8)
    }
    if(props.orders.length === 13 && yourOrder.length >= 10 && props.isSummaryOrder){
-        const object9 = {id: 14, name: name10, place: orderPlace[0].place, clientId: props.clientId, number:number10, price:price10, chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
+        const object9 = {id: 14, name: name10, place: orderPlace[0].place, clientId: props.clientId, number:number10, price:price10, status:'0', chooseTable: props.chooseTable, dateOfRelease: dateOfRelease, timeOfRelease:''}
         props.orders.push(object9)
    }
     

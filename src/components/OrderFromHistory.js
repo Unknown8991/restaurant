@@ -11,7 +11,31 @@ const OrderFromHistory = (props) => {
             </div>
                 <div className='history-orders__status'>
                     {/* Dodać kolejne statusy */}
-                    {props.status === 0 ? 'Realizacja' : null}
+                    {props.status === '0' ? 
+                        <div className='history-orders__status--adopted'>Nowe</div>
+                        : 
+                        null
+                    }
+                    {props.status === '1' ? 
+                        <div className='history-orders__status--progress'>W trakcie realizacji</div>
+                        : 
+                        null
+                    }
+                    {props.status === '2' ? 
+                        <div className='history-orders__status--prepared'>Przygotowane</div>
+                        : 
+                        null
+                    }
+                    {props.status === '3' ? 
+                        <div className='history-orders__status--delivery'>Dostawa</div>
+                        : 
+                        null
+                    }
+                    {props.status === '4' ? 
+                        <div className='history-orders__status--done'>Zakończone</div>
+                        : 
+                        null
+                    }
                 </div>
             </div>
             
