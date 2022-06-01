@@ -9,9 +9,9 @@ import LoginPanel from './LoginPanel';
 class App extends Component {
   state = {
     // false default
-    administrator: true,
+    administrator: false,
     //  false default pominięcie logowania
-    client: false,
+    client: true,
     // defaultowo loginName oraz loginPassword puste powinno być
     loginName:'admin',
     loginPassword:'123qwe',
@@ -22,7 +22,7 @@ class App extends Component {
     // false default
     isCorrectPassword: false,
     // false default
-    adminPanel: true,
+    adminPanel: false,
     // rejestracja użytkownika
     isRegister: false,
     account:[
@@ -734,7 +734,6 @@ class App extends Component {
             text: 'Twoje zamówienie zostało opłacone',
             currentTime: this.state.currentTime
           },
-
       })
       this.handleCurrentTime();
     }
@@ -894,6 +893,26 @@ class App extends Component {
     if(this.state.isSummaryOrder){
       this.setState({
         isSummaryOrder: false,
+
+        meals: [
+          {id:1, name: 'jeden',type: 'eat', price: 20, description:'qwe asdasdx awsdsad 1', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:2, name: 'dwa', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 2', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+          {id:3, name: 'trzy', type: 'eat', price: 30, description:'qwe asdasdx awsdsad 3', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:4, name: 'cztery', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 4', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+          {id:5, name: 'pięć', type: 'eat', price: 45, description:'qwe asdasdx awsdsad 5', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:6, name: 'szesć', type: 'drink', price: 5, description:'qwe asdasdx awsdsad 6', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:7, name: 'siedem', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 7', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:8, name: 'osiem', type: 'drink', price: 12, description:'qwe asdasdx awsdsad 8', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:9, name: 'dziewięć', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+        ],
+        name: '',
+        surname: '',
+        phoneNumber: '',
+        street: '',
+        city: '',
+        numberHome: '',
+        time: '',
+        date:'',
       })
       this.handleActionNotification()
     }
@@ -1043,6 +1062,146 @@ class App extends Component {
     //   })
     // }  
   }
+  handleLogOut = () =>{
+    console.log('Wyloguj')
+    this.setState({
+          // false default
+    administrator: false,
+    //  false default pominięcie logowania
+    client: false,
+    // defaultowo loginName oraz loginPassword puste powinno być
+    loginName:'admin',
+    loginPassword:'123qwe',
+    // To id powinno być '', na czas pisania aplikacji default np. 1
+    clientId:1,
+    // false default
+    isCorrectLogin: false,
+    // false default
+    isCorrectPassword: false,
+    // false default
+    adminPanel: false,
+    // rejestracja użytkownika
+    isRegister: false,
+
+    // account:[
+    //   {id:1, login: 'admin', password: '123qwe'},
+    //   {id:2, clientId:1, login: 'jkowalski', password: '123qwe'},
+    //   {id:3, clientId:2, login: 'pnowak', password: '123qwe'},
+    //   {id:4, clientId:3, login: 'jkret', password: '123qwe'},
+    // ],
+
+    // Powiadomienia nie mogą być kasowane po zmianie klient -> admin
+    // notifications:[
+    //   {id: 0, clientId: 1, text: 'Twoje zamówienie zostało opłacone', currentTime:'10:20' },
+    //   {id: 1, clientId: 1, text: 'Twoje zamówienie zostało opłacone', currentTime:'13:10' },
+    // ],
+
+    textNotification: '',
+    // Counter ustawiony ma być w zależności ile domyślnie bedzie obiektów w notifications
+    counterId:2,
+    // powiadomienia
+    isShowNotification: false,
+    counterNotification: 0,
+    blikNotifications: false,
+    resetBlikCode: false,
+    obj: {id:'', clientId: '', text: '',},
+    // logowanie
+    activeUserLogin: '',
+    activeUserPassword: '',
+    adminActive: false,
+    userAccountActive: false,
+    userNoAccountActive: false,
+    isProfileSettingsActive: false,
+    isActiveScreen: false,
+    isActiveSearch: false,
+    isYourOrder: false,
+    activeYourOrder: false,
+    isActiveAllFoods: false,
+
+    meals: [
+      {id:1, name: 'jeden',type: 'eat', price: 20, description:'qwe asdasdx awsdsad 1', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:2, name: 'dwa', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 2', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+      {id:3, name: 'trzy', type: 'eat', price: 30, description:'qwe asdasdx awsdsad 3', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:4, name: 'cztery', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 4', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+      {id:5, name: 'pięć', type: 'eat', price: 45, description:'qwe asdasdx awsdsad 5', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:6, name: 'szesć', type: 'drink', price: 5, description:'qwe asdasdx awsdsad 6', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:7, name: 'siedem', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 7', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:8, name: 'osiem', type: 'drink', price: 12, description:'qwe asdasdx awsdsad 8', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:9, name: 'dziewięć', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+    ],
+
+    // orders:[
+    //   {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: '0', isChangeStatus:false, city: '', street:'', homeNumber: ''},
+    //   {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: '1', isChangeStatus:false, city: '', street:'', homeNumber: ''},
+    //   {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: '2', isChangeStatus:false, city: 'Kraków', street:'Krakowska', homeNumber: '13'},
+    //   {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: '3', isChangeStatus:false, city: '', street:'', homeNumber: ''},
+    //   // {id:5, name: 'pięć', place:'W restauracji', tableNumber:1, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'10:05', status: 4, isChangeStatus:false,},
+    // ],
+
+    typeMeal: false,
+
+    // place: [
+    //   {id:1, place:'W restauracji', isActive: true,},
+    //   {id:2, place:'W domu',isActive: false,},
+    // ],
+
+    // tables:[
+    //   {id:1, isChecked: false},
+    //   {id:2, isChecked: false},
+    //   {id:3, isChecked: false},
+    //   {id:4, isChecked: false},
+    //   {id:5, isChecked: false},
+    //   {id:6, isChecked: false},
+    //   {id:7, isChecked: false},
+    //   {id:8, isChecked: false},
+    //   {id:9, isChecked: false},
+    //   {id:10, isChecked: false},
+    // ],
+
+    chooseTable: '',
+
+    // paymentMethod:[
+    //   {id:1, methods: 'Płatność Blik', isActive: true, },
+    //   {id:2, methods: 'Płatność na miejscu', isActive: false, }
+    // ],
+
+    // formularz danych osobowych 
+    name: '',
+    surname: '',
+    phoneNumber: '',
+    street: '',
+    city: '',
+    numberHome: '',
+    date: '',
+    time: '',
+    freeTable: 10,
+    firstBlikNumber:'',
+    secondBlikNumber:'',
+    thirdBlikNumber:'',
+    fourthBlikNumber:'',
+    randomBlikGenerateCode:'',
+    blikCode:'',
+    isActiveBlikCode: false,
+    timerValue:5,
+    showBlikContent: false,
+    blikResult:false,
+    saveForm: false,
+    searchMeal:'',
+    deliveryTime: '',
+    randomDeliveryTime: 0,
+    textDateForDelivery:'',
+    isChangeStatus: false,
+    currentTime: '',
+    activeStatusForPanelAdministrator: '1',
+    // Pokazanie podsumowania zamówienia
+    isSummaryOrder: false,
+    isClosedSummary: false,
+    // historia zamówień na profilu
+    isHistoryActive: false,
+    // Stoliki
+    isActiveTablesView: false,
+    })
+  }
   componentDidMount = ()=>{
     this.handleExpectedDeliveryTime();
     // uruchamiane dla aktualnej godziny powiadomień
@@ -1167,7 +1326,7 @@ class App extends Component {
                 numberHome={this.state.numberHome}
                 city={this.state.city}
                 street={this.state.street}
-                
+                handleLogOut={this.handleLogOut}
                 
               /> : null}
               
@@ -1202,6 +1361,7 @@ class App extends Component {
             handleOpenStatus={this.handleOpenStatus} 
             handleChangeActiveStatusForAdministratorPanel={this.handleChangeActiveStatusForAdministratorPanel}
             activeStatusForPanelAdministrator={this.state.activeStatusForPanelAdministrator}
+            handleLogOut={this.handleLogOut}
           /> 
           : null }
       {/* <div>Panel admin

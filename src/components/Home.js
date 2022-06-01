@@ -50,7 +50,7 @@ const Home = (props) => {
             <div className='profile-box profile-box--column-profile' onClick={props.handleProfileSettingActive}>
                 <div>P</div>
                 <div onClick={props.handleOpenHistory}>H</div>
-                <div>OFF</div>
+                <div onClick={props.handleLogOut}>OFF</div>
             </div>
             
         </>

@@ -2,11 +2,11 @@ import React from 'react';
 
 const Statistics = (props) => {
 
-    const firstValue = props.orders.filter(item => item.status === 0)
-    const secondValue = props.orders.filter(item => item.status === 1)
-    const thirdValue = props.orders.filter(item => item.status === 2)
-    const fourthValue = props.orders.filter(item => item.status === 3)
-    const fifthValue = props.orders.filter(item => item.status === 4)
+    const firstValue = props.orders.filter(item => item.status === '0')
+    const secondValue = props.orders.filter(item => item.status === '1')
+    const thirdValue = props.orders.filter(item => item.status === '2')
+    const fourthValue = props.orders.filter(item => item.status === '3')
+    const fifthValue = props.orders.filter(item => item.status === '4')
     // console.log(firstValue)
     let all = firstValue.length + secondValue.length + thirdValue.length + fourthValue.length + fifthValue.length
 

@@ -25,7 +25,7 @@ const OrderList = (props) => {
     ))
     console.log(props.orders)
     // status 0-1
-    const itemsOrder1 = props.orders.filter(itemOrder => itemOrder.status === 0)
+    const itemsOrder1 = props.orders.filter(itemOrder => itemOrder.status === '0')
     const ordersDone1 = itemsOrder1.map(orderDone =>(
         <Order
             key={orderDone.id}
@@ -45,7 +45,7 @@ const OrderList = (props) => {
     />
     ))
     // status 2
-    const itemsOrder2 = props.orders.filter(itemOrder => itemOrder.status === 1)
+    const itemsOrder2 = props.orders.filter(itemOrder => itemOrder.status === '1')
     const ordersDone2 = itemsOrder2.map(orderDone =>(
         <Order
             key={orderDone.id}
@@ -65,7 +65,7 @@ const OrderList = (props) => {
     />
     ))
     // status 3
-    const itemsOrder3 = props.orders.filter(itemOrder => itemOrder.status === 2)
+    const itemsOrder3 = props.orders.filter(itemOrder => itemOrder.status === '2')
     const ordersDone3 = itemsOrder3.map(orderDone =>(
         <Order
             key={orderDone.id}
@@ -85,7 +85,7 @@ const OrderList = (props) => {
     />
     ))
     // status 4
-    const itemsOrder4 = props.orders.filter(itemOrder => itemOrder.status === 3)
+    const itemsOrder4 = props.orders.filter(itemOrder => itemOrder.status === '3')
     const ordersDone4 = itemsOrder4.map(orderDone =>(
         <Order
             key={orderDone.id}
@@ -105,7 +105,7 @@ const OrderList = (props) => {
     />
     ))
     // status 5
-    const itemsOrder5 = props.orders.filter(itemOrder => itemOrder.status === 4)
+    const itemsOrder5 = props.orders.filter(itemOrder => itemOrder.status === '4')
     const ordersDone5 = itemsOrder5.map(orderDone =>(
         <Order
             key={orderDone.id}

@@ -5,6 +5,9 @@ import Statistics from './Statistics';
 const AdministratorPanel = (props) => {
     return ( 
         <div className='panel-admin'>
+            <div className='logout-admin' onClick={props.handleLogOut}>
+                OFF
+            </div>
             <div className='home'>
                 <div className='container'>
                     <div className='header-panel-admin'>Dziś</div>

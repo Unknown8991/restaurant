@@ -78,28 +78,7 @@ const YourOrder = (props) => {
     let number8;
     let number9;
     let number10;
-    // imię
-    let nameClient1
-    let nameClient2;
-    let nameClient3;
-    let nameClient4;
-    let nameClient5;
-    let nameClient6;
-    let nameClient7;
-    let nameClient8;
-    let nameClient9;
-    let nameClient10;
-    // data zamówienia
-    let date1
-    let date2;
-    let date3;
-    let date4;
-    let date5;
-    let date6;
-    let date7;
-    let date8;
-    let date9;
-    let date10;
+   
 
     let dateOfRelease = props.textDateForDelivery
     let place = 'W domu'
