@@ -9,20 +9,20 @@ import LoginPanel from './LoginPanel';
 class App extends Component {
   state = {
     // false default
-    administrator: false,
+    administrator: true,
     //  false default pominięcie logowania
-    client: true,
+    client: false,
     // defaultowo loginName oraz loginPassword puste powinno być
     loginName:'admin',
     loginPassword:'123qwe',
     // To id powinno być '', na czas pisania aplikacji default np. 1
     clientId:1,
     // false default
-    isCorrectLogin: true,
+    isCorrectLogin: false,
     // false default
-    isCorrectPassword: true,
+    isCorrectPassword: false,
     // false default
-    adminPanel: false,
+    adminPanel: true,
     // rejestracja użytkownika
     isRegister: false,
     account:[
@@ -69,10 +69,10 @@ class App extends Component {
       {id:9, name: 'dziewięć', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
     ],
     orders:[
-      {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: '0', isChangeStatus:false,},
-      {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: '1', isChangeStatus:false,},
-      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: '2', isChangeStatus:false,},
-      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: '3', isChangeStatus:false,},
+      {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: '0', isChangeStatus:false, city: '', street:'', homeNumber: ''},
+      {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: '1', isChangeStatus:false, city: '', street:'', homeNumber: ''},
+      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: '2', isChangeStatus:false, city: 'Kraków', street:'Krakowska', homeNumber: '13'},
+      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: '3', isChangeStatus:false, city: '', street:'', homeNumber: ''},
       // {id:5, name: 'pięć', place:'W restauracji', tableNumber:1, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'10:05', status: 4, isChangeStatus:false,},
     ],
     typeMeal: false,

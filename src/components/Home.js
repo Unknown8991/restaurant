@@ -199,6 +199,7 @@ const Home = (props) => {
                 notifications={props.notifications}
                 textNotification={props.textNotification}
                 handleActionNotification={props.handleActionNotification}
+                numberHome={props.numberHome}
             /> : null }
                         {props.isSummaryOrder ?
                 <SummaryOrder

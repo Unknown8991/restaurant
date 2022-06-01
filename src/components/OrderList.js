@@ -17,6 +17,9 @@ const OrderList = (props) => {
             status={order.status}
             isChangeStatus={order.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
+            city={order.city}
+            street={order.street}
+            homeNumber={order.homeNumber}
      
         />
     ))
@@ -36,6 +39,9 @@ const OrderList = (props) => {
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
+            city={orderDone.city}
+            street={orderDone.street}
+            homeNumber={orderDone.homeNumber}
     />
     ))
     // status 2
@@ -53,6 +59,9 @@ const OrderList = (props) => {
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
+            city={orderDone.city}
+            street={orderDone.street}
+            homeNumber={orderDone.homeNumber}
     />
     ))
     // status 3
@@ -70,6 +79,9 @@ const OrderList = (props) => {
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
+            city={orderDone.city}
+            street={orderDone.street}
+            homeNumber={orderDone.homeNumber}
     />
     ))
     // status 4
@@ -87,6 +99,9 @@ const OrderList = (props) => {
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
+            city={orderDone.city}
+            street={orderDone.street}
+            homeNumber={orderDone.homeNumber}
     />
     ))
     // status 5
@@ -104,6 +119,9 @@ const OrderList = (props) => {
             status={orderDone.status}
             isChangeStatus={orderDone.isChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
+            city={orderDone.city}
+            street={orderDone.street}
+            homeNumber={orderDone.homeNumber}
     />
     ))
     return (  

@@ -12,19 +12,6 @@ const AdministratorPanel = (props) => {
                         <Statistics
                             orders={props.orders} 
                         />
-                        {/* <div className='red-board container'>
-                            
-                                <div className='col-12 red-board__text'>Statystyki</div>
-           
-                                    <div className='red-board__number'>10</div>
-                                    <div className='red-board__ball-items'>
-                                        <div className='red-board__ball'></div>
-                                        <div className='red-board__ball'></div>
-                                        <div className='red-board__ball'></div>
-                                    </div>
-
-
-                        </div> */}
                     </div>
                     {/* <div className='header-panel-admin'>Zamówienia</div>
                     <div className='header-panel-admin--text'>zamówienia do wykonania</div> */}
