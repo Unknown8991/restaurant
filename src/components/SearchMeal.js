@@ -9,7 +9,7 @@ const SearchMeal = (props) => {
         <div className="search-box">
         <div className="items-search">
             <div className="col-3 items-search--center">
-                <img className="col-9 items-search__image" src="" alt="" />
+                <img className="col-9 items-search__image" src={props.image} alt="" />
             </div>
             <div className="col-5 items-search__name">
                 {props.id}.{props.name}

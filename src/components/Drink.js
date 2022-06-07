@@ -20,7 +20,12 @@ const Drink = (props) => {
                     </div>
                 </div>
             </div>
-            {props.id}.{props.name}
+            <div className='meal-list__text-drinks'>
+                {props.name}
+            </div>
+            <div className='icons-center'>
+                <img className='icons-app__drink' src={props.image} alt="" />
+            </div>
             <div className="col-12 ribbon-wrapper">
             <div className="col-5 ribbon ribbon--drink">
                 <div className="ribbon__text">{props.price} PLN</div>

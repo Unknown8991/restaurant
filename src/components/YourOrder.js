@@ -1,6 +1,6 @@
 import React from 'react';
 import MethodPayments from './MethodPayments';
-
+import order from '../icons/shopping-bag.png';
 
 const YourOrder = (props) => {
 
@@ -222,9 +222,15 @@ const YourOrder = (props) => {
     return ( 
         <div className={props.activeYourOrder ? "your-order your-order--full-screen" : "your-order"} >
 
-                <div className="bar" onClick={props.changeActiveYourOrder}></div>
-                <div className="col-12 your-order__text">
-                    Twoje zamówienie
+                <div onClick={props.changeActiveYourOrder}>
+
+                    <div className="bar" onClick={props.changeActiveYourOrder}></div>
+                    <div className="col-12 your-order__text">
+                        Twoje zamówienie 
+                        {/* <img className='icons-app' src={order} alt="" />  */}
+                        
+            
+                    </div>
                 </div>
                     {/* {orders} */}
                 {props.activeYourOrder ? <div className="container">

@@ -6,6 +6,11 @@ import SearchMeal from './SearchMeal';
 import HistoryOrders from './HistoryOrders';
 import SummaryOrder from './SummaryOrder';
 import NotificationContent from './NotificationContent';
+import bell from '../icons/bell.png';
+import profile from '../icons/man.png';
+import history from '../icons/clock.png';
+import logout from '../icons/shutdown.png';
+
 
 
 const Home = (props) => {
@@ -29,6 +34,7 @@ const Home = (props) => {
             activeSearch={props.activeSearch}
             handleShowInfoAboutMealFromSearch={props.handleShowInfoAboutMealFromSearch}
             showInfoFromSearch={element.showInfoFromSearch}
+            image={element.img}
         />
     ))
 // Stała pod placeholder w inpucie
@@ -38,7 +44,10 @@ const Home = (props) => {
     let counterNotificationUser = NotificationArrayForUser.length;
     return (
         <>
-        <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>N</div>
+        <div className='logo'>Restaurant</div>
+        <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>
+            <img className='icons-app' src={bell} alt="" />
+        </div>
         <div className='profile-box__counter'>
             {/* {props.counterNotification} */}
             {counterNotificationUser}
@@ -48,14 +57,22 @@ const Home = (props) => {
         {props.isProfileSettingsActive ? 
         <>
             <div className='profile-box profile-box--column-profile' onClick={props.handleProfileSettingActive}>
-                <div>P</div>
-                <div onClick={props.handleOpenHistory}>H</div>
-                <div onClick={props.handleLogOut}>OFF</div>
+                <div>
+                    <img className='icons-app' src={profile} alt="" />
+                </div>
+                <div onClick={props.handleOpenHistory}>
+                    <img className='icons-app' src={history} alt="" />
+                </div>
+                <div onClick={props.handleLogOut}>
+                <img className='icons-app__big' src={logout} alt="" />
+                </div>
             </div>
             
         </>
             :
-            <div className='profile-box' onClick={props.handleProfileSettingActive}>P</div>
+            <div className='profile-box' onClick={props.handleProfileSettingActive}>
+                <img className='icons-app__big' src={profile} alt="" />
+            </div>
         }
         {/* {props.isProfileSettingsActive ? <div className='profile-box__content'>
             <div className='container'> 

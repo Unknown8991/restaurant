@@ -1,4 +1,5 @@
 import React from 'react';
+import delivery from '../icons/delivery.png';
 
 const FormHome = (props) => {
     return ( 
@@ -53,7 +54,9 @@ const FormHome = (props) => {
     <div className='delivery-time-container col-12'>
         <div className='col-12 delivery-time-container__title'>Oczekiwany czas dostawy</div>
         <div className='col-12 delivery-time-container__content'>
-            <div className='col-6'>AUTO</div>
+            <div className='col-6 delivery-time-container__left'>
+                <img className='icons-app__delivery' src={delivery} alt="" />
+            </div>
             <div className='col-6 delivery-time-text'>{props.textDateForDelivery}{props.deliveryTime}</div>
         </div>
     </div>

@@ -55,6 +55,7 @@ const MealList = (props) => {
             isChecked={food.isChecked}
             checkedMeal={props.checkedMeal}
             handleShowInfoAboutMeal={props.handleShowInfoAboutMeal}
+            image={food.img}
         />
         ))
     // console.log(foods)
@@ -76,6 +77,7 @@ const MealList = (props) => {
             isChecked={vege.isChecked}
             checkedMeal={props.checkedMeal}
             handleShowInfoAboutMeal={props.handleShowInfoAboutMeal}
+            image={vege.img}
         />
     ))
     // Wyświetlenie posiłków mięsnych
@@ -95,6 +97,7 @@ const MealList = (props) => {
             isChecked={meatFood.isChecked}
             checkedMeal={props.checkedMeal}
             handleShowInfoAboutMeal={props.handleShowInfoAboutMeal}
+            image={meatFood.img}
         />
     ))
     // console.log(meatFoods)
@@ -116,8 +119,11 @@ const MealList = (props) => {
             isChecked={drink.isChecked}
             checkedMeal={props.checkedMeal}
             handleShowInfoAboutMeal={props.handleShowInfoAboutMeal}
-        />
-    ))
+            image={drink.img}
+            />
+            ))
+            
+            
 
 //  console.log(props.typeMeal)
     return ( 

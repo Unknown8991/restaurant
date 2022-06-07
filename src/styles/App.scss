@@ -1,6 +1,7 @@
 .App {
 
 }
+
 .background-app{
   background: #FF3D3D;
   color: white;
@@ -700,6 +701,12 @@ html{
     transition: opacity 0.2s ease-in;
   }
 }
+.logo{
+  position: absolute;
+  top: 2%;
+  left: 10%;
+  font-size: 40px;
+}
 .profile-box{
   position: absolute;
   top: 2%;
@@ -991,6 +998,7 @@ html{
 .control-drinks{
   display: flex;
   flex-direction: row;
+  height: 30%;
   // width: 100%;
 }
 .meal-list{
@@ -1034,11 +1042,14 @@ html{
     }
   }
   &--drinks{
-    height: 120px;
+    height: 160px;
     display: flex;
     flex-direction: column;
     // padding-left:20px ;
     // padding-right:20px ;
+  }
+  &__text-drinks{
+    padding-left: 4px;
   }
   &__counter{
     display: flex;
@@ -1049,6 +1060,33 @@ html{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     // border-radius: 10px;
   }
+}
+.icons-app{
+  height: 24px;
+  width: 24px;
+  &__big{
+    height: 32px;
+    width: 32px;
+  }
+  &__drink{
+    height: 48px;
+    width: 48px;
+    // display: flex;
+    // justify-content: center;
+    text-align: center;
+  }
+  &__delivery{
+    height: 64px;
+    width: 64px;
+    position: absolute;
+    left: 10%;
+    animation: ride 2s;
+  }
+}
+.icons-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .button-counter{
   border: none;
@@ -1299,6 +1337,8 @@ html{
     font-weight: 600; 
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transition: background ease-in 0.2s; 
+    display: flex;
+    flex-direction: column;
   }
   &--none-active{
     display: flex;
@@ -1308,6 +1348,8 @@ html{
     font-weight: 600;
     border-radius: 10px;
     transition: background ease-in 0.2s;
+    display: flex;
+    flex-direction: column;
   }
 }
 .active-place{
@@ -1406,7 +1448,7 @@ html{
   border-top-right-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.60) 5px 0px 15px;
   cursor: pointer;
-  height: 50px;
+  height: 60px;
   transition: all 0.7s ease-in;
   &__text{
     font-size: 18px;
@@ -1428,6 +1470,7 @@ html{
   transform:rotate(90deg) ;
   background-color: white;
   border-radius: 99px;
+  margin-bottom: 8px;
 }
 .order-summary{
 
@@ -1806,8 +1849,10 @@ margin-bottom: 20px;
   }
 }
 .delivery-time-container{
-  border: 1px solid #707070;
+  // border: 1px solid #707070;
   border-radius:10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin-bottom: 10px;
   &__title{
     text-align: center;
     font-weight: 600;
@@ -1815,6 +1860,10 @@ margin-bottom: 20px;
   &__content{
     display: flex;
     justify-content: row;
+  }
+  &__left{
+    display: flex;
+    align-items: center;
   }
 }
 .delivery-time-text{
@@ -1827,7 +1876,8 @@ margin-bottom: 20px;
   z-index: 2;
   transform: translate(-50%, -50%);
   background: white;
-  background: linear-gradient(309deg, #64c2f6 0%, rgb(231, 123, 68) 0%, rgb(226, 61, 78) 100%);
+  // background: linear-gradient(309deg, #64c2f6 0%, rgb(231, 123, 68) 0%, rgb(226, 61, 78) 100%);
+  background: #ff3d3d;
   color: white;
 
   width: 300px;
@@ -2290,6 +2340,17 @@ justify-content: space-between;
   }
   100%{
     height: 420px;
+  }
+}
+@keyframes ride {
+  0%{
+    left: 5%;
+  }
+  50%{
+    left: 10%;
+  }
+  100%{
+    left: 10%;
   }
 }
 

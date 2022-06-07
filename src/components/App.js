@@ -5,6 +5,13 @@ import clickpng from '../icons/clicking.png';
 import Home from './Home';
 import AdministratorPanel from './AdministratorPanel';
 import LoginPanel from './LoginPanel';
+import coke from '../icons/coke.png';
+import soda from '../icons/soda.png';
+import tea from '../icons/bubble-tea.png';
+import coffee from '../icons/coffee-cup.png';
+import restaurant from '../icons/restaurant.png';
+import home from '../icons/home.png';
+
 
 class App extends Component {
   state = {
@@ -58,15 +65,15 @@ class App extends Component {
     activeYourOrder: false,
     isActiveAllFoods: false,
     meals: [
-      {id:1, name: 'jeden',type: 'eat', price: 20, description:'qwe asdasdx awsdsad 1', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:2, name: 'dwa', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 2', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
-      {id:3, name: 'trzy', type: 'eat', price: 30, description:'qwe asdasdx awsdsad 3', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:4, name: 'cztery', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 4', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
-      {id:5, name: 'pięć', type: 'eat', price: 45, description:'qwe asdasdx awsdsad 5', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:6, name: 'szesć', type: 'drink', price: 5, description:'qwe asdasdx awsdsad 6', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:7, name: 'siedem', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 7', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:8, name: 'osiem', type: 'drink', price: 12, description:'qwe asdasdx awsdsad 8', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:9, name: 'dziewięć', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:1, name: 'jeden',type: 'eat', price: 20, description:'qwe asdasdx awsdsad 1', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:2, name: 'dwa', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 2', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+      {id:3, name: 'trzy', type: 'eat', price: 30, description:'qwe asdasdx awsdsad 3', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:4, name: 'cztery', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 4', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+      {id:5, name: 'pięć', type: 'eat', price: 45, description:'qwe asdasdx awsdsad 5', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:6, name: 'Coca-cola', type: 'drink', price: 5, description:'qwe asdasdx awsdsad 6', img:coke, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:7, name: 'Soda', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 7', img:soda, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:8, name: 'Bubbletea', type: 'drink', price: 12, description:'qwe asdasdx awsdsad 8', img:tea, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:9, name: 'Coffee', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', img:coffee, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
     ],
     orders:[
       {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: '0', isChangeStatus:false, city: '', street:'', homeNumber: ''},
@@ -77,8 +84,8 @@ class App extends Component {
     ],
     typeMeal: false,
     place: [
-      {id:1, place:'W restauracji', isActive: true,},
-      {id:2, place:'W domu',isActive: false,},
+      {id:1, place:'W restauracji',image: restaurant, isActive: true, },
+      {id:2, place:'W domu',image: home, isActive: false,}
     ],
     tables:[
       {id:1, isChecked: false},

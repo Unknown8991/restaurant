@@ -15,6 +15,7 @@ const formPlace = props.place.filter(item => item.isActive);
             name={place.place}
             isActive={place.isActive}
             changePlaceActive={props.changePlaceActive}
+            image={place.image}
         />
     ))
     return ( 
