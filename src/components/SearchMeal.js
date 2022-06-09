@@ -9,14 +9,14 @@ const SearchMeal = (props) => {
         <div className="search-box">
         <div className="items-search">
             <div className="col-3 items-search--center">
-                <img className="col-9 items-search__image" src={props.image} alt="" />
+                <img className="col-10 items-search__image" src={props.image} alt="" />
             </div>
-            <div className="col-5 items-search__name">
-                {props.id}.{props.name}
+            <div className="col-7 items-search__name">
+                {props.name}
             </div>
 
             {/* info */}
-            <div className="col-2 search-more-info-container">
+            <div className="col-1 search-more-info-container">
                 <div className="more-information more-information--search-item" onClick={()=> props.handleShowInfoAboutMealFromSearch(props.id)}>
                  i
                 </div>
@@ -24,7 +24,7 @@ const SearchMeal = (props) => {
             
 
             {/* check */}
-            <div className="col-2 check-container check-container--search" onClick={() => props.checkedMeal(props.id)}>
+            <div className="col-1 check-container check-container--search" onClick={() => props.checkedMeal(props.id)}>
                 {props.isChecked ?
                     <div className="checked checked--active">
                         <i className="fa fa-check" aria-hidden="true"></i>

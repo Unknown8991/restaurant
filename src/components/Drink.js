@@ -20,14 +20,14 @@ const Drink = (props) => {
                     </div>
                 </div>
             </div>
-            <div className='meal-list__text-drinks'>
+            {/* <div className='meal-list__text-drinks'>
                 {props.name}
-            </div>
+            </div> */}
             <div className='icons-center'>
                 <img className='icons-app__drink' src={props.image} alt="" />
             </div>
             <div className="col-12 ribbon-wrapper">
-            <div className="col-5 ribbon ribbon--drink">
+            <div className="col-6 ribbon ribbon--drink">
                 <div className="ribbon__text">{props.price} PLN</div>
             </div>
         </div>

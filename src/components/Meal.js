@@ -6,7 +6,7 @@ const Meal = (props) => {
     return ( 
         <>
         
-        <div className={props.isChecked ? "col-6 meal-list__item meal-list__item--active" : "col-6 meal-list__item"}>
+        <div className={props.isChecked ? "col-8 meal-list__item meal-list__item--active" : "col-8 meal-list__item"}>
             <div className="controls-meals">
 
             <div className={props.isChecked ? "col-8 meal-list__element meal-list__element--column" : "col-8 meal-list__element meal-list__element--column meal-list__element--no-visibility" }>Ilość
@@ -29,7 +29,10 @@ const Meal = (props) => {
             </div>
             </div>
             
-        <div>{props.id}.{props.name}</div>
+        <div className='text-pizza'>{props.name}</div>
+        <div className='images-pizza'>
+            <img className='images-pizza__item' src={props.image} alt="" />
+        </div>
         <div className="col-12 info-section-wrapper">
             <div className="col-2">
                 <div className="more-information" onClick={()=> props.handleShowInfoAboutMeal(props.id)}>
@@ -46,7 +49,9 @@ const Meal = (props) => {
                             <div className="wrapper-header-description__back" onClick={()=> props.handleShowInfoAboutMeal(props.id)}> Wróć </div>
                         </div>
                     </div>
-                    <div className="col-12 wrapper-header-description__photo">IMG</div>
+                    <div className="col-12 wrapper-header-description__photo">
+                        <img className='images-pizza__item' src={props.image} alt="" />
+                    </div>
                     <div className="col-12">{props.description}</div>
                 </div>
                  :

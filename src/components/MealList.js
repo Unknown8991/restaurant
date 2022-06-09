@@ -41,7 +41,8 @@ const MealList = (props) => {
     // ))
 
 // Wyswietlenie posiłków
-    const foods = props.meals.map(food => (
+const allFoods = props.meals.filter(item => item.type === 'eat')
+    const foods = allFoods.map(food => (
         <Meal 
             key={food.id}
             id={food.id}
@@ -58,6 +59,7 @@ const MealList = (props) => {
             image={food.img}
         />
         ))
+
     // console.log(foods)
 
     // Wyświetlenie posiłków wegetarianskich
@@ -81,7 +83,7 @@ const MealList = (props) => {
         />
     ))
     // Wyświetlenie posiłków mięsnych
-    const meats = props.meals.filter(meat => meat.isVege === false)
+    const meats = props.meals.filter(meat => meat.isVege === false && meat.type === 'eat')
     // console.log(meats)
     const meatFoods = meats.map(meatFood => (
         <Meal 

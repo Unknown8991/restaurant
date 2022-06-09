@@ -6,11 +6,18 @@ import Home from './Home';
 import AdministratorPanel from './AdministratorPanel';
 import LoginPanel from './LoginPanel';
 import coke from '../icons/coke.png';
-import soda from '../icons/soda.png';
-import tea from '../icons/bubble-tea.png';
-import coffee from '../icons/coffee-cup.png';
+import soda from '../icons/sprite.png';
+import tea from '../icons/water.png';
+import coffee from '../icons/lemon.png';
 import restaurant from '../icons/restaurant.png';
 import home from '../icons/home.png';
+import pizza1 from '../images/pizza-1.png';
+import pizza2 from '../images/pizza-2.jpg';
+import pizza3 from '../images/pizza-3.png';
+import pizza4 from '../images/pizza-4.png';
+import pizza5 from '../images/pizza-5.png';
+// <a target="_blank" href="https://icons8.com/icon/114455/coca-cola">Coca Cola</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
 
 
 class App extends Component {
@@ -65,15 +72,15 @@ class App extends Component {
     activeYourOrder: false,
     isActiveAllFoods: false,
     meals: [
-      {id:1, name: 'jeden',type: 'eat', price: 20, description:'qwe asdasdx awsdsad 1', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:2, name: 'dwa', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 2', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
-      {id:3, name: 'trzy', type: 'eat', price: 30, description:'qwe asdasdx awsdsad 3', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:4, name: 'cztery', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 4', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
-      {id:5, name: 'pięć', type: 'eat', price: 45, description:'qwe asdasdx awsdsad 5', img:'../icons/soda.png', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:6, name: 'Coca-cola', type: 'drink', price: 5, description:'qwe asdasdx awsdsad 6', img:coke, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:7, name: 'Soda', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 7', img:soda, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:8, name: 'Bubbletea', type: 'drink', price: 12, description:'qwe asdasdx awsdsad 8', img:tea, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:9, name: 'Coffee', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', img:coffee, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:1, name: 'Prosciutto Cotto',type: 'eat', price: 20, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i szynką gotowaną', img:pizza2, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:2, name: 'Margherita', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i i świeżą bazylia', img:pizza3, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+      {id:3, name: 'Salame Piccante', type: 'eat', price: 30, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne, pikantnym salami i czosnkiem', img:pizza4, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:4, name: 'Margherita di Bufala', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą z mleka bawolego i świeżą bazylią', img:pizza5, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+      {id:5, name: 'Nepoletana', type: 'eat', price: 45, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne, po piecu: prosciutto crudo, rukola i parmezan', img:pizza1, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:6, name: 'Coca-cola', type: 'drink', price: 5, description:'słodki napój gazowany', img:coke, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:7, name: 'Sprite', type: 'drink', price: 10, description:'słodki napój gazowany o smaku limonki i cytryny', img:soda, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:8, name: 'Woda', type: 'drink', price: 12, description:'woda niegazowana', img:tea, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:9, name: 'Lemoniada', type: 'drink', price: 10, description:'lemoniada', img:coffee, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
     ],
     orders:[
       {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: '0', isChangeStatus:false, city: '', street:'', homeNumber: ''},
@@ -902,15 +909,15 @@ class App extends Component {
         isSummaryOrder: false,
 
         meals: [
-          {id:1, name: 'jeden',type: 'eat', price: 20, description:'qwe asdasdx awsdsad 1', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-          {id:2, name: 'dwa', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 2', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
-          {id:3, name: 'trzy', type: 'eat', price: 30, description:'qwe asdasdx awsdsad 3', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-          {id:4, name: 'cztery', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 4', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
-          {id:5, name: 'pięć', type: 'eat', price: 45, description:'qwe asdasdx awsdsad 5', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-          {id:6, name: 'szesć', type: 'drink', price: 5, description:'qwe asdasdx awsdsad 6', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-          {id:7, name: 'siedem', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 7', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-          {id:8, name: 'osiem', type: 'drink', price: 12, description:'qwe asdasdx awsdsad 8', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-          {id:9, name: 'dziewięć', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:1, name: 'prosciutto Cotto',type: 'eat', price: 20, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i szynką gotowaną', img:pizza2, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:2, name: 'margherita', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i i świeżą bazylia', img:pizza3, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+          {id:3, name: 'salame Piccante', type: 'eat', price: 30, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne, pikantnym salami i czosnkiem', img:pizza4, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:4, name: 'Margherita di Bufala', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą z mleka bawolego i świeżą bazylią', img:pizza5, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+          {id:5, name: 'Nepoletana ', type: 'eat', price: 45, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne, po piecu: prosciutto crudo, rukola i parmezan', img:pizza1, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:6, name: 'Coca-cola', type: 'drink', price: 5, description:'słodki napój gazowany', img:coke, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:7, name: 'Sprite', type: 'drink', price: 10, description:'słodki napój gazowany o smaku limonki i cytryny', img:soda, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:8, name: 'Woda', type: 'drink', price: 12, description:'woda niegazowana', img:tea, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+          {id:9, name: 'Lemoniada', type: 'drink', price: 10, description:'lemoniada', img:coffee, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
         ],
         name: '',
         surname: '',
@@ -1126,15 +1133,15 @@ class App extends Component {
     isActiveAllFoods: false,
 
     meals: [
-      {id:1, name: 'jeden',type: 'eat', price: 20, description:'qwe asdasdx awsdsad 1', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:2, name: 'dwa', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 2', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
-      {id:3, name: 'trzy', type: 'eat', price: 30, description:'qwe asdasdx awsdsad 3', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:4, name: 'cztery', type: 'eat', price: 10, description:'qwe asdasdx awsdsad 4', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
-      {id:5, name: 'pięć', type: 'eat', price: 45, description:'qwe asdasdx awsdsad 5', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:6, name: 'szesć', type: 'drink', price: 5, description:'qwe asdasdx awsdsad 6', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:7, name: 'siedem', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 7', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:8, name: 'osiem', type: 'drink', price: 12, description:'qwe asdasdx awsdsad 8', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
-      {id:9, name: 'dziewięć', type: 'drink', price: 10, description:'qwe asdasdx awsdsad 9', showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:1, name: 'Prosciutto Cotto',type: 'eat', price: 20, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i szynką gotowaną', img:pizza2, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:2, name: 'Margherita', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i i świeżą bazylia', img:pizza3, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+      {id:3, name: 'Salame Piccante', type: 'eat', price: 30, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne, pikantnym salami i czosnkiem', img:pizza4, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:4, name: 'Margherita di Bufala', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą z mleka bawolego i świeżą bazylią', img:pizza5, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
+      {id:5, name: 'Nepoletana', type: 'eat', price: 45, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne, po piecu: prosciutto crudo, rukola i parmezan', img:pizza1, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:6, name: 'Coca-cola', type: 'drink', price: 5, description:'słodki napój gazowany', img:coke, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:7, name: 'Sprite', type: 'drink', price: 10, description:'słodki napój gazowany o smaku limonki i cytryny', img:soda, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:8, name: 'Woda', type: 'drink', price: 12, description:'woda niegazowana', img:tea, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:9, name: 'Lemoniada', type: 'drink', price: 10, description:'lemoniada', img:coffee, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
     ],
 
     // orders:[

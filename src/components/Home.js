@@ -6,10 +6,12 @@ import SearchMeal from './SearchMeal';
 import HistoryOrders from './HistoryOrders';
 import SummaryOrder from './SummaryOrder';
 import NotificationContent from './NotificationContent';
-import bell from '../icons/bell.png';
-import profile from '../icons/man.png';
+// import bell from '../icons/bell.png';
+// import profile from '../icons/man.png';
 import history from '../icons/clock.png';
 import logout from '../icons/shutdown.png';
+import profileUser from '../icons/profile-user.png';
+import notify from '../icons/notify.png';
 
 
 
@@ -17,6 +19,7 @@ const Home = (props) => {
 
 // Wyświetlenie wyszukiwanych posiłków
     const arraySearchName = props.meals.filter(item => item.name.includes(props.searchMeal))
+    console.log(arraySearchName)
     const searchName = arraySearchName.map(element =>(
         <SearchMeal 
             key={element.id}
@@ -46,7 +49,9 @@ const Home = (props) => {
         <>
         <div className='logo'>Restaurant</div>
         <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>
-            <img className='icons-app' src={bell} alt="" />
+            {/* <img className='icons-app' src={notify} alt="" /> */}
+            <i class="fa fa-bell-o" aria-hidden="true"></i>
+
         </div>
         <div className='profile-box__counter'>
             {/* {props.counterNotification} */}
@@ -58,20 +63,28 @@ const Home = (props) => {
         <>
             <div className='profile-box profile-box--column-profile' onClick={props.handleProfileSettingActive}>
                 <div>
-                    <img className='icons-app' src={profile} alt="" />
+                    {/* <img className='icons-app' src={profileUser} alt="" /> */}
+                    <i class="fa fa-user" aria-hidden="true"></i>
+
                 </div>
                 <div onClick={props.handleOpenHistory}>
-                    <img className='icons-app' src={history} alt="" />
+                    {/* <img className='icons-app' src={history} alt="" /> */}
+                    <i class="fa fa-history" aria-hidden="true"></i>
+
                 </div>
                 <div onClick={props.handleLogOut}>
-                <img className='icons-app__big' src={logout} alt="" />
+                {/* <img className='icons-app__big' src={logout} alt="" /> */}
+                <i class="fa fa-power-off" aria-hidden="true"></i>
+
                 </div>
             </div>
             
         </>
             :
             <div className='profile-box' onClick={props.handleProfileSettingActive}>
-                <img className='icons-app__big' src={profile} alt="" />
+                {/* <img className='icons-app__big' src={profileUser} alt="" /> */}
+                <i class="fa fa-user icons-app__big" aria-hidden="true"></i>
+
             </div>
         }
         {/* {props.isProfileSettingsActive ? <div className='profile-box__content'>

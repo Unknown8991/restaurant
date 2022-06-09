@@ -8,7 +8,7 @@ const Menu = (props) => {
     return ( 
         <>
             <div className="col-12 header-menu">
-                <div className="col-5 header-menu__text">Menu</div>
+                <div className="col-4 header-menu__text">Menu</div>
                 {/* <div className="col-2 header-menu__toogle">Toogle</div> */}
                 <ButtonAllFoods changeActiveAllFoods={props.changeActiveAllFoods} allFoods={props.allFoods}/>
                 {props.allFoods ? <DisabledToggle /> : <Toggle meals={props.meals} vege={props.vege} typeMeal={props.typeMeal}/>}

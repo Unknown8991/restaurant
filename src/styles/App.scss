@@ -1,5 +1,5 @@
 .App {
-
+  font-family: 'Montserrat', sans-serif;
 }
 
 .background-app{
@@ -705,7 +705,8 @@ html{
   position: absolute;
   top: 2%;
   left: 10%;
-  font-size: 40px;
+  font-size: 45px;
+  font-family: 'MonteCarlo', cursive;
 }
 .profile-box{
   position: absolute;
@@ -885,6 +886,15 @@ html{
   }
 }
 }
+.images-pizza{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &__item{
+    width: 180px;
+    height: 150px;
+  }
+}
 .search{
   margin-top: 50px;
   display: flex;
@@ -1001,19 +1011,27 @@ html{
   height: 30%;
   // width: 100%;
 }
+.text-pizza{
+  padding-left: 2px;
+  font-weight: 400;
+  font-size:18px;
+  padding-bottom: 10px;
+}
 .meal-list{
   display: flex;
   flex-direction: row;
-  overflow-y: scroll;
+  overflow-y: hidden;
+  overflow-x: scroll;
   // transition: all ease-in 1s;
   &__item{
-    height: 200px;
+    height: 280px;
     // border: 1px solid #707070;
     // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border: 1px solid #7070702a;
     border-radius: 10px;
     margin: 0px 10px 20px 10px;
-    width: 100%;
+    // width: 100%;
+    width: 200px;
     display: flex;
     flex-direction: column;
     
@@ -1067,6 +1085,8 @@ html{
   &__big{
     height: 32px;
     width: 32px;
+    font-size: 32px;
+    text-align: center;
   }
   &__drink{
     height: 48px;
@@ -1174,6 +1194,7 @@ html{
   display: flex;
   justify-content: space-between;
   padding-left: 2px;
+  text-align: start;
 }
 .more-information{
   display: flex;
@@ -1185,10 +1206,10 @@ html{
   height: 26px;
   border-radius: 50%;
   border: 1px solid #7070702a;
-  margin-top: 80px;
+  margin-bottom: 80px;
   cursor: pointer;
   &--search-item{
-    margin-top: 0px;
+    margin-bottom: 0px;
   }
 }
 .ribbon-wrapper{
@@ -1199,7 +1220,7 @@ html{
   display: flex;
   justify-content: center;
   background: #FF3D3D;
-  margin-top: 80px;
+  margin-bottom: 80px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -1218,10 +1239,10 @@ html{
   // height: 400px;
   width: 80%;
   border-radius: 10px;
-  position:absolute;
+  position:fixed;
   // top: 20%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,-70%);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   padding: 10px;
 
@@ -1240,9 +1261,12 @@ html{
     font-size: 25px;
   }
   &__photo{
-    border: 1px solid gray;
-    padding: 60px 0px;
+    // border: 1px solid gray;
+    // padding: 60px 0px;
+    border-radius: 12px;
     text-align: center;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    padding: 20px 0px;
   }
 
 }
@@ -1808,20 +1832,24 @@ margin-bottom: 20px;
     padding: 2px;
     border: 1px solid #7070702a;
     // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    height: 100%;
+    // width: 100%;
+    width: 80px;
+    height: 60px;
     border-radius: 10px;
   }
   &__name{
     padding: 10px 0px;
     display: flex;
-    justify-content: center;
+
     align-items: center;
     font-weight: 600;
+    text-align: left;
   }
   &--center{
     margin: 0px;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 }
 .space-top{
@@ -1829,7 +1857,7 @@ margin-bottom: 20px;
 }
 .search-more-info-container{
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 .search-box{
