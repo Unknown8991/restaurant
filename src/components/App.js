@@ -67,12 +67,13 @@ class App extends Component {
     userNoAccountActive: false,
     isProfileSettingsActive: false,
     isActiveScreen: false,
+    // póki co true, default false
     isActiveSearch: false,
     isYourOrder: false,
     activeYourOrder: false,
     isActiveAllFoods: false,
     meals: [
-      {id:1, name: 'Prosciutto Cotto',type: 'eat', price: 20, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i szynką gotowaną', img:pizza2, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:1, name: ' Prosciutto Cotto',type: 'eat', price: 20, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i szynką gotowaną', img:pizza2, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
       {id:2, name: 'Margherita', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i i świeżą bazylia', img:pizza3, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
       {id:3, name: 'Salame Piccante', type: 'eat', price: 30, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne, pikantnym salami i czosnkiem', img:pizza4, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
       {id:4, name: 'Margherita di Bufala', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą z mleka bawolego i świeżą bazylią', img:pizza5, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
@@ -357,11 +358,12 @@ class App extends Component {
   }
   // Działanie wyszykiwarki
   handleChangeSearch = (e)=>{
-    let text = e.target.value.toLowerCase();
-
-    this.setState({
-      searchMeal: text,
-    })
+    setTimeout(()=>{
+      let text = e.target.value.toLowerCase();
+      this.setState({
+        searchMeal: text,
+      })
+    },500)
     // Jeśli wyszukiwarka jest nieaktywna, to działa blokada na wprowadzanie znaków w wyszukiwarce 
     if(this.state.isActiveSearch === false){
       e.target.value = null
@@ -830,9 +832,9 @@ class App extends Component {
     let weekDay = textDay.substring(0,4)
     let numnberWeekDay = textDay.substring(8,15)
     let allDate =`${weekDay}${numnberWeekDay}`;
-    console.log(weekDay)
-    console.log(numnberWeekDay)
-    console.log(allDate)
+    // console.log(weekDay)
+    // console.log(numnberWeekDay)
+    // console.log(allDate)
     this.setState({
       textDateForDelivery: allDate,
     })
@@ -841,24 +843,37 @@ class App extends Component {
     let actuallyHour = time.getHours();
     let actuallyMinutes = time.getMinutes();
     // minuty od 0-9 dodawane 0 przed cyfrą
+    console.log(actuallyHour)
+    // console.log(`PRZED: ${actuallyMinutes}`)
     if(actuallyMinutes < 10){
       actuallyMinutes = `${0}${actuallyMinutes}`
     }  
+    if(actuallyHour < 10){
+      actuallyHour = `${0}${actuallyHour}`
+    }  
+    console.log(`${actuallyHour}:${actuallyMinutes}`)
     // parsowanie w celu możliwości pracy na wartościach godziny i minut
     let parseMinute = parseInt(actuallyMinutes, 10);
     let parseHour = parseInt(actuallyHour, 10);
     let valueMinutes = randomExpectedDeliveryTime + parseMinute;
+    console.log(`Value: ${valueMinutes}`)
 
     let restMinutes;
     let hour;
+    
     // suma minut wynosi powyżej 60 -> dobicie do pełnej godziny = 60 min, a reszta z minut przeniosiona do kolejnej godziny
     if(valueMinutes >= 60){
       restMinutes = valueMinutes - 60;
+      // console.log(`REST: ${restMinutes}`)
       hour = parseHour + 1;
       // minuty od 0-9 dodawane 0 przed cyfrą
       if(restMinutes < 10){
         restMinutes = `${0}${restMinutes}`
       }
+    }else{
+      // console.log(`ELSE  ${valueMinutes}`)
+      restMinutes = valueMinutes
+      hour = parseHour
     }
     // zmienna robiąca string z godziny i minut, aktualizacja state
     let fullHours = hour+":"+restMinutes;
@@ -1027,8 +1042,8 @@ class App extends Component {
         })
       }  
     } 
-    console.log(hour)
-    console.log(minutes)
+    // console.log(hour)
+    // console.log(minutes)
     this.setState({
       currentTime: time,
     })

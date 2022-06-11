@@ -6,20 +6,15 @@ import SearchMeal from './SearchMeal';
 import HistoryOrders from './HistoryOrders';
 import SummaryOrder from './SummaryOrder';
 import NotificationContent from './NotificationContent';
-// import bell from '../icons/bell.png';
-// import profile from '../icons/man.png';
-import history from '../icons/clock.png';
-import logout from '../icons/shutdown.png';
-import profileUser from '../icons/profile-user.png';
-import notify from '../icons/notify.png';
+
+
 
 
 
 const Home = (props) => {
 
 // Wyświetlenie wyszukiwanych posiłków
-    const arraySearchName = props.meals.filter(item => item.name.includes(props.searchMeal))
-    console.log(arraySearchName)
+    const arraySearchName = props.meals.filter(item => item.name.toLowerCase().includes(props.searchMeal))
     const searchName = arraySearchName.map(element =>(
         <SearchMeal 
             key={element.id}
@@ -43,14 +38,14 @@ const Home = (props) => {
 // Stała pod placeholder w inpucie
     const placeholderText = 'Odszukaj swoje ulubione danie..'; 
     const NotificationArrayForUser = props.notifications.filter(item => item.clientId === props.clientId)
-    console.log(NotificationArrayForUser.length)
+    // console.log(NotificationArrayForUser.length)
     let counterNotificationUser = NotificationArrayForUser.length;
     return (
         <>
         <div className='logo'>Restaurant</div>
         <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>
             {/* <img className='icons-app' src={notify} alt="" /> */}
-            <i class="fa fa-bell-o" aria-hidden="true"></i>
+            <i className="fa fa-bell-o" aria-hidden="true"></i>
 
         </div>
         <div className='profile-box__counter'>
@@ -64,17 +59,17 @@ const Home = (props) => {
             <div className='profile-box profile-box--column-profile' onClick={props.handleProfileSettingActive}>
                 <div>
                     {/* <img className='icons-app' src={profileUser} alt="" /> */}
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i className="fa fa-user" aria-hidden="true"></i>
 
                 </div>
                 <div onClick={props.handleOpenHistory}>
                     {/* <img className='icons-app' src={history} alt="" /> */}
-                    <i class="fa fa-history" aria-hidden="true"></i>
+                    <i className="fa fa-history" aria-hidden="true"></i>
 
                 </div>
                 <div onClick={props.handleLogOut}>
                 {/* <img className='icons-app__big' src={logout} alt="" /> */}
-                <i class="fa fa-power-off" aria-hidden="true"></i>
+                <i className="fa fa-power-off" aria-hidden="true"></i>
 
                 </div>
             </div>
@@ -83,7 +78,7 @@ const Home = (props) => {
             :
             <div className='profile-box' onClick={props.handleProfileSettingActive}>
                 {/* <img className='icons-app__big' src={profileUser} alt="" /> */}
-                <i class="fa fa-user icons-app__big" aria-hidden="true"></i>
+                <i className="fa fa-user icons-app__big" aria-hidden="true"></i>
 
             </div>
         }
@@ -147,6 +142,7 @@ const Home = (props) => {
                 <div className={props.activeSearch ? "search search--active" : "search"} >
                     <i className="fa fa-search" aria-hidden="true"></i>
                     <input type="text" placeholder={placeholderText}  onClick={props.startSearch}  onChange={props.changeSearch}   />
+                    {/* <input type="text" placeholder={placeholderText}    onChange={props.changeSearch}   /> */}
             </div>
                     <div className="row space-top">
                         <div className="col-11 search-items-container">

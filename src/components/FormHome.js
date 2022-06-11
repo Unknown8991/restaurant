@@ -57,7 +57,7 @@ const FormHome = (props) => {
             <div className='col-6 delivery-time-container__left'>
                 <img className='icons-app__delivery' src={delivery} alt="" />
             </div>
-            <div className='col-6 delivery-time-text'>{props.textDateForDelivery}{props.deliveryTime}</div>
+            <div className='col-6 delivery-time-text'>{props.textDateForDelivery} {props.deliveryTime}</div>
         </div>
     </div>
     
