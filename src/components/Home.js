@@ -8,9 +8,6 @@ import SummaryOrder from './SummaryOrder';
 import NotificationContent from './NotificationContent';
 
 
-
-
-
 const Home = (props) => {
 
 // Wyświetlenie wyszukiwanych posiłków
@@ -138,7 +135,7 @@ const Home = (props) => {
         }
         <div className="home">
             
-            <div className={props.isHistoryActive ? 'container opacity-container' : 'container opacity-container__none'}>
+            <div className={props.isHistoryActive ? 'container opacity-container' : 'container opacity-container__none col-md-11'}>
                 <div className={props.activeSearch ? "search search--active" : "search"} >
                     <i className="fa fa-search" aria-hidden="true"></i>
                     <input type="text" placeholder={placeholderText}  onClick={props.startSearch}  onChange={props.changeSearch}   />

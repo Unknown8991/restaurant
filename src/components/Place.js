@@ -23,8 +23,11 @@ const formPlace = props.place.filter(item => item.isActive);
             <div className="header">
                 Gdzie będziesz spożywał swój posiłek?
             </div>
-            <div className="col-12 place">
-                {places}
+            <div className='col-md-12 place__center'>
+                <div className="col-12 col-md-6 place">
+                    {places}
+                </div>
+
             </div>
             <>
                 { formPlace[0].id === 1 ? 

@@ -6,6 +6,9 @@
   background: #FF3D3D;
   color: white;
   height: 100vh;
+  @media screen and (min-width: 800px) {
+      height: 1000vh;
+    }
   
 }
 .container-choice-user{
@@ -410,6 +413,7 @@
 }
 html{
   scroll-behavior: smooth;
+  scrollbar-width: thin;
 }
 .text-for-processes{
   // animation: order-height 1s ease-in;
@@ -675,6 +679,13 @@ html{
   // -moz-box-shadow: 0px -12px 24px 0px rgba(0, 0, 0, 0.62);
   // box-shadow: 0px -12px 24px 0px rgba(0, 0, 0, 0.62);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  @media screen and (min-width: 800px) { /* jeśli szerokość jest większa od 800px */
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 4%;
+    transform: translate(-50%);
+    }
   // &__dark{
   //   opacity: 0.3;
   //   margin-top: 90px;
@@ -707,6 +718,13 @@ html{
   left: 10%;
   font-size: 45px;
   font-family: 'MonteCarlo', cursive;
+  @media screen and (min-width: 800px) { /* jeśli szerokość jest większa od 800px */
+    position: absolute;
+    top: 0%;
+    left: 15%;
+    font-size: 85px;
+    // transform: translate(-50%);
+    }
 }
 .profile-box{
   position: absolute;
@@ -726,6 +744,13 @@ html{
   cursor: pointer;
   flex-direction: column;
   transition: all;
+  @media screen and (min-width: 800px) { /* jeśli szerokość jest większa od 800px */
+    position: absolute;
+    // width: 90%;
+    left: 82%;
+    top: 4%;
+    // transform: translate(-50%);
+    }
 &--column-profile{
   height: 230px;
   justify-content: space-around;
@@ -770,6 +795,12 @@ html{
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  @media screen and (min-width: 800px) { /* jeśli szerokość jest większa od 800px */
+    position: absolute;
+    top: 5%;
+    right: 22%;
+    // transform: translate(-50%);
+    }
 }
 &__notification-content{
   position: fixed;
@@ -786,7 +817,6 @@ html{
   background: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 12px;
-
   overflow-y: scroll;
 }
 &__blik{
@@ -904,6 +934,9 @@ html{
   // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 10px;
   transition: box-shadow 0.1s ease-out;
+  @media screen and (min-width: 800px) {
+    margin-top: 75px;
+  }
   &--active{
     transition: box-shadow 0.1s ease-out;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -931,6 +964,9 @@ html{
   flex-direction: row;
   font-size: 26px;
   justify-content: space-between;
+  @media screen and (min-width: 800px) {
+    margin: 40px 0px;
+}
   &__text{
     font-weight:bold ;
     display: flex;
@@ -955,7 +991,9 @@ html{
       height: 100%;
       align-items: center;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-     
+      @media screen and (min-width: 800px) {
+        width: 27%;
+    }
     }
   }
   &__toggle-vege{
@@ -968,7 +1006,6 @@ html{
     margin: 10px 0px;
     
     &--item{
-
       display: flex;
       justify-content: center;
       // border: 2px solid #707070;
@@ -977,7 +1014,10 @@ html{
       height: 100%;
       align-items: center;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-      
+      @media screen and (min-width: 800px) {
+          width: 27%;
+      }
+
     }
   }
 }
@@ -1022,6 +1062,7 @@ html{
   flex-direction: row;
   overflow-y: hidden;
   overflow-x: scroll;
+  scrollbar-width: thin;
   // transition: all ease-in 1s;
   &__item{
     height: 280px;
@@ -1036,6 +1077,9 @@ html{
     flex-direction: column;
     
     transition: ease-in-out 0.1s all;
+    @media screen and (min-width: 800px) {
+      margin: 0px 40px 40px 20px;
+    }
 &--active{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: ease-in-out 0.1s box-shadow;
@@ -1317,6 +1361,9 @@ html{
   font-size: 26px;
   font-weight:bold;
   margin: 20px 0px;
+  @media screen and (min-width: 800px) {
+    margin: 40px 0px;
+    }
   &--form{
     font-size: 16px;
     font-weight:bold;
@@ -1350,9 +1397,15 @@ html{
   border-radius: 10px;
   cursor: pointer;
   // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   // transition: ease-in 0.2s all;
-  
+
+  &__center{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
   &__active{
     background: white ;
     border-radius: 10px;
@@ -1397,6 +1450,9 @@ html{
     border: none;
     border-bottom: 1px solid #707070;
     padding: 8px 8px 4px 6px;
+    @media screen and (min-width: 800px) {
+      margin: 6px 0px;
+    }
     &--date{
       // border: 2px solid #707070; 
       // box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -1444,6 +1500,10 @@ html{
   display: flex;
   justify-content: space-between;
   margin: 0px 0px 20px 0px;
+  @media screen and (min-width: 800px) {
+    justify-content: space-evenly;
+    margin: 40px 0px;
+  }
   &__item{
     text-align: center;
     &--text{
@@ -1456,8 +1516,12 @@ html{
   font-size: 18px;
   margin: 5px 0px;
   color: black;
+  @media screen and (min-width: 800px) {
+    margin: 15px 0px;
+  }
   &--reservation{
-    font-weight: normal;
+    font-weight: 500;
+    font-style:normal;
     text-align: center;
     // color: black;
   }
@@ -1636,6 +1700,7 @@ margin-bottom: 20px;
   font-size: 18px;
   color: #FF3D3D;
   font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   &--revert{
     background: #ff3d3d;
     color: white;

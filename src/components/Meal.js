@@ -6,7 +6,7 @@ const Meal = (props) => {
     return ( 
         <>
         
-        <div className={props.isChecked ? "col-8 meal-list__item meal-list__item--active" : "col-8 meal-list__item"}>
+        <div className={props.isChecked ? "col-8 col-md-3 meal-list__item meal-list__item--active" : "col-8 col-md-3 meal-list__item"}>
             <div className="controls-meals">
 
             <div className={props.isChecked ? "col-8 meal-list__element meal-list__element--column" : "col-8 meal-list__element meal-list__element--column meal-list__element--no-visibility" }>Ilość

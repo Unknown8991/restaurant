@@ -35,7 +35,7 @@ const FormRestaurant = (props) => {
             />
             <div className="col-12 header--form">Proszę wybrać datę</div>
             <div className="form-input-date">
-            <div className="col-6 form-input-date__item">
+            <div className="col-6 col-md-3 form-input-date__item">
             <input 
                 onChange={props.handleDateValue}
                 type="date"
@@ -45,7 +45,7 @@ const FormRestaurant = (props) => {
             />
             {props.date ? null: <div className="col-12 form-input-date__item--text">Pole wymagane</div>}
             </div>
-            <div className="col-4 form-input-date__item">
+            <div className="col-4 col-md-3 form-input-date__item">
             <input 
                 onChange={props.handleDateValue}
                 type="time"
@@ -57,7 +57,7 @@ const FormRestaurant = (props) => {
             </div>
             </div>
             <div className="col-12 form-info">Liczba dostępnych stolików: {props.table}</div>
-            <div className='col-12 '>
+            <div className='col-12 place__center'>
                 <div className='action-button action-button--revert' onClick={props.handleOpenTablesView}>Wybierz stolik</div>
             </div>
             {props.isActiveTablesView ? 

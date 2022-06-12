@@ -3,7 +3,7 @@ import React from 'react';
 const Drink = (props) => {
     return ( 
         <>
-        <div className={props.isChecked ? "col-4 meal-list__item meal-list--drinks meal-list__item--active" : "col-4 meal-list__item meal-list--drinks"}>
+        <div className={props.isChecked ? "col-4 col-md-2 meal-list__item meal-list--drinks meal-list__item--active" : "col-4 col-md-2 meal-list__item meal-list--drinks"}>
             <div className="control-drinks col-12">
                 <div className={props.isChecked ? "col-7 meal-list__element meal-list__element--column" : "col-7 meal-list__element meal-list__element--column meal-list__element--no-visibility"}>Ilość 
                     <div className="drink-counter">
