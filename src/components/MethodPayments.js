@@ -21,8 +21,10 @@ const MethodPayments = (props) => {
         {props.activeYourOrder ? 
             <div className="container">
                 <div className="header header--payments">Płatność</div>
-                <div className="col-12 payments">
-                    {payments}
+                <div className='col-md-12 center-container'>                    
+                    <div className="col-12 col-md-6 payments">
+                        {payments}
+                    </div>
                 </div>
                 {formPayments[0].id ===1 ? <MethodBlik 
                     handleBlikCode={props.handleBlikCode} 

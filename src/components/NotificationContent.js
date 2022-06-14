@@ -28,7 +28,7 @@ const NotificationContent = (props) => {
                 </>
                 
                 :
-                <div>
+                <div className='user-notify'>
                     {userNotification}
                 </div>
                 // null

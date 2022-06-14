@@ -6,8 +6,10 @@ import payment from '../icons/payment.png';
 const MethodBlik = (props) => {
 
     return ( 
-        
-            <div className="col-12 blik">
+
+        <div className='col-md-12 center-container'>
+
+            <div className="col-12 col-md-6 blik">
 
 
             <div className="generate-code-container">
@@ -87,6 +89,7 @@ const MethodBlik = (props) => {
                 :
                 null
             } */}
+        </div>
         </div>
 
 

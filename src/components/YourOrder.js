@@ -233,7 +233,7 @@ const YourOrder = (props) => {
                     </div>
                 </div>
                     {/* {orders} */}
-                {props.activeYourOrder ? <div className="container">
+                {props.activeYourOrder ? <div className="container col-md-10">
 
                 {/* <div className="header header--summary">Summary</div>
                 <div className="col-12 order-summary">
