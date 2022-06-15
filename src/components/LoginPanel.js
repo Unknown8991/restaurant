@@ -9,15 +9,17 @@ const LoginPanel = (props) => {
             <div className='login--info'>Zaloguj się i zamawiaj swoje ulubione dania</div>
             <div className='login__input-items'>
                 <div className='col-10'>
-                    <input placeholder='login' name='login' className='login__input' type="text" onChange={props.handleChangeInputLogin} />
+                    <input placeholder='login'  name='login' value={props.loginName} className='login__input' type="text" onChange={props.handleChangeInputLogin} />
                 </div>
                 <div className='col-10'>
-                    <input placeholder='hasło' name='pass' className='login__input' type="text" onChange={props.handleChangeInputLogin} />
+                    <input placeholder='hasło' name='pass' value={props.loginPassword} className='login__input' type="text" onChange={props.handleChangeInputLogin} />
                 </div>
                 <button className='login__btn-login' onClick={props.handleLoginProfile}>Zaloguj</button>
             </div>
-            <div className='container'>Jeśli nie posiadasz konta,  
-            <label className='login__btn-register' onClick={props.handleRegisterProfile}> Zarejestruj się</label>. Wypełnij podstawowe dane i ciesz się pysznym jedzeniem</div>
+            <div className='container col-12 login--center'>
+                {/* Jeśli nie posiadasz konta,   */}
+            {/* <label className='login__btn-register' onClick={props.handleRegisterProfile}> Zarejestruj się</label> */}
+             Wypełnij podstawowe dane i ciesz się pysznym jedzeniem. Zamów już teraz</div>
             <div className='login__btn-none-account' onClick={props.handleLoginNoneAccount}>Kontynuuj bez konta</div>
 
 

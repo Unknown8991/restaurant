@@ -1,7 +1,10 @@
 .App {
   font-family: 'Montserrat', sans-serif;
 }
-
+// body{
+//   background: #FF3D3D;
+//   width: 100vh
+// }
 .background-app{
   background: #FF3D3D;
   color: white;
@@ -14,6 +17,7 @@
 .container-choice-user{
   background: #FF3D3D;
   height: 100vh;
+  width: 100%;
   position: relative;
   z-index: 1;
   &--active-client{
@@ -25,13 +29,25 @@
   color: #FF3D3D;
   // background: #FF3D3D;
   
+
 }
 .login{
   // color: #707070;
+  font-family: 'Montserrat', sans-serif;
   &__text{
     text-align: center;
-  }
+    padding: 20px 0px;
 
+    @media screen and (min-width: 800px) {
+      font-size: 25px;
+      
+    }
+
+  }
+&--center{
+  text-align: center;
+  padding-bottom: 10px;
+}
   &__input-items{
     padding: 10px 0px;
     margin-top: 10px;
@@ -290,6 +306,9 @@
 .panel-admin{
   background: #ff3d3d;
   height: 100vh;
+  @media screen and (min-width: 800px) {
+    height: 350vh;
+  }
 }
 .header-panel-admin{
   color: black;
@@ -298,6 +317,9 @@
   margin-top: 20px;
   &--text{
     font-weight: 300 ;
+  }
+  @media screen and (min-width: 800px) {
+    font-size: 35px;
   }
 }
 // .red-board{
@@ -337,6 +359,11 @@
 //     border-radius: 50%;
 //   }
 // }
+.statistics-center{
+  display: flex;
+  justify-content: center;
+  margin: 40px 0px;
+}
 .statistics-board{
   background: #ffffff;
   border-radius: 12px;
@@ -345,6 +372,7 @@
   display: flex;
   flex-direction: row;
   overflow-x:scroll;
+  scrollbar-width: thin;
   // box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
   background: #ffffff;
@@ -421,11 +449,14 @@ html{
   text-align: center;
   padding-bottom: 30px;
 }
+.logout-for-admin{
+  font-size: 30px;
+}
 .order{
   display: flex;
   flex-direction: row;
   margin: 10px 0px;
-  border-bottom: 2px solid #707070;
+  border-bottom: 2px solid #eaeaea;
   padding: 0px 0px 8px 0px;
   animation: order-height 0.5s ease-in;
   // &__change-status{
@@ -442,7 +473,10 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-
+    @media screen and (min-width: 800px) {
+  
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }
   }
   &__elements{
     color: black;
@@ -467,12 +501,22 @@ html{
   &--center{
     display: flex;
     justify-content: center;
+    @media screen and (min-width: 800px) {
+    justify-content: left;
+    }
   }
   &--blur{
     filter: blur(4px);
   }
 }
-
+.image-admin{
+  width: 90px;
+  height: 90px;
+  @media screen and (min-width: 800px) {
+    width: 120px;
+    height: 120px;
+  }
+}
 .status{
   cursor: pointer;
   &__position{
@@ -718,14 +762,16 @@ html{
   position: absolute;
   top: 2%;
   left: 10%;
-  font-size: 45px;
+  font-size: 40px;
   font-family: 'MonteCarlo', cursive;
+  color: white;
   @media screen and (min-width: 800px) { /* jeśli szerokość jest większa od 800px */
     position: absolute;
     top: 0%;
     left: 15%;
-    font-size: 85px;
+    font-size: 80px;
     // transform: translate(-50%);
+    
     }
 }
 .profile-box{
@@ -2371,6 +2417,10 @@ justify-content: space-between;
   align-items: center;
   justify-content: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  color: white;
+  @media screen and (min-width: 800px) {
+    top: 4%;
+  }
 }
 //loading css
 // .lds-roller {

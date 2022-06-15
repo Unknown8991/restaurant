@@ -16,7 +16,7 @@ import pizza2 from '../images/pizza-2.jpg';
 import pizza3 from '../images/pizza-3.png';
 import pizza4 from '../images/pizza-4.png';
 import pizza5 from '../images/pizza-5.png';
-// <a target="_blank" href="https://icons8.com/icon/114455/coca-cola">Coca Cola</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
 
 
 
@@ -25,10 +25,10 @@ class App extends Component {
     // false default
     administrator: false,
     //  false default pominięcie logowania
-    client: true,
+    client: false,
     // defaultowo loginName oraz loginPassword puste powinno być
-    loginName:'admin',
-    loginPassword:'123qwe',
+    loginName:'',
+    loginPassword:'',
     // To id powinno być '', na czas pisania aplikacji default np. 1
     clientId:1,
     // false default
@@ -84,10 +84,10 @@ class App extends Component {
       {id:9, name: 'Lemoniada', type: 'drink', price: 10, description:'lemoniada', img:coffee, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
     ],
     orders:[
-      {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: '0', isChangeStatus:false, city: '', street:'', homeNumber: ''},
-      {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: '1', isChangeStatus:false, city: '', street:'', homeNumber: ''},
-      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: '2', isChangeStatus:false, city: 'Kraków', street:'Krakowska', homeNumber: '13'},
-      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: '3', isChangeStatus:false, city: '', street:'', homeNumber: ''},
+      {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: 0, isChangeStatus:false, city: '', street:'', homeNumber: '', img:pizza2},
+      {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: 1, isChangeStatus:false, city: '', street:'', homeNumber: '', img:pizza1},
+      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: 2, isChangeStatus:false, city: 'Kraków', street:'Krakowska', homeNumber: '13', img:pizza3},
+      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: 3, isChangeStatus:false, city: '', street:'', homeNumber: '', img:pizza1},
       // {id:5, name: 'pięć', place:'W restauracji', tableNumber:1, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'10:05', status: 4, isChangeStatus:false,},
     ],
     typeMeal: false,
@@ -167,8 +167,9 @@ class App extends Component {
     })
   }
   // Logowanie do aplikacji
-  handleLoginProfile =() =>{
+  handleLoginProfile =(e) =>{
     console.log('logowanie')
+
     // logowanie dla admina
     if(this.state.isCorrectLogin && this.state.isCorrectPassword){
       console.log('hasło i login sa poprawne')
@@ -235,7 +236,8 @@ class App extends Component {
         loginPassword: e.target.value,
       })
       if(e.target.value === this.state.account[0].password){
-        console.log('Poprawne hasło')
+        console.log('Poprawne hasło');
+        
         this.setState({
           isCorrectPassword: true,
         })
@@ -1055,29 +1057,29 @@ class App extends Component {
     // console.log(e.target.id)
     if(e.target.id === '1'){
       this.setState({
-        activeStatusForPanelAdministrator: '1',
+        activeStatusForPanelAdministrator: 1,
       })
       console.log(e.target.id)
     }  
     if(e.target.id === '2'){
       this.setState({
-        activeStatusForPanelAdministrator: '2',
+        activeStatusForPanelAdministrator: 2,
       })
       console.log(e.target.id)
     }  
     if(e.target.id === '3'){
       this.setState({
-        activeStatusForPanelAdministrator: '3',
+        activeStatusForPanelAdministrator: 3,
       })
     }  
     if(e.target.id === '4'){
       this.setState({
-        activeStatusForPanelAdministrator: '4',
+        activeStatusForPanelAdministrator: 4,
       })
     }  
     if(e.target.id === '5'){
       this.setState({
-        activeStatusForPanelAdministrator: '5',
+        activeStatusForPanelAdministrator: 5,
       })
     }  
     // if(e.target.id === 1){
@@ -1099,8 +1101,8 @@ class App extends Component {
     //  false default pominięcie logowania
     client: false,
     // defaultowo loginName oraz loginPassword puste powinno być
-    loginName:'admin',
-    loginPassword:'123qwe',
+    loginName:'',
+    loginPassword:'',
     // To id powinno być '', na czas pisania aplikacji default np. 1
     clientId:1,
     // false default
@@ -1242,10 +1244,12 @@ class App extends Component {
     return (
       <>
       
-      <div className={this.state.client=== true || this.state.administrator ? "container-choice-user--active-client" : "container-choice-user container" }>
-        <div className='user-panel'>
+      <div className={this.state.client=== true || this.state.administrator ? "container-choice-user--active-client" : "container-choice-user " }>
+        <div className='user-panel col-11 col-md-4'>
           {/* <div className='col-12 logo-restaurant'>Restaurant</div> */}
           <LoginPanel
+            loginName={this.state.loginName}
+            loginPassword={this.state.loginPassword}
             handleChoiceAdmin= {this.handleChoiceAdmin}
             handleChoiceClient= {this.handleChoiceClient}
             handleLoginNoneAccount={this.handleLoginNoneAccount}

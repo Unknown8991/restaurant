@@ -5,13 +5,14 @@ import Statistics from './Statistics';
 const AdministratorPanel = (props) => {
     return ( 
         <div className='panel-admin'>
-            <div className='logout-admin' onClick={props.handleLogOut}>
-                OFF
+            <div className='logo'>Admin Restaurant</div>
+            <div className='logout-admin logout-for-admin' onClick={props.handleLogOut}>
+                <i className="fa fa-power-off" aria-hidden="true"></i>
             </div>
             <div className='home'>
                 <div className='container'>
-                    <div className='header-panel-admin'>Dziś</div>
-                    <div className='col-12'>
+                    <div className='header-panel-admin'>Statystyki restauracji</div>
+                    <div className='col-12 statistics-center'>
                         <Statistics
                             orders={props.orders} 
                         />

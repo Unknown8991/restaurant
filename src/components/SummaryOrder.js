@@ -12,6 +12,9 @@ const SummaryOrder = (props) => {
             )
         }) 
         let totalCostSummary = totalCost.reduce((a, b) => a + b, 0)
+        if(props.choseTable !== ''){
+            totalCostSummary += 5
+        }
         console.log(totalCost)
         console.log(totalCostSummary)
         // let total = 0;

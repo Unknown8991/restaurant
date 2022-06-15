@@ -239,6 +239,7 @@ const Home = (props) => {
                     city={props.city}
                     street={props.street}
                     deliveryTime={props.deliveryTime}
+                    chooseTable={props.chooseTable}
                 />
                 :
                 null
