@@ -40,10 +40,74 @@ const YourOrder = (props) => {
         total = total + 5
         // return total;
     }
-
-
+    
+    
     // Dodawanie zamówienia do listy zamówień
     const yourOrder = checkedMeals;
+
+// testowanie id dla obiektu
+function arrayFromArgs() {
+    var results = [];
+
+    for (var i = 0; i < yourOrder.length; i++) {
+        results.push(yourOrder[i]);
+    }
+    return results;
+}
+var ordersArr = arrayFromArgs(yourOrder);
+// console.log(ordersArr);
+ordersArr.forEach((e, index)=>{
+    console.log(index)
+    e.newID = index;
+    e.nameClient = props.nameClient
+    e.surnameClient = props.surnameClient
+    e.phoneNumberClient = props.phoneNumberClient
+    e.date = props.date
+    e.time = props.time
+    e.phoneNumberClient = props.phoneNumberClient
+    e.cityClient = props.cityClient
+    e.streetClient = props.streetClient
+    e.homeClient = props.homeClient
+    // console.log(e)
+    // for (var i = 0; i < ordersArr.length; i++) {
+    //     if(ordersArr[i].id){
+        
+    //     }
+    //     e.newID = i;
+    // }
+    
+    // console.log(e)
+    
+})
+console.log(ordersArr)
+// console.log(ordersArr)
+// console.log(ordersArr)
+// arrayIds()
+    // var idCount = 2
+    // var id1;
+    // var n1 ='test 1';
+    // var p1 ='test 2';
+    // const arr = [
+    //     {id1: idCount, n1: 'test 0', p1: 'test 0'},
+    //     {id1: idCount, n1: 'test 0', p1: 'test 0'}
+    // ]
+    
+    // const objTest = {id1: idCount, n1, p1}
+    // console.log(arr.length -1)
+    // console.log(idCount)
+    // for ( idCount; idCount > arr.length ; idCount++) {
+    //     // idCount += 1
+    //     arr.push(objTest)
+    //   }
+
+    // console.log(idCount)
+    // console.log(arr)
+    
+
+    // console.log(`dł: ${arr.length - 1}`)
+
+
+
     // Zmienne dla zamówień
     // nazwa
     let name1

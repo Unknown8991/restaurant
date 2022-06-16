@@ -152,6 +152,8 @@ class App extends Component {
     isHistoryActive: false,
     // Stoliki
     isActiveTablesView: false,
+    // test id dla obj
+    idObj: 0,
   }
   
   // Wybór aplikacja jako administratora
@@ -405,6 +407,7 @@ class App extends Component {
           number: item.number +=1,
         })
       }
+      
       return items
     })
   }
@@ -436,12 +439,17 @@ class App extends Component {
     this.setState({
       checkedMeals,
     })
+
   //aktywacja belki z zamówieniem
     const elementsActive = this.state.meals.filter(item => item.isChecked ===true)
     // console.log(elementsActive.length)
     if(elementsActive.length > 0){
       this.setState({
         isYourOrder: true,
+      })
+      // TUTAJ DODANE ID RANO DO REALIZACJI DALEJ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      this.setState({
+        idObj: this.state.idObj +1
       })
       }else{
         this.setState({
@@ -944,6 +952,25 @@ class App extends Component {
         numberHome: '',
         time: '',
         date:'',
+        tables:[
+          {id:1, isChecked: false},
+          {id:2, isChecked: false},
+          {id:3, isChecked: false},
+          {id:4, isChecked: false},
+          {id:5, isChecked: false},
+          {id:6, isChecked: false},
+          {id:7, isChecked: false},
+          {id:8, isChecked: false},
+          {id:9, isChecked: false},
+          {id:10, isChecked: false},
+        ],
+        isYourOrder: false,
+        firstBlikNumber:'',
+        secondBlikNumber:'',
+        thirdBlikNumber:'',
+        fourthBlikNumber:'',
+        blikResult: false,
+        deliveryTime:''
       })
       this.handleActionNotification()
     }

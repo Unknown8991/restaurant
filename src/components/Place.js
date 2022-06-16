@@ -45,6 +45,9 @@ const formPlace = props.place.filter(item => item.isActive);
                     handleOpenTablesView={props.handleOpenTablesView}
                     handleClosedTablesView={props.handleClosedTablesView}
                     handleCheckedTable={props.handleCheckedTable}
+                    name={props.nameClient}
+                    surname={props.surnameClient}
+                    phone={props.phoneNumberClient}
                 />
                 : 
                 <FormHome 

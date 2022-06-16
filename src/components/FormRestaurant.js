@@ -16,7 +16,7 @@ const FormRestaurant = (props) => {
                 type="text"  
                 placeholder="Imię"
                 maxLength="11"
-
+                value={props.name}
             />
             <input 
                 onChange={props.handleChange} 
@@ -24,6 +24,7 @@ const FormRestaurant = (props) => {
                 className="input-form__item" 
                 type="text"  
                 placeholder="Nazwisko"
+                value={props.surname}
             />
             <input 
                 onChange={props.handleChange} 
@@ -32,6 +33,7 @@ const FormRestaurant = (props) => {
                 type="text"  
                 placeholder="Numer telefonu"
                 maxLength="9"
+                value={props.phone}
             />
             <div className="col-12 header--form">Proszę wybrać datę</div>
             <div className="form-input-date">
@@ -42,6 +44,7 @@ const FormRestaurant = (props) => {
                 name="date"
                 className="col-12 input-form__item-date input-form__item--date"
                 date={props.date}
+                value={props.date}
             />
             {props.date ? null: <div className="col-12 form-input-date__item--text">Pole wymagane</div>}
             </div>
@@ -52,6 +55,7 @@ const FormRestaurant = (props) => {
                 name="time"
                 className="col-12 input-form__item-date input-form__item--date"
                 time={props.time}
+                value={props.time}
             />
             {props.date ? null: <div className="col-12 form-input-date__item--text">Pole wymagane</div>}
             </div>

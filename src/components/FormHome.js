@@ -11,6 +11,7 @@ const FormHome = (props) => {
             className="input-form__item" 
             type="text"  
             placeholder="Imię"
+            value={props.nameClient}
         />
         <input 
             onChange={props.handleChange} 
@@ -18,6 +19,7 @@ const FormHome = (props) => {
             className="input-form__item" 
             type="text"  
             placeholder="Nazwisko"
+            value={props.surnameClient}
         />
         <input 
             onChange={props.handleChange} 
@@ -25,6 +27,7 @@ const FormHome = (props) => {
             className="input-form__item" 
             type="text"  
             placeholder="Numer telefonu"
+            value={props.phoneNumberClient}
         />
         <input 
             onChange={props.handleChange} 
@@ -32,6 +35,7 @@ const FormHome = (props) => {
             className="input-form__item" 
             type="text"  
             placeholder="Miasto"
+            value={props.cityClient}
         />
         <input 
             onChange={props.handleChange} 
@@ -39,6 +43,7 @@ const FormHome = (props) => {
             className="input-form__item" 
             type="text"  
             placeholder="Ulica"
+            value={props.streetClient}
         />
         <input 
             onChange={props.handleChange} 
@@ -46,6 +51,7 @@ const FormHome = (props) => {
             className="input-form__item" 
             type="text"  
             placeholder="Numer budynku"
+            value={props.homeClient}
         />
     </form>
     {props.cityClient === "" ? 
