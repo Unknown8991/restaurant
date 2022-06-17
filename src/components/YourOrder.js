@@ -57,17 +57,31 @@ function arrayFromArgs() {
 var ordersArr = arrayFromArgs(yourOrder);
 // console.log(ordersArr);
 ordersArr.forEach((e, index)=>{
-    console.log(index)
-    e.newID = index;
-    e.nameClient = props.nameClient
-    e.surnameClient = props.surnameClient
-    e.phoneNumberClient = props.phoneNumberClient
-    e.date = props.date
-    e.time = props.time
-    e.phoneNumberClient = props.phoneNumberClient
-    e.cityClient = props.cityClient
-    e.streetClient = props.streetClient
-    e.homeClient = props.homeClient
+    // console.log(index)
+    // console.log(e.img)
+    e.orderID = index;
+    e.orderNameClient = props.nameClient;
+    e.orderSurnameClient = props.surnameClient;
+    e.orderPhoneNumberClient = props.phoneNumberClient;
+    e.orderDate = props.date;
+    e.orderTime = props.time;
+    
+    e.nameOrder = e.name;
+    e.orderPlace = e.place;
+    e.orderNumber = e.number;
+    e.orderTableNumber = props.chooseTable;
+    e.orderPrice = e.price * e.number;
+    e.orderClientId = props.clientId;
+    e.orderDateOfRelease = e.dateOfRelease;
+    e.orderTimeOfRelease = e.TimeOfRelease;
+    e.orderStatus = e.status;
+    e.orderIsChangeStatus = e.isChangeStatus;
+    e.orderImg = e.img;
+
+    e.orderPhoneNumberClient = props.phoneNumberClient;
+    e.orderCityClient = props.cityClient;
+    e.orderStreetClient = props.streetClient;
+    e.orderHomeClient = props.homeClient;
     // console.log(e)
     // for (var i = 0; i < ordersArr.length; i++) {
     //     if(ordersArr[i].id){
