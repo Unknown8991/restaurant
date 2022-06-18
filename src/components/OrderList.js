@@ -6,133 +6,235 @@ const OrderList = (props) => {
     const orders = props.orders.map(order =>(
         
         <Order
-            key={order.id}
+            key={order.orderID}
             id={order.id}
-            name={order.name}
-            place={order.place}
-            tableNumber={order.tableNumber}
-            price={order.price}
-            timeOfRelease={order.timeOfRelease}
-            dateOfRelease={order.dateOfRelease}
-            status={order.status}
-            isChangeStatus={order.isChangeStatus}
+            orderID={order.orderID}
+            name={order.nameOrder}
+            place={order.orderPlace}
+            tableNumber={order.orderTableNumber}
+            price={order.orderPrice}
+            timeOfRelease={order.orderTimeOfRelease}
+            dateOfRelease={order.orderDateOfRelease}
+            status={order.orderStatus}
+            isChangeStatus={order.orderIsChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
-            city={order.city}
-            street={order.street}
-            homeNumber={order.homeNumber}
-            image={order.img}
-            number={order.number}
+            city={order.orderCityClient}
+            street={order.orderStreetClient}
+            homeNumber={order.orderHomeClient}
+            image={order.orderImg}
+            number={order.orderNumber}
+            // key={order.id}
+            // id={order.id}
+            // name={order.name}
+            // place={order.place}
+            // tableNumber={order.tableNumber}
+            // price={order.price}
+            // timeOfRelease={order.timeOfRelease}
+            // dateOfRelease={order.dateOfRelease}
+            // status={order.status}
+            // isChangeStatus={order.isChangeStatus}
+            // handleOpenStatus={props.handleOpenStatus}
+            // city={order.city}
+            // street={order.street}
+            // homeNumber={order.homeNumber}
+            // image={order.img}
+            // number={order.number}
         />
     ))
     // console.log(props.orders)
     // status 0-1
-    const itemsOrder1 = props.orders.filter(itemOrder => itemOrder.status === 0)
+    const itemsOrder1 = props.orders.filter(itemOrder => itemOrder.orderStatus === 0)
     const ordersDone1 = itemsOrder1.map(orderDone =>(
         <Order
-            key={orderDone.id}
+            key={orderDone.orderID}
             id={orderDone.id}
-            name={orderDone.name}
-            place={orderDone.place}
-            tableNumber={orderDone.tableNumber}
-            price={orderDone.price}
-            timeOfRelease={orderDone.timeOfRelease}
-            dateOfRelease={orderDone.dateOfRelease}
-            status={orderDone.status}
-            isChangeStatus={orderDone.isChangeStatus}
+            orderID={orderDone.orderID}
+            name={orderDone.nameOrder}
+            place={orderDone.orderPlace}
+            tableNumber={orderDone.orderTableNumber}
+            price={orderDone.orderPrice}
+            timeOfRelease={orderDone.orderTimeOfRelease}
+            dateOfRelease={orderDone.orderDateOfRelease}
+            status={orderDone.orderStatus}
+            isChangeStatus={orderDone.orderIsChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
-            city={orderDone.city}
-            street={orderDone.street}
-            homeNumber={orderDone.homeNumber}
-            image={orderDone.img}
-            number={orderDone.number}
+            city={orderDone.orderCityClient}
+            street={orderDone.orderStreetClient}
+            homeNumber={orderDone.orderHomeClient}
+            image={orderDone.orderImg}
+            number={orderDone.orderNumber}
+            // key={orderDone.id}
+            // id={orderDone.id}
+            // name={orderDone.name}
+            // place={orderDone.place}
+            // tableNumber={orderDone.tableNumber}
+            // price={orderDone.price}
+            // timeOfRelease={orderDone.timeOfRelease}
+            // dateOfRelease={orderDone.dateOfRelease}
+            // status={orderDone.status}
+            // isChangeStatus={orderDone.isChangeStatus}
+            // handleOpenStatus={props.handleOpenStatus}
+            // city={orderDone.city}
+            // street={orderDone.street}
+            // homeNumber={orderDone.homeNumber}
+            // image={orderDone.img}
+            // number={orderDone.number}
     />
     ))
     // status 2
-    const itemsOrder2 = props.orders.filter(itemOrder => itemOrder.status === 1)
+    const itemsOrder2 = props.orders.filter(itemOrder => itemOrder.orderStatus === 1)
     const ordersDone2 = itemsOrder2.map(orderDone =>(
         <Order
-            key={orderDone.id}
+            key={orderDone.orderID}
             id={orderDone.id}
-            name={orderDone.name}
-            place={orderDone.place}
-            tableNumber={orderDone.tableNumber}
-            price={orderDone.price}
-            timeOfRelease={orderDone.timeOfRelease}
-            dateOfRelease={orderDone.dateOfRelease}
-            status={orderDone.status}
-            isChangeStatus={orderDone.isChangeStatus}
+            orderID={orderDone.orderID}
+            name={orderDone.nameOrder}
+            place={orderDone.orderPlace}
+            tableNumber={orderDone.orderTableNumber}
+            price={orderDone.orderPrice}
+            timeOfRelease={orderDone.orderTimeOfRelease}
+            dateOfRelease={orderDone.orderDateOfRelease}
+            status={orderDone.orderStatus}
+            isChangeStatus={orderDone.orderIsChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
-            city={orderDone.city}
-            street={orderDone.street}
-            homeNumber={orderDone.homeNumber}
-            image={orderDone.img}
-            number={orderDone.number}
+            city={orderDone.orderCityClient}
+            street={orderDone.orderStreetClient}
+            homeNumber={orderDone.orderHomeClient}
+            image={orderDone.orderImg}
+            number={orderDone.orderNumber}
+            // key={orderDone.id}
+            // id={orderDone.id}
+            // name={orderDone.name}
+            // place={orderDone.place}
+            // tableNumber={orderDone.tableNumber}
+            // price={orderDone.price}
+            // timeOfRelease={orderDone.timeOfRelease}
+            // dateOfRelease={orderDone.dateOfRelease}
+            // status={orderDone.status}
+            // isChangeStatus={orderDone.isChangeStatus}
+            // handleOpenStatus={props.handleOpenStatus}
+            // city={orderDone.city}
+            // street={orderDone.street}
+            // homeNumber={orderDone.homeNumber}
+            // image={orderDone.img}
+            // number={orderDone.number}
     />
     ))
     // status 3
-    const itemsOrder3 = props.orders.filter(itemOrder => itemOrder.status === 2)
+    const itemsOrder3 = props.orders.filter(itemOrder => itemOrder.orderStatus === 2)
     const ordersDone3 = itemsOrder3.map(orderDone =>(
         <Order
-            key={orderDone.id}
+            key={orderDone.orderID}
             id={orderDone.id}
-            name={orderDone.name}
-            place={orderDone.place}
-            tableNumber={orderDone.tableNumber}
-            price={orderDone.price}
-            timeOfRelease={orderDone.timeOfRelease}
-            dateOfRelease={orderDone.dateOfRelease}
-            status={orderDone.status}
-            isChangeStatus={orderDone.isChangeStatus}
+            orderID={orderDone.orderID}
+            name={orderDone.nameOrder}
+            place={orderDone.orderPlace}
+            tableNumber={orderDone.orderTableNumber}
+            price={orderDone.orderPrice}
+            timeOfRelease={orderDone.orderTimeOfRelease}
+            dateOfRelease={orderDone.orderDateOfRelease}
+            status={orderDone.orderStatus}
+            isChangeStatus={orderDone.orderIsChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
-            city={orderDone.city}
-            street={orderDone.street}
-            homeNumber={orderDone.homeNumber}
-            image={orderDone.img}
-            number={orderDone.number}
+            city={orderDone.orderCityClient}
+            street={orderDone.orderStreetClient}
+            homeNumber={orderDone.orderHomeClient}
+            image={orderDone.orderImg}
+            number={orderDone.orderNumber}
+            // key={orderDone.id}
+            // id={orderDone.id}
+            // name={orderDone.name}
+            // place={orderDone.place}
+            // tableNumber={orderDone.tableNumber}
+            // price={orderDone.price}
+            // timeOfRelease={orderDone.timeOfRelease}
+            // dateOfRelease={orderDone.dateOfRelease}
+            // status={orderDone.status}
+            // isChangeStatus={orderDone.isChangeStatus}
+            // handleOpenStatus={props.handleOpenStatus}
+            // city={orderDone.city}
+            // street={orderDone.street}
+            // homeNumber={orderDone.homeNumber}
+            // image={orderDone.img}
+            // number={orderDone.number}
     />
     ))
     // status 4
-    const itemsOrder4 = props.orders.filter(itemOrder => itemOrder.status === 3)
+    const itemsOrder4 = props.orders.filter(itemOrder => itemOrder.orderStatus === 3)
     const ordersDone4 = itemsOrder4.map(orderDone =>(
         <Order
-            key={orderDone.id}
+            key={orderDone.orderID}
             id={orderDone.id}
-            name={orderDone.name}
-            place={orderDone.place}
-            tableNumber={orderDone.tableNumber}
-            price={orderDone.price}
-            timeOfRelease={orderDone.timeOfRelease}
-            dateOfRelease={orderDone.dateOfRelease}
-            status={orderDone.status}
-            isChangeStatus={orderDone.isChangeStatus}
+            orderID={orderDone.orderID}
+            name={orderDone.nameOrder}
+            place={orderDone.orderPlace}
+            tableNumber={orderDone.orderTableNumber}
+            price={orderDone.orderPrice}
+            timeOfRelease={orderDone.orderTimeOfRelease}
+            dateOfRelease={orderDone.orderDateOfRelease}
+            status={orderDone.orderStatus}
+            isChangeStatus={orderDone.orderIsChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
-            city={orderDone.city}
-            street={orderDone.street}
-            homeNumber={orderDone.homeNumber}
-            image={orderDone.img}
-            number={orderDone.number}
+            city={orderDone.orderCityClient}
+            street={orderDone.orderStreetClient}
+            homeNumber={orderDone.orderHomeClient}
+            image={orderDone.orderImg}
+            number={orderDone.orderNumber}
+            // key={orderDone.id}
+            // id={orderDone.id}
+            // name={orderDone.name}
+            // place={orderDone.place}
+            // tableNumber={orderDone.tableNumber}
+            // price={orderDone.price}
+            // timeOfRelease={orderDone.timeOfRelease}
+            // dateOfRelease={orderDone.dateOfRelease}
+            // status={orderDone.status}
+            // isChangeStatus={orderDone.isChangeStatus}
+            // handleOpenStatus={props.handleOpenStatus}
+            // city={orderDone.city}
+            // street={orderDone.street}
+            // homeNumber={orderDone.homeNumber}
+            // image={orderDone.img}
+            // number={orderDone.number}
     />
     ))
     // status 5
-    const itemsOrder5 = props.orders.filter(itemOrder => itemOrder.status === 4)
+    const itemsOrder5 = props.orders.filter(itemOrder => itemOrder.orderStatus === 4)
     const ordersDone5 = itemsOrder5.map(orderDone =>(
         <Order
-            key={orderDone.id}
+            key={orderDone.orderID}
             id={orderDone.id}
-            name={orderDone.name}
-            place={orderDone.place}
-            tableNumber={orderDone.tableNumber}
-            price={orderDone.price}
-            timeOfRelease={orderDone.timeOfRelease}
-            dateOfRelease={orderDone.dateOfRelease}
-            status={orderDone.status}
-            isChangeStatus={orderDone.isChangeStatus}
+            orderID={orderDone.orderID}
+            name={orderDone.nameOrder}
+            place={orderDone.orderPlace}
+            tableNumber={orderDone.orderTableNumber}
+            price={orderDone.orderPrice}
+            timeOfRelease={orderDone.orderTimeOfRelease}
+            dateOfRelease={orderDone.orderDateOfRelease}
+            status={orderDone.orderStatus}
+            isChangeStatus={orderDone.orderIsChangeStatus}
             handleOpenStatus={props.handleOpenStatus}
-            city={orderDone.city}
-            street={orderDone.street}
-            homeNumber={orderDone.homeNumber}
-            image={orderDone.img}
-            number={orderDone.number}
+            city={orderDone.orderCityClient}
+            street={orderDone.orderStreetClient}
+            homeNumber={orderDone.orderHomeClient}
+            image={orderDone.orderImg}
+            number={orderDone.orderNumber}
+            // key={orderDone.id}
+            // id={orderDone.id}
+            // name={orderDone.name}
+            // place={orderDone.place}
+            // tableNumber={orderDone.tableNumber}
+            // price={orderDone.price}
+            // timeOfRelease={orderDone.timeOfRelease}
+            // dateOfRelease={orderDone.dateOfRelease}
+            // status={orderDone.status}
+            // isChangeStatus={orderDone.isChangeStatus}
+            // handleOpenStatus={props.handleOpenStatus}
+            // city={orderDone.city}
+            // street={orderDone.street}
+            // homeNumber={orderDone.homeNumber}
+            // image={orderDone.img}
+            // number={orderDone.number}
     />
     ))
     return (  

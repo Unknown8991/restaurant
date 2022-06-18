@@ -15,8 +15,8 @@ const SummaryOrder = (props) => {
         if(props.choseTable !== ''){
             totalCostSummary += 5
         }
-        console.log(totalCost)
-        console.log(totalCostSummary)
+        // console.log(totalCost)
+        // console.log(totalCostSummary)
         // let total = 0;
         // totalCost.forEach(item => {
         //     total += item;

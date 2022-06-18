@@ -73,7 +73,7 @@ class App extends Component {
     activeYourOrder: false,
     isActiveAllFoods: false,
     meals: [
-      {id:1, name: ' Prosciutto Cotto',type: 'eat', price: 20, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i szynką gotowaną', img:pizza2, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
+      {id:1, name: 'Prosciutto Cotto',type: 'eat', price: 20, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i szynką gotowaną', img:pizza2, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
       {id:2, name: 'Margherita', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne i i świeżą bazylia', img:pizza3, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
       {id:3, name: 'Salame Piccante', type: 'eat', price: 30, description:'z pomidorami San Marzano D.O.P., mozzarellą Julienne, pikantnym salami i czosnkiem', img:pizza4, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
       {id:4, name: 'Margherita di Bufala', type: 'eat', price: 10, description:'z pomidorami San Marzano D.O.P., mozzarellą z mleka bawolego i świeżą bazylią', img:pizza5, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: true,},
@@ -84,12 +84,13 @@ class App extends Component {
       {id:9, name: 'Lemoniada', type: 'drink', price: 10, description:'lemoniada', img:coffee, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
     ],
     orders:[
-      {id:1, name: 'jeden',place:'W restauracji', tableNumber:2, price: 20, number: 2, clientId: 1,  dateOfRelease:'Tue 28 2022', timeOfRelease:'18:20', status: 0, isChangeStatus:false, city: '', street:'', homeNumber: '', img:pizza2},
-      {id:2, name: 'dwa', place:'W restauracji', tableNumber:2, price: 10, number: 2, clientId: 1,  dateOfRelease:'Wed 29 2022', timeOfRelease:'18:25', status: 1, isChangeStatus:false, city: '', street:'', homeNumber: '', img:pizza1},
-      {id:3, name: 'trzy', place:'Dostawa', tableNumber:null, price: 30, number: 2, clientId: 2,  dateOfRelease:'Tue 28 2022', timeOfRelease:'17:30', status: 2, isChangeStatus:false, city: 'Kraków', street:'Krakowska', homeNumber: '13', img:pizza3},
-      {id:4, name: 'cztery', place:'W restauracji', tableNumber:9, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'18:05', status: 3, isChangeStatus:false, city: '', street:'', homeNumber: '', img:pizza1},
+      {id:1, orderID:51, nameOrder: 'Prosciutto Cotto', orderPlace:'W restauracji', orderTableNumber:2, price:20, orderPrice: 40, orderNumber: 2, orderClientId: 1,  orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'18:20', orderStatus: 0, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza2, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
+      {id:2, orderID:52, nameOrder: 'Nepoletana', orderPlace:'W restauracji', orderTableNumber:2, price:45, orderPrice: 90, orderNumber: 2, orderClientId: 1,  orderDateOfRelease:'Wed 29 2022', orderTimeOfRelease:'18:25', orderStatus: 1, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza1, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
+      {id:3, orderID:53, nameOrder: 'Margherita', orderPlace:'Dostawa', orderTableNumber:null, price:10, orderPrice: 20, orderNumber: 2, orderClientId: 2,  orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'17:30', orderStatus: 2, orderIsChangeStatus:false, orderCityClient: 'Kraków', orderStreetClient:'Krakowska', orderHomeClient: '13', orderImg:pizza3, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
+      {id:4, orderID:54, nameOrder: 'Nepoletana', orderPlace:'W restauracji', orderTableNumber:9, price:45, orderPrice: 90, orderNumber: 2, orderClientId: 3, orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'18:05', orderStatus: 3, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza1, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
       // {id:5, name: 'pięć', place:'W restauracji', tableNumber:1, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'10:05', status: 4, isChangeStatus:false,},
     ],
+    tempOrders: [],
     typeMeal: false,
     place: [
       {id:1, place:'W restauracji',image: restaurant, isActive: true, },
@@ -284,6 +285,7 @@ class App extends Component {
     this.setState({
       isActiveScreen: true,
     })
+    this.handleExpectedDeliveryTime()
   }
   // Uruchomienie wyszukiwarki
   handleStartSearch = () =>{
@@ -761,7 +763,67 @@ class App extends Component {
             currentTime: this.state.currentTime
           },
       })
-      this.handleCurrentTime();
+      // Dodawanie obiektu do orders
+      const checkedMeals = this.state.meals.filter(item => item.isChecked)
+      const yourOrder = checkedMeals;
+      
+      function arrayFromArgs() {
+        var results = [];
+        for (var i = 0; i < yourOrder.length; i++) {
+            results.push(yourOrder[i]);
+        }
+        return results;
+    
+    }
+    var ordersArr = arrayFromArgs(yourOrder);
+
+    // Obiekt przygotowany do dodawania do tablicy
+    ordersArr.forEach((e, index)=>{
+        console.log(this.state.orders.length)
+        index = index + this.state.orders.length
+        e.orderID = index;
+        e.orderNameClient = this.state.nameClient;
+        e.orderSurnameClient = this.state.surnameClient;
+        e.orderPhoneNumberClient = this.state.phoneNumberClient;
+        e.orderDate = this.state.date;
+        e.orderTime = this.state.time;
+        
+        e.nameOrder = e.name;
+        e.orderPlace = e.place;
+        e.orderNumber = e.number;
+        e.orderTableNumber = this.state.chooseTable;
+        e.orderPrice = e.price * e.number;
+        e.orderClientId = this.state.clientId;
+        // e.orderDateOfRelease = e.dateOfRelease;
+        e.orderDateOfRelease = this.state.date;
+        // e.orderTimeOfRelease = e.TimeOfRelease;
+        e.orderTimeOfRelease = this.state.time;
+        e.orderStatus = 0;
+        e.orderIsChangeStatus = false;
+        e.orderImg = e.img;
+    
+        e.orderPhoneNumberClient = this.state.phoneNumberClient;
+        e.orderCityClient = this.state.cityClient;
+        e.orderStreetClient = this.state.streetClient;
+        e.orderHomeClient = this.state.homeClient;
+    
+        
+    })
+    console.log(ordersArr)
+    // if(this.state.blikResult)
+    // ordersArr.forEach(e =>{
+    //     this.state.tempOrders.push(e)
+    // })
+    this.setState({
+      tempOrders: [...ordersArr]
+    })
+    console.log(this.state.tempOrders)
+    setTimeout(()=>{
+      this.state.orders.push(...this.state.tempOrders)
+    }, 500)
+
+    console.log(this.state.orders) 
+    this.handleCurrentTime();
     }
     // this.handleActionNotification()
     // if(this.state.randomBlikGenerateCode === this.state.blikCode){
@@ -896,18 +958,18 @@ class App extends Component {
   handleOpenStatus = (id) =>{
     const elements = this.state.orders.map(element =>{
       if(id === element.id){
-        element.isChangeStatus = true;
-         if(element.isChangeStatus === true && element.status < 4){
+        element.orderIsChangeStatus = true;
+         if(element.orderIsChangeStatus === true && element.orderStatus < 4){
            console.log('Odblokowany status')
-           element.status +=1
-           if(element.status === 4){
+           element.orderStatus +=1
+           if(element.orderStatus === 4){
   
              this.setState({
-              isChangeStatus: false
+              orderIsChangeStatus: false
              }) 
       
            }
-           console.log(element.status)
+           console.log(element.orderStatus)
          }
         //  if(element.status >= 5){
         //    console.log('Przejdź jako DONE')
@@ -1261,7 +1323,7 @@ class App extends Component {
     })
   }
   componentDidMount = ()=>{
-    this.handleExpectedDeliveryTime();
+    // this.handleExpectedDeliveryTime();
     // uruchamiane dla aktualnej godziny powiadomień
     this.handleCurrentTime();
     // this.handleActionNotification();
@@ -1387,7 +1449,7 @@ class App extends Component {
                 city={this.state.city}
                 street={this.state.street}
                 handleLogOut={this.handleLogOut}
-                
+                tempOrders={this.state.tempOrders}
               /> : null}
               
             

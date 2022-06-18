@@ -40,6 +40,7 @@ const Order = (props) => {
                     </div> 
                     </div>
                     <div className='order__elements--info'>{props.place} </div>
+                    <div className='order__elements--info'>Kwota: {props.price} PLN </div>
                     {props.tableNumber !== null ? 
                         <div className='order__elements--info'>Numer stoliku: {props.tableNumber}</div> : null 
                     }
