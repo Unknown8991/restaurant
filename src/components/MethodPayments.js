@@ -26,7 +26,8 @@ const MethodPayments = (props) => {
                         {payments}
                     </div>
                 </div>
-                {formPayments[0].id ===1 ? <MethodBlik 
+                {formPayments[0].id ===1 ? 
+                <MethodBlik 
                     handleBlikCode={props.handleBlikCode} 
                     handleChangeInputBlikCode={props.handleChangeInputBlikCode}
                     firstBlikNumber={props.firstBlikNumber}
@@ -49,7 +50,11 @@ const MethodPayments = (props) => {
                     notifications={props.notifications}
                     textNotification={props.textNotification}
                     handleActionNotification={props.handleActionNotification}
-                /> : <MethodAtLocation/>}
+                /> 
+                : 
+                <MethodAtLocation
+                    handlePaymentAtLocation={props.handlePaymentAtLocation}
+                />}
             </div> 
         : null }
 

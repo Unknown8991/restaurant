@@ -6,6 +6,7 @@ import SearchMeal from './SearchMeal';
 import HistoryOrders from './HistoryOrders';
 import SummaryOrder from './SummaryOrder';
 import NotificationContent from './NotificationContent';
+import hat from '../images/baker.png';
 
 
 const Home = (props) => {
@@ -39,7 +40,10 @@ const Home = (props) => {
     let counterNotificationUser = NotificationArrayForUser.length;
     return (
         <>
-        <div className='logo'>Restaurant</div>
+        {/* <div className='logo'>Restaurant</div> */}
+        <div className='logo'>
+            <img src={hat} alt="" />
+        </div>
         <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>
             {/* <img className='icons-app' src={notify} alt="" /> */}
             <i className="fa fa-bell-o" aria-hidden="true"></i>
@@ -133,7 +137,7 @@ const Home = (props) => {
             :
             null
         }
-        <div className="home">
+        <div className="home col-md-8">
             
             <div className={props.isHistoryActive ? 'container opacity-container' : 'container opacity-container__none col-md-11'}>
                 <div className={props.activeSearch ? "search search--active" : "search"} >
@@ -224,6 +228,7 @@ const Home = (props) => {
                 handleActionNotification={props.handleActionNotification}
                 numberHome={props.numberHome}
                 tempOrders={props.tempOrders}
+                handlePaymentAtLocation={props.handlePaymentAtLocation}
             /> : null }
                         {props.isSummaryOrder ?
                 <SummaryOrder

@@ -476,6 +476,7 @@ const YourOrder = (props) => {
                     notifications={props.notifications}
                     textNotification={props.textNotification}
                     handleActionNotification={props.handleActionNotification}
+                    handlePaymentAtLocation={props.handlePaymentAtLocation}
                 />
         </div>
      );

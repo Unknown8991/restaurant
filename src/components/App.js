@@ -25,10 +25,10 @@ class App extends Component {
     // false default
     administrator: false,
     //  false default pominięcie logowania
-    client: false,
+    client: true,
     // defaultowo loginName oraz loginPassword puste powinno być
-    loginName:'',
-    loginPassword:'',
+    loginName:'jkowalski',
+    loginPassword:'123qwe',
     // To id powinno być '', na czas pisania aplikacji default np. 1
     clientId:1,
     // false default
@@ -86,7 +86,7 @@ class App extends Component {
     orders:[
       {id:1, orderID:51, nameOrder: 'Prosciutto Cotto', orderPlace:'W restauracji', orderTableNumber:2, price:20, orderPrice: 40, orderNumber: 2, orderClientId: 1,  orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'18:20', orderStatus: 0, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza2, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
       {id:2, orderID:52, nameOrder: 'Nepoletana', orderPlace:'W restauracji', orderTableNumber:2, price:45, orderPrice: 90, orderNumber: 2, orderClientId: 1,  orderDateOfRelease:'Wed 29 2022', orderTimeOfRelease:'18:25', orderStatus: 1, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza1, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
-      {id:3, orderID:53, nameOrder: 'Margherita', orderPlace:'Dostawa', orderTableNumber:null, price:10, orderPrice: 20, orderNumber: 2, orderClientId: 2,  orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'17:30', orderStatus: 2, orderIsChangeStatus:false, orderCityClient: 'Kraków', orderStreetClient:'Krakowska', orderHomeClient: '13', orderImg:pizza3, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
+      {id:3, orderID:53, nameOrder: 'Margherita', orderPlace:'W domu', orderTableNumber:null, price:10, orderPrice: 20, orderNumber: 2, orderClientId: 2,  orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'17:30', orderStatus: 2, orderIsChangeStatus:false, orderCityClient: 'Kraków', orderStreetClient:'Krakowska', orderHomeClient: '13', orderImg:pizza3, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
       {id:4, orderID:54, nameOrder: 'Nepoletana', orderPlace:'W restauracji', orderTableNumber:9, price:45, orderPrice: 90, orderNumber: 2, orderClientId: 3, orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'18:05', orderStatus: 3, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza1, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
       // {id:5, name: 'pięć', place:'W restauracji', tableNumber:1, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'10:05', status: 4, isChangeStatus:false,},
     ],
@@ -611,12 +611,14 @@ class App extends Component {
     this.setState({
       activeYourOrder: !this.state.activeYourOrder,
     })
+    window.scrollTo(0, -1000);
   }
   handleChangeIsVege=()=>{
     this.setState({
       typeMeal: !this.state.typeMeal,
     })
   }
+ 
   // funckja obługuję zmianę statusu isActive. Przełącznik aktywnego miejsca
   handleChangePayments = (id) =>{
        const activePaymentsMethod = this.state.paymentMethod.filter(element => {
@@ -763,6 +765,9 @@ class App extends Component {
             currentTime: this.state.currentTime
           },
       })
+      // Aktywne miejsce
+      const activePalce = this.state.place.filter(item => item.isActive)
+      console.log(activePalce[0].place)
       // Dodawanie obiektu do orders
       const checkedMeals = this.state.meals.filter(item => item.isChecked)
       const yourOrder = checkedMeals;
@@ -782,14 +787,14 @@ class App extends Component {
         console.log(this.state.orders.length)
         index = index + this.state.orders.length
         e.orderID = index;
-        e.orderNameClient = this.state.nameClient;
-        e.orderSurnameClient = this.state.surnameClient;
-        e.orderPhoneNumberClient = this.state.phoneNumberClient;
+        e.orderNameClient = this.state.name;
+        e.orderSurnameClient = this.state.surname;
+        e.orderPhoneNumberClient = this.state.phoneNumber;
         e.orderDate = this.state.date;
         e.orderTime = this.state.time;
         
         e.nameOrder = e.name;
-        e.orderPlace = e.place;
+        e.orderPlace = activePalce[0].place
         e.orderNumber = e.number;
         e.orderTableNumber = this.state.chooseTable;
         e.orderPrice = e.price * e.number;
@@ -802,10 +807,10 @@ class App extends Component {
         e.orderIsChangeStatus = false;
         e.orderImg = e.img;
     
-        e.orderPhoneNumberClient = this.state.phoneNumberClient;
-        e.orderCityClient = this.state.cityClient;
-        e.orderStreetClient = this.state.streetClient;
-        e.orderHomeClient = this.state.homeClient;
+        // e.orderPhoneNumberClient = this.state.phoneNumberClient;
+        e.orderCityClient = this.state.city;
+        e.orderStreetClient = this.state.street;
+        e.orderHomeClient = this.state.numberHome;
     
         
     })
@@ -831,6 +836,85 @@ class App extends Component {
     //     blikResult: !this.state.blikResult,
     //   })
     // }
+  }
+  // Funkcja metody płatności na miejscu
+  handlePaymentAtLocation = () =>{
+    console.log('NA MIEJSCU')
+    this.setState({
+      isSummaryOrder: true,
+
+      activeYourOrder: false,
+      obj:{
+        id: this.state.counterId,
+        clientId: this.state.clientId,
+        text: 'Twoje zamówienie zostało opłacone',
+        currentTime: this.state.currentTime
+      },
+    })
+    // Aktywne miejsce
+    const activePalce = this.state.place.filter(item => item.isActive)
+    console.log(activePalce[0].place)
+    // Dodawanie obiektu do orders
+    const checkedMeals = this.state.meals.filter(item => item.isChecked)
+    const yourOrder = checkedMeals;
+    
+    function arrayFromArgs() {
+      var results = [];
+      for (var i = 0; i < yourOrder.length; i++) {
+          results.push(yourOrder[i]);
+      }
+      return results;
+  
+  }
+  var ordersArr = arrayFromArgs(yourOrder);
+
+  // Obiekt przygotowany do dodawania do tablicy
+  ordersArr.forEach((e, index)=>{
+      console.log(this.state.orders.length)
+      index = index + this.state.orders.length
+      e.orderID = index;
+      e.orderNameClient = this.state.name;
+      e.orderSurnameClient = this.state.surname;
+      e.orderPhoneNumberClient = this.state.phoneNumber;
+      e.orderDate = this.state.date;
+      e.orderTime = this.state.time;
+      
+      e.nameOrder = e.name;
+      e.orderPlace = activePalce[0].place;
+      e.orderNumber = e.number;
+      e.orderTableNumber = this.state.chooseTable;
+      e.orderPrice = e.price * e.number;
+      e.orderClientId = this.state.clientId;
+      // e.orderDateOfRelease = e.dateOfRelease;
+      e.orderDateOfRelease = this.state.date;
+      // e.orderTimeOfRelease = e.TimeOfRelease;
+      e.orderTimeOfRelease = this.state.time;
+      e.orderStatus = 0;
+      e.orderIsChangeStatus = false;
+      e.orderImg = e.img;
+  
+      // e.orderPhoneNumberClient = this.state.phoneNumberClient;
+      e.orderCityClient = this.state.city;
+      e.orderStreetClient = this.state.street;
+      e.orderHomeClient = this.state.numberHome;
+  
+      
+  })
+  console.log(ordersArr)
+  // if(this.state.blikResult)
+  // ordersArr.forEach(e =>{
+  //     this.state.tempOrders.push(e)
+  // })
+  this.setState({
+    tempOrders: [...ordersArr]
+  })
+  console.log(this.state.tempOrders)
+  setTimeout(()=>{
+    this.state.orders.push(...this.state.tempOrders)
+  }, 500)
+
+  console.log(this.state.orders) 
+  this.handleCurrentTime();
   }
   // Funkcja obsługująca przycisk SAVE, waliduje formularz i zmieniająca stan saveForm
   handleSaveForm = () =>{
@@ -1450,6 +1534,7 @@ class App extends Component {
                 street={this.state.street}
                 handleLogOut={this.handleLogOut}
                 tempOrders={this.state.tempOrders}
+                handlePaymentAtLocation={this.handlePaymentAtLocation}
               /> : null}
               
             

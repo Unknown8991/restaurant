@@ -15,7 +15,7 @@ const NotificationContent = (props) => {
     // console.log(NotificationArrayForUser.length)
     return ( 
 
-        <div className='profile-box__notification-content'>
+        <div className='profile-box__notification-content col-md-7'>
         <div className='container notification-content__header'>
             <div className='row '>
                 <div className='profile-box__counter--text col-10'>Powiadomienia</div>

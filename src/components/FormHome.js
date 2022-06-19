@@ -3,57 +3,59 @@ import delivery from '../icons/delivery.png';
 
 const FormHome = (props) => {
     return ( 
-        <>        
-        <form className="col-12 input-form">
-        <input 
-            onChange={props.handleChange} 
-            name="username"  
-            className="input-form__item" 
-            type="text"  
-            placeholder="Imię"
-            value={props.nameClient}
-        />
-        <input 
-            onChange={props.handleChange} 
-            name="user-surname"  
-            className="input-form__item" 
-            type="text"  
-            placeholder="Nazwisko"
-            value={props.surnameClient}
-        />
-        <input 
-            onChange={props.handleChange} 
-            name="phone"  
-            className="input-form__item" 
-            type="text"  
-            placeholder="Numer telefonu"
-            value={props.phoneNumberClient}
-        />
-        <input 
-            onChange={props.handleChange} 
-            name="city"  
-            className="input-form__item" 
-            type="text"  
-            placeholder="Miasto"
-            value={props.cityClient}
-        />
-        <input 
-            onChange={props.handleChange} 
-            name="street"  
-            className="input-form__item" 
-            type="text"  
-            placeholder="Ulica"
-            value={props.streetClient}
-        />
-        <input 
-            onChange={props.handleChange} 
-            name="numberHome"  
-            className="input-form__item" 
-            type="text"  
-            placeholder="Numer budynku"
-            value={props.homeClient}
-        />
-    </form>
+        <> 
+        <div className='form-center'>
+                <form className="col-10 input-form">
+                <input 
+                    onChange={props.handleChange} 
+                    name="username"  
+                    className="input-form__item" 
+                    type="text"  
+                    placeholder="Imię"
+                    value={props.nameClient}
+                />
+                <input 
+                    onChange={props.handleChange} 
+                    name="user-surname"  
+                    className="input-form__item" 
+                    type="text"  
+                    placeholder="Nazwisko"
+                    value={props.surnameClient}
+                />
+                <input 
+                    onChange={props.handleChange} 
+                    name="phone"  
+                    className="input-form__item" 
+                    type="text"  
+                    placeholder="Numer telefonu"
+                    value={props.phoneNumberClient}
+                />
+                <input 
+                    onChange={props.handleChange} 
+                    name="city"  
+                    className="input-form__item" 
+                    type="text"  
+                    placeholder="Miasto"
+                    value={props.cityClient}
+                />
+                <input 
+                    onChange={props.handleChange} 
+                    name="street"  
+                    className="input-form__item" 
+                    type="text"  
+                    placeholder="Ulica"
+                    value={props.streetClient}
+                />
+                <input 
+                    onChange={props.handleChange} 
+                    name="numberHome"  
+                    className="input-form__item" 
+                    type="text"  
+                    placeholder="Numer budynku"
+                    value={props.homeClient}
+                />
+            </form>
+        </div>       
     {props.cityClient === "" ? 
     null
     :
