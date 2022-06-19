@@ -20,15 +20,22 @@ const formPlace = props.place.filter(item => item.isActive);
     ))
     return ( 
         <>
-            <div className="header">
-                Gdzie będziesz spożywał swój posiłek?
-            </div>
-            <div className='col-md-12 place__center'>
-                <div className="col-12 col-md-6 place">
-                    {places}
+        {props.isYourOrder ?
+            <>
+                <div className="header">
+                    Gdzie będziesz spożywał swój posiłek?
                 </div>
+                <div className='col-md-12 place__center'>
+                    <div className="col-12 col-md-6 place">
+                        {places}
+                    </div>
 
-            </div>
+                </div>
+            </>        
+            :
+            null
+        }
+
             <>
                 { formPlace[0].id === 1 ? 
                 <FormRestaurant 
@@ -48,6 +55,7 @@ const formPlace = props.place.filter(item => item.isActive);
                     name={props.nameClient}
                     surname={props.surnameClient}
                     phone={props.phoneNumberClient}
+                    isYourOrder={props.isYourOrder}
                 />
                 : 
                 <FormHome 
@@ -63,13 +71,18 @@ const formPlace = props.place.filter(item => item.isActive);
                     streetClient={props.streetClient}
                     homeClient={props.homeClient}
                     textDateForDelivery={props.textDateForDelivery}
+                    isYourOrder={props.isYourOrder}
                 /> }
             </>
-            <div className="button-container button-container--center">
-                <button className="action-button action-button--revert" onClick={props.handleSaveForm}>
-                    {props.saveForm ? "Nie zapisuj":'Zapisz' }
-                </button>
-            </div>
+            {props.isYourOrder ?            
+                <div className="button-container button-container--center">
+                    <button className="action-button action-button--revert" onClick={props.handleSaveForm}>
+                        {props.saveForm ? "Nie zapisuj":'Zapisz' }
+                    </button>
+                </div>
+                :
+                null
+            }
         </>
      );
 }

@@ -6,7 +6,8 @@ const FormRestaurant = (props) => {
 
     return ( 
         <>
-        <div className='form-center'>
+        {props.isYourOrder ? 
+            <div className='form-center'>
             <form className={props.saveForm ? 'input-form input-form__visibility' : 'col-10 input-form'}>   
                     
                 <div className="col-12 header--form">Dane osobiste</div>
@@ -79,6 +80,10 @@ const FormRestaurant = (props) => {
                 <div className="col-12 form-info--reservation">Rezerwacja stolika kosztuje 5 PLN</div>
             </form>
         </div>
+            :
+        null  
+        }
+        
         {props.saveForm ? <div className="col-8 save-form">Twoje dane zostały zapisane
         <br />
         <div className="cancel-save" onClick={props.handleSaveForm}>Anuluj</div>

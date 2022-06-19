@@ -1535,6 +1535,7 @@ class App extends Component {
                 handleLogOut={this.handleLogOut}
                 tempOrders={this.state.tempOrders}
                 handlePaymentAtLocation={this.handlePaymentAtLocation}
+                isYourOrder={this.state.isYourOrder}
               /> : null}
               
             

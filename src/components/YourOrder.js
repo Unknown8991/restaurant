@@ -329,48 +329,10 @@ const YourOrder = (props) => {
                     <div className="bar" onClick={props.changeActiveYourOrder}></div>
                     <div className="col-12 your-order__text">
                         Twoje zamówienie 
-                        {/* <img className='icons-app' src={order} alt="" />  */}
-                        
-            
                     </div>
                 </div>
                     {/* {orders} */}
                 {props.activeYourOrder ? <div className="container col-md-10">
-
-                {/* <div className="header header--summary">Summary</div>
-                <div className="col-12 order-summary">
-                    <div className="order-summary__text">Your order</div>
-                    {listMeals}
-                    <div className="divider"></div>
-                    <div className="col-12 order-summary__list-item">
-                        <div className="col-9 item-order-name">Total</div>
-                        <div className="col-3 item-order-cost item-order-cost--total">{total} PLN</div>
-                    </div>
-                </div>
-
-                    {activeOrder[0].id === 1 ? 
-                        <div className="col-12 order-summary">
-                        <div className="order-summary__text">Personal details</div>
-                            <div className="col-12 order-summary__client-info">Name: {props.nameClient}</div>
-                            <div className="col-12 order-summary__client-info">Surname: {props.surnameClient}</div>
-                            <div className="col-12 order-summary__client-info">Phone number: {props.phoneNumberClient}</div>
-                            <div className="col-12 order-summary__client-info">Hour: {props.time}</div>
-                            <div className="col-12 order-summary__client-info">Date reservation: {props.date}</div>
-                        </div>
-                    :
-                    <div className="col-12 order-summary">
-                    <div className="order-summary__text">Personal details</div>
-                        <div>Name: {props.nameClient}</div>
-                        <div>Surname: {props.surnameClient}</div>
-                        <div>Phone number: {props.phoneNumberClient}</div>
-                        <div>City: {props.cityClient}</div>
-                        <div>Street: {props.streetClient}</div>
-                        <div>Home number: {props.homeClient}</div>
-                    </div>
-                    } */}
-
-                    {/* test */}
-
 
                     <div className="header header--summary">Podsumowanie</div>
                     <div className="container-your-order-summary">
@@ -418,38 +380,8 @@ const YourOrder = (props) => {
                 </div>
                 </div>
 
-                {/* <div className="col-12 order-summary">
-                    <div className="order-summary__text">Order summary</div>
-                    <div className="order-summary__list">
-                        <li className="col-12 order-summary__list-item">
-                            <div className="col-9 item-order-name">Hamburger Onion</div>
-                            <div className="col-3 item-order-cost">13 PLN</div>
-                        </li>
-                        <li className="col-12 order-summary__list-item">
-                            <div className="col-9 item-order-name">Coca cola</div>
-                            <div className="col-3 item-order-cost">7 PLN</div>
-                        </li>
-                        <li className="col-12 order-summary__list-item">
-                            <div className="col-9 item-order-name">Delivery</div>
-                            <div className="col-3 item-order-cost">10 PLN</div>
-                        </li>
-                        <div className="divider"></div>
-                        <li className="col-12 order-summary__list-item">
-                            <div className="col-9 item-order-name">Total</div>
-                            <div className="col-3 item-order-cost">30 PLN</div>
-                        </li>
-                    </div>
-                </div> */}
-
-                {/* <div className="col-12 order-summary">
-                    <div className="order-summary__text">Personal details</div>
-                        <div>Name: {props.nameClient}</div>
-                        <div>Surname: {props.surnameClient}</div>
-                        <div>Phone number: {props.phoneNumberClient}</div>
-                        <div>Hour: {props.time}</div>
-                        <div>Date reservation: {props.date}</div>
-                </div> */}
                 </div> : null}
+
                 <MethodPayments 
                     paymentMethod={props.paymentMethod} 
                     changePayments={props.changePayments} 
@@ -477,6 +409,7 @@ const YourOrder = (props) => {
                     textNotification={props.textNotification}
                     handleActionNotification={props.handleActionNotification}
                     handlePaymentAtLocation={props.handlePaymentAtLocation}
+                    saveForm={props.saveForm}
                 />
         </div>
      );

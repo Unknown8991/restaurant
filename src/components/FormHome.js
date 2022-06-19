@@ -4,7 +4,8 @@ import delivery from '../icons/delivery.png';
 const FormHome = (props) => {
     return ( 
         <> 
-        <div className='form-center'>
+        {props.isYourOrder ?
+                <div className='form-center'>
                 <form className="col-10 input-form">
                 <input 
                     onChange={props.handleChange} 
@@ -55,7 +56,11 @@ const FormHome = (props) => {
                     value={props.homeClient}
                 />
             </form>
-        </div>       
+        </div>
+            :
+            null
+        }
+       
     {props.cityClient === "" ? 
     null
     :

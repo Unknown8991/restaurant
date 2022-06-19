@@ -7,6 +7,7 @@ import HistoryOrders from './HistoryOrders';
 import SummaryOrder from './SummaryOrder';
 import NotificationContent from './NotificationContent';
 import hat from '../images/baker.png';
+import ad from '../images/payment-img.jpg';
 
 
 const Home = (props) => {
@@ -42,7 +43,7 @@ const Home = (props) => {
         <>
         {/* <div className='logo'>Restaurant</div> */}
         <div className='logo'>
-            <img src={hat} alt="" />
+            <img src={hat} className="baker" alt="" />
         </div>
         <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>
             {/* <img className='icons-app' src={notify} alt="" /> */}
@@ -150,6 +151,9 @@ const Home = (props) => {
                             {searchName}
                         </div>
                     </div>
+                    <div className='col-12 advertisement'>
+                        <img className='advertisement__image' src={ad} alt="" />
+                    </div>
             <Menu 
                 meals={props.meals} 
                 vege={props.vege} 
@@ -186,6 +190,7 @@ const Home = (props) => {
                 tables={props.tables}
                 handleClosedTablesView={props.handleClosedTablesView}
                 handleCheckedTable={props.handleCheckedTable}
+                isYourOrder={props.isYourOrder}
             />
             </div>
             {props.yourOrder ? 
@@ -229,6 +234,7 @@ const Home = (props) => {
                 numberHome={props.numberHome}
                 tempOrders={props.tempOrders}
                 handlePaymentAtLocation={props.handlePaymentAtLocation}
+                saveForm={props.saveForm}
             /> : null }
                         {props.isSummaryOrder ?
                 <SummaryOrder
