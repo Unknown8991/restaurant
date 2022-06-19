@@ -761,6 +761,10 @@ html{
 .baker{
   width: 70px;
   height: 80px;
+  @media screen and (min-width: 800px) {
+    width: 100px;
+    height: 110px;
+  }
 }
 .logo{
   position: absolute;
@@ -1628,13 +1632,42 @@ html{
   }
 }
 .advertisement{
-    height: 150px;
+    height: 180px;
     background: #FF3D3D;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    
+    @media screen and (min-width: 800px) {
+      height: 390px;
+    }
     &__image{
       height: 100%;
       width: 100%;
+      border-radius: 12px;
+      filter: brightness(70%);
+    }
+    &__text{
+      background: #FF3D3D;
+      margin-top: -50px;
+      position: absolute;
+      width: 70%;
+      border-bottom-right-radius: 12px;
+      border-top-right-radius: 12px;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.9;
+      @media screen and (min-width: 800px) {
+        height: 40px;
+        font-size: 23px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    &__center{
+      display: flex;
+      justify-content: center;
     }
 }
 .your-order{
@@ -2042,6 +2075,7 @@ margin-bottom: 20px;
   border-radius: 10px;
   left: 50%;
   transform: translate(-50%);
+  z-index: 3;
 }
 .items-search{
   display: flex;

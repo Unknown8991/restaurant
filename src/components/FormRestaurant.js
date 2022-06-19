@@ -8,7 +8,7 @@ const FormRestaurant = (props) => {
         <>
         {props.isYourOrder ? 
             <div className='form-center'>
-            <form className={props.saveForm ? 'input-form input-form__visibility' : 'col-10 input-form'}>   
+            <form className={props.saveForm ? 'input-form input-form__visibility' : 'col-md-10 col-12 input-form'}>   
                     
                 <div className="col-12 header--form">Dane osobiste</div>
                 <input 
@@ -86,7 +86,7 @@ const FormRestaurant = (props) => {
         
         {props.saveForm ? <div className="col-8 save-form">Twoje dane zostały zapisane
         <br />
-        <div className="cancel-save" onClick={props.handleSaveForm}>Anuluj</div>
+        <div className="cancel-save" onClick={props.handleCancelSaveForm}>Anuluj</div>
         </div> : null}   
         </>
      );

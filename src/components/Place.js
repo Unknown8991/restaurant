@@ -56,6 +56,7 @@ const formPlace = props.place.filter(item => item.isActive);
                     surname={props.surnameClient}
                     phone={props.phoneNumberClient}
                     isYourOrder={props.isYourOrder}
+                    handleCancelSaveForm={props.handleCancelSaveForm}
                 />
                 : 
                 <FormHome 
@@ -72,6 +73,7 @@ const formPlace = props.place.filter(item => item.isActive);
                     homeClient={props.homeClient}
                     textDateForDelivery={props.textDateForDelivery}
                     isYourOrder={props.isYourOrder}
+                    handleCancelSaveForm={props.handleCancelSaveForm}
                 /> }
             </>
             {props.isYourOrder ?            

@@ -139,6 +139,12 @@ class App extends Component {
     showBlikContent: false,
     blikResult:false,
     saveForm: false,
+    // dodać do czyśzczenia
+    valid1: false,
+    valid2: false,
+    valid3: false,
+    valid4: false,
+    valid5: false,
     searchMeal:'',
     deliveryTime: '',
     randomDeliveryTime: 0,
@@ -918,10 +924,7 @@ class App extends Component {
   }
   // Funkcja obsługująca przycisk SAVE, waliduje formularz i zmieniająca stan saveForm
   handleSaveForm = () =>{
-  // Aktualizacja state saveForm
-    this.setState({
-      saveForm: !this.state.saveForm,
-    })
+
     
     // --Walidacja formularza--
     let cName = this.state.name;
@@ -934,12 +937,28 @@ class App extends Component {
     // Sprawdzenie czy na początku inputa znajduje się spacja
     if(cName.indexOf(' ') === 0 || cSurname.indexOf(' ') === 0 || cPhoneNumber.indexOf(' ') === 0){
       console.log('Spacja jest na początku')
+      alert('Sprawdź czy w którymś polu nie wpisałeś spacji');
+      this.setState({
+        valid1: false,
+      })
+    }else{
+      this.setState({
+        valid1: true,
+      })
     }
 
     // 1.1
     // Sprawdzenie czy inpucie znajduje się spacja
     if(cName.includes(' ') || cSurname.includes(' ')){
       console.log("W środku jest spacja")
+      alert('Pole imię lub nazwisko zawiera spację');
+      this.setState({
+        valid2: false,
+      })
+    } else{
+      this.setState({
+        valid2: true,
+      })
     }
 
     // 2.
@@ -947,9 +966,21 @@ class App extends Component {
     if(cName.includes("1") || cName.includes("2") || cName.includes("3") ||
        cName.includes("4") || cName.includes("5") || cName.includes("6") ||
        cName.includes("7") || cName.includes("8") || cName.includes("9") || 
-       cName.includes("0"))
-    {
-        console.log('Błąd - Znajduje się cyfra')
+       cName.includes("0") ||
+       cSurname.includes("1") || cSurname.includes("2") || cSurname.includes("3") ||
+       cSurname.includes("4") || cSurname.includes("5") || cSurname.includes("6") ||
+       cSurname.includes("7") || cSurname.includes("8") || cSurname.includes("9") || 
+       cSurname.includes("0")
+       ){
+        console.log('Błąd - Znajduje się cyfra');
+        alert('Pole imię lub nazwisko zawiera cyfry');
+        this.setState({
+          valid3: false,
+        })
+    } else{
+      this.setState({
+        valid3: true,
+      })
     }
 
     //3. 
@@ -958,8 +989,15 @@ class App extends Component {
 
       if(this.state.name === '' || this.state.surname === '' || this.state.phoneNumber === ''){
         console.log('Formularz nie jest uzupełniony, proszę uzupełnić wszystkie pola')
+        alert('Sprawdź formularz, nie wszystkie pola zostały uzupełnione');
+        this.setState({
+          valid4: false,
+        })
       }else {
         console.log('Formularz poprawnie uzupełniony');
+        this.setState({
+          valid4: true,
+        })
       }
 
     }else if(this.state.place[1].isActive === true){
@@ -972,9 +1010,32 @@ class App extends Component {
     const found = cPhoneNumber.match(regex);
     if(found !== null && found.length > 0){
       console.log('Błąd - w numerze telefonu są litery');
+      alert('Numer telefonu nie może zawierać liter');
+      this.setState({
+        valid5: false,
+      })
     }else{
       console.log('Jest ok')
-    }    
+      this.setState({
+        valid5: true,
+      })
+    }
+    if(this.state.valid1 === true && this.state.valid2 === true && this.state.valid3 === true && this.state.valid4 === true && this.state.valid5 === true){       // Aktualizacja state saveForm
+        this.setState({
+          // saveForm: !this.state.saveForm,
+          saveForm: true,
+        })
+    } else{
+      this.setState({
+        saveForm: false
+      })
+    }
+  }
+  // Anulowanie saveForm
+  handleCancelSaveForm = () =>{
+    this.setState({
+      saveForm: false,
+    })
   }
   //Funkcja ustalająca godzinę dostawy (losowa wartość z przedziału od 15-45 min + obecny czas)
   handleExpectedDeliveryTime = ()=>{
@@ -1536,6 +1597,7 @@ class App extends Component {
                 tempOrders={this.state.tempOrders}
                 handlePaymentAtLocation={this.handlePaymentAtLocation}
                 isYourOrder={this.state.isYourOrder}
+                handleCancelSaveForm={this.handleCancelSaveForm}
               /> : null}
               
             

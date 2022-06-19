@@ -7,7 +7,8 @@ import HistoryOrders from './HistoryOrders';
 import SummaryOrder from './SummaryOrder';
 import NotificationContent from './NotificationContent';
 import hat from '../images/baker.png';
-import ad from '../images/payment-img.jpg';
+// import ad from '../images/payment-img.jpg';
+import ad from '../images/chef-meal.jpg';
 
 
 const Home = (props) => {
@@ -151,8 +152,13 @@ const Home = (props) => {
                             {searchName}
                         </div>
                     </div>
-                    <div className='col-12 advertisement'>
-                        <img className='advertisement__image' src={ad} alt="" />
+                    <div className='advertisement__center'>
+                        <div className='col-12 col-md-10 advertisement'>
+                            <img className='advertisement__image' src={ad} alt="" />
+                            <div className='advertisement__text'>
+                                Odwiedź nasza restaurację lub zamów do domu
+                            </div>
+                        </div>
                     </div>
             <Menu 
                 meals={props.meals} 
@@ -191,6 +197,7 @@ const Home = (props) => {
                 handleClosedTablesView={props.handleClosedTablesView}
                 handleCheckedTable={props.handleCheckedTable}
                 isYourOrder={props.isYourOrder}
+                handleCancelSaveForm={props.handleCancelSaveForm}
             />
             </div>
             {props.yourOrder ? 

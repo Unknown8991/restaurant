@@ -6,7 +6,7 @@ const FormHome = (props) => {
         <> 
         {props.isYourOrder ?
                 <div className='form-center'>
-                <form className="col-10 input-form">
+                <form className="col-md-10 col-12 input-form">
                 <input 
                     onChange={props.handleChange} 
                     name="username"  
