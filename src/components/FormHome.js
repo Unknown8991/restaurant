@@ -6,7 +6,8 @@ const FormHome = (props) => {
         <> 
         {props.isYourOrder ?
                 <div className='form-center'>
-                <form className="col-md-10 col-12 input-form">
+                {/* <form className="col-md-10 col-12 input-form"> */}
+                <form className={props.saveForm ? 'input-form input-form__visibility' : 'col-md-10 col-12 input-form'}>
                 <input 
                     onChange={props.handleChange} 
                     name="username"  
@@ -30,6 +31,7 @@ const FormHome = (props) => {
                     type="text"  
                     placeholder="Numer telefonu"
                     value={props.phoneNumberClient}
+                    maxLength="9"
                 />
                 <input 
                     onChange={props.handleChange} 
@@ -82,9 +84,11 @@ const FormHome = (props) => {
             </div>
         </div>
     </div>
-    
-        
     }
+     {props.saveForm ? <div className="col-8 save-form">Twoje dane zostały zapisane
+        <br />
+        <div className="cancel-save" onClick={props.handleCancelSaveForm}>Anuluj</div>
+        </div> : null} 
 
         </>
      );

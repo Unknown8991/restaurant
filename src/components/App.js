@@ -145,6 +145,12 @@ class App extends Component {
     valid3: false,
     valid4: false,
     valid5: false,
+
+    valid6: false,
+    valid7: false,
+    valid8: false,
+    valid9: false,
+    valid10: false,
     searchMeal:'',
     deliveryTime: '',
     randomDeliveryTime: 0,
@@ -931,6 +937,13 @@ class App extends Component {
     let cSurname = this.state.surname;
     let cPhoneNumber = this.state.phoneNumber;
 
+    let cName2 = this.state.name;
+    let cSurname2 = this.state.surname;
+    let cPhoneNumber2 = this.state.phoneNumber;
+    let ccity2 = this.state.city;
+    let cstreet2 = this.state.street;
+    let chome2 = this.state.numberHome;
+
     //
 
     // 1.
@@ -944,6 +957,20 @@ class App extends Component {
     }else{
       this.setState({
         valid1: true,
+      })
+    }
+    // 2 FORMULARZ
+    if(cName2.indexOf(' ') === 0 || cSurname2.indexOf(' ') === 0 || cPhoneNumber2.indexOf(' ') === 0
+      || ccity2.indexOf(' ') === 0 || cstreet2.indexOf(' ') === 0 || chome2.indexOf(' ') === 0
+      ){
+      console.log('Spacja jest na początku')
+      alert('Sprawdź czy w którymś polu nie wpisałeś spacji');
+      this.setState({
+        valid6: false,
+      })
+    }else{
+      this.setState({
+        valid6: true,
       })
     }
 
@@ -960,7 +987,18 @@ class App extends Component {
         valid2: true,
       })
     }
-
+    //  2 FORMULARZ
+    if(cName2.includes(' ') || cSurname2.includes(' ')){
+      console.log("W środku jest spacja")
+      alert('Pole imię lub nazwisko zawiera spację');
+      this.setState({
+        valid7: false,
+      })
+    } else{
+      this.setState({
+        valid7: true,
+      })
+    }
     // 2.
     // Sprawdzenie czy imię i nazwisko zawiera cyfry
     if(cName.includes("1") || cName.includes("2") || cName.includes("3") ||
@@ -982,7 +1020,26 @@ class App extends Component {
         valid3: true,
       })
     }
-
+    // 2 FORMULARZ
+    if(cName2.includes("1") || cName2.includes("2") || cName2.includes("3") ||
+    cName2.includes("4") || cName2.includes("5") || cName2.includes("6") ||
+    cName2.includes("7") || cName2.includes("8") || cName2.includes("9") || 
+    cName2.includes("0") ||
+    cSurname2.includes("1") || cSurname2.includes("2") || cSurname2.includes("3") ||
+    cSurname2.includes("4") || cSurname2.includes("5") || cSurname2.includes("6") ||
+    cSurname2.includes("7") || cSurname2.includes("8") || cSurname2.includes("9") || 
+    cSurname2.includes("0")
+    ){
+     console.log('Błąd - Znajduje się cyfra');
+     alert('Pole imię lub nazwisko zawiera cyfry');
+     this.setState({
+      valid8: false,
+     })
+ } else{
+   this.setState({
+    valid8: true,
+   })
+ }
     //3. 
     // Sprawdzenie czy wszystkie pola są uzupełnione
     if(this.state.place[0].isActive === true){
@@ -1008,6 +1065,7 @@ class App extends Component {
     // Sprawdzenie czy w inpucie znajdują się tylko cyfry
     const regex = /[A-Za-z]/g;
     const found = cPhoneNumber.match(regex);
+    const found2 = cPhoneNumber2.match(regex);
     if(found !== null && found.length > 0){
       console.log('Błąd - w numerze telefonu są litery');
       alert('Numer telefonu nie może zawierać liter');
@@ -1020,7 +1078,23 @@ class App extends Component {
         valid5: true,
       })
     }
-    if(this.state.valid1 === true && this.state.valid2 === true && this.state.valid3 === true && this.state.valid4 === true && this.state.valid5 === true){       // Aktualizacja state saveForm
+    //  2 FORMULARZ
+    if(found2 !== null && found2.length > 0){
+      console.log('Błąd - w numerze telefonu są litery');
+      alert('Numer telefonu nie może zawierać liter');
+      this.setState({
+        valid10: false,
+      })
+    }else{
+      console.log('Jest ok')
+      this.setState({
+        valid10: true,
+      })
+    }
+
+    if(this.state.valid1 === true && this.state.valid2 === true && this.state.valid3 === true && this.state.valid4 === true && this.state.valid5 === true
+        && (this.state.valid6 === true && this.state.valid7 === true && this.state.valid8 === true && this.state.valid10 === true)
+      ){       // Aktualizacja state saveForm
         this.setState({
           // saveForm: !this.state.saveForm,
           saveForm: true,
@@ -1030,6 +1104,17 @@ class App extends Component {
         saveForm: false
       })
     }
+    // 
+  //   if(this.state.valid6 === true && this.state.valid7 === true && this.state.valid8 === true && this.state.valid10 === true){       // Aktualizacja state saveForm
+  //     this.setState({
+  //       // saveForm: !this.state.saveForm,
+  //       saveForm: true,
+  //     })
+  // } else{
+  //   this.setState({
+  //     saveForm: false
+  //   })
+  // }
   }
   // Anulowanie saveForm
   handleCancelSaveForm = () =>{
