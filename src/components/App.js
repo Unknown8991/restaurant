@@ -16,6 +16,7 @@ import pizza2 from '../images/pizza-2.jpg';
 import pizza3 from '../images/pizza-3.png';
 import pizza4 from '../images/pizza-4.png';
 import pizza5 from '../images/pizza-5.png';
+import baker from '../images/baker.png';
 
 
 
@@ -25,10 +26,10 @@ class App extends Component {
     // false default
     administrator: false,
     //  false default pominięcie logowania
-    client: true,
+    client: false,
     // defaultowo loginName oraz loginPassword puste powinno być
-    loginName:'jkowalski',
-    loginPassword:'123qwe',
+    loginName:'',
+    loginPassword:'',
     // To id powinno być '', na czas pisania aplikacji default np. 1
     clientId:1,
     // false default
@@ -1564,6 +1565,9 @@ class App extends Component {
       <>
       
       <div className={this.state.client=== true || this.state.administrator ? "container-choice-user--active-client" : "container-choice-user " }>
+      <div className='baker-login'>
+                <img className='baker-login__val' src={baker} alt="" />
+            </div>
         <div className='user-panel col-11 col-md-4'>
           {/* <div className='col-12 logo-restaurant'>Restaurant</div> */}
           <LoginPanel

@@ -76,11 +76,22 @@ const formPlace = props.place.filter(item => item.isActive);
                     handleCancelSaveForm={props.handleCancelSaveForm}
                 /> }
             </>
-            {props.isYourOrder ?            
+            {/* {props.isYourOrder ?            
                 <div className="button-container button-container--center">
                     <button className="action-button action-button--revert" onClick={props.handleSaveForm}>
                         {props.saveForm ? "Nie zapisuj":'Zapisz' }
                     </button>
+                </div>
+                :
+                null
+            } */}
+            {props.isYourOrder ?            
+                <div className="button-container button-container--center">
+                    {!props.saveForm ? 
+                        <button className="action-button action-button--revert" onClick={props.handleSaveForm}>Zapisz</button>
+                        :    
+                        null
+                    }
                 </div>
                 :
                 null

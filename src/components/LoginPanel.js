@@ -1,7 +1,9 @@
 import React from 'react';
+import baker from '../images/baker.png';
 
 const LoginPanel = (props) => {
     return ( 
+
         <>        
         <div className= {props.isRegister ? 'login--hidden' : 'login'}>
             <div className='login__text'>LOGOWANIE</div>

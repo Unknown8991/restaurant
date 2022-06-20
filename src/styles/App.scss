@@ -14,8 +14,23 @@
     }
   
 }
+.baker-login{
+  position:fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  @media screen and(min-width:800px) {
+    top: 15%;
+    left: 50%;
+  }
+  &__val{
+    width: 150px;
+    height: 150px;
+  }
+}
 .container-choice-user{
-  background: #FF3D3D;
+  // background: #FF3D3D;
+  background: linear-gradient(150deg,#FF3D3D,  #fd4848,#ffc1c1);
   height: 100vh;
   width: 100%;
   position: relative;
@@ -39,7 +54,7 @@
     padding: 20px 0px;
 
     @media screen and (min-width: 800px) {
-      font-size: 25px;
+      font-size: 40px;
       
     }
 
@@ -96,6 +111,9 @@
     text-align: center;
     padding-bottom: 10px;
     cursor: pointer;
+    @media screen and(min-width:800px) {
+      font-size: 20px;
+    }
   }
   &--info{
     text-align: center;
@@ -178,7 +196,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  background: white;
+  // background: white;
+  background: rgba(255, 255, 255, 0.973);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -2266,7 +2285,7 @@ margin-bottom: 20px;
   overflow-y:scroll ;
   @media screen and (min-width: 800px) {
     margin: 15px 0px;
-    width: 70%;
+    width: 60%;
     scrollbar-width: thin;
     height: 350px;
   }
