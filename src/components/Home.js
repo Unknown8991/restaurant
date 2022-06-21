@@ -9,6 +9,8 @@ import NotificationContent from './NotificationContent';
 import hat from '../images/baker.png';
 // import ad from '../images/payment-img.jpg';
 import ad from '../images/chef-meal.jpg';
+import meal from '../images/meal.jpg';
+
 
 
 const Home = (props) => {
@@ -140,7 +142,7 @@ const Home = (props) => {
             null
         }
         <div className="home col-md-8">
-            
+
             <div className={props.isHistoryActive ? 'container opacity-container' : 'container opacity-container__none col-md-11'}>
                 <div className={props.activeSearch ? "search search--active" : "search"} >
                     <i className="fa fa-search" aria-hidden="true"></i>
@@ -152,14 +154,30 @@ const Home = (props) => {
                             {searchName}
                         </div>
                     </div>
-                    <div className='advertisement__center'>
+                    <div className='advertisement__center col-12 col-md-12'>
+                        <div className='col-12 col-md-5 advertisement'>
+                            <img className='advertisement__image' src={ad} alt="" />
+                            <div className='advertisement__text'>
+                                Odwiedź naszą restaurację lub zamów do domu
+                            </div>
+                        </div>
+                        <div className='col-12 col-md-5 advertisement none-ad'>
+                            <img className='advertisement__image' src={meal} alt="" />
+                            <div className='col-12 advertisement__text--right'>
+                            <div className='advertisement__text advertisement__text--right'>
+                                Produkty najwyższej jakości!
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div className='advertisement__center'>
                         <div className='col-12 col-md-10 advertisement'>
                             <img className='advertisement__image' src={ad} alt="" />
                             <div className='advertisement__text'>
                                 Odwiedź nasza restaurację lub zamów do domu
                             </div>
                         </div>
-                    </div>
+                    </div> */}
             <Menu 
                 meals={props.meals} 
                 vege={props.vege} 
@@ -242,6 +260,7 @@ const Home = (props) => {
                 tempOrders={props.tempOrders}
                 handlePaymentAtLocation={props.handlePaymentAtLocation}
                 saveForm={props.saveForm}
+                isLoadingCooking={props.isLoadingCooking}
             /> : null }
                         {props.isSummaryOrder ?
                 <SummaryOrder

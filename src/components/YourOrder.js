@@ -1,7 +1,7 @@
 import React from 'react';
 import MethodPayments from './MethodPayments';
 import order from '../icons/shopping-bag.png';
-
+import loadingCooking from '../images/cooking.png';
 
 const YourOrder = (props) => {
 
@@ -324,6 +324,9 @@ const YourOrder = (props) => {
     return ( 
         <div className={props.activeYourOrder ? "your-order your-order--full-screen" : "your-order"} >
 
+                <div className={props.isLoadingCooking ? 'your-order-opacity' : null}>
+
+
                 <div onClick={props.changeActiveYourOrder}>
 
                     <div className="bar" onClick={props.changeActiveYourOrder}></div>
@@ -331,6 +334,7 @@ const YourOrder = (props) => {
                         Twoje zamówienie 
                     </div>
                 </div>
+
                     {/* {orders} */}
                 {props.activeYourOrder ? <div className="container col-md-10">
 
@@ -411,6 +415,18 @@ const YourOrder = (props) => {
                     handlePaymentAtLocation={props.handlePaymentAtLocation}
                     saveForm={props.saveForm}
                 />
+                </div>
+            {/* loading */}
+            {props.isLoadingCooking ? 
+                <div className='loading-cook'>
+                    <div className='loading-cook__item'>
+                        <img className='loading-cook__picture' src={loadingCooking} alt="" />
+                        <div>Ładowanie...</div>
+                    </div>
+                </div>
+            :
+            null}
+                
         </div>
      );
 }

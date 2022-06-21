@@ -79,6 +79,7 @@ const FormRestaurant = (props) => {
                 <div className="col-12 form-info">Aby anulować rezerwację zadzwoń pod numer: 890 213 412</div>
                 <div className="col-12 form-info--reservation">Rezerwacja stolika kosztuje 5 PLN</div>
             </form>
+            
         </div>
             :
         null  

@@ -26,10 +26,10 @@ class App extends Component {
     // false default
     administrator: false,
     //  false default pominięcie logowania
-    client: false,
+    client: true,
     // defaultowo loginName oraz loginPassword puste powinno być
-    loginName:'',
-    loginPassword:'',
+    loginName:'jkowalski',
+    loginPassword:'123qwe',
     // To id powinno być '', na czas pisania aplikacji default np. 1
     clientId:1,
     // false default
@@ -152,6 +152,10 @@ class App extends Component {
     valid8: false,
     valid9: false,
     valid10: false,
+
+    validdate: false,
+    validtime: false,
+
     searchMeal:'',
     deliveryTime: '',
     randomDeliveryTime: 0,
@@ -168,6 +172,7 @@ class App extends Component {
     isActiveTablesView: false,
     // test id dla obj
     idObj: 0,
+    isLoadingCooking: false,
   }
   
   // Wybór aplikacja jako administratora
@@ -765,19 +770,28 @@ class App extends Component {
     
     if(code === this.state.randomBlikGenerateCode){
       this.setState({
-        // blikCode: code
-        blikResult: true,
-        isSummaryOrder: true,
+        isLoadingCooking: true,
         blikNotifications: false,
-
-        activeYourOrder: false,
-          obj:{
-            id: this.state.counterId,
-            clientId: this.state.clientId,
-            text: 'Twoje zamówienie zostało opłacone',
-            currentTime: this.state.currentTime
-          },
       })
+      setTimeout(()=>{
+
+        this.setState({
+          // blikCode: code
+          blikResult: true,
+          isSummaryOrder: true,
+          // blikNotifications: false,
+
+          isLoadingCooking: false,
+  
+          activeYourOrder: false,
+            obj:{
+              id: this.state.counterId,
+              clientId: this.state.clientId,
+              text: 'Twoje zamówienie zostało opłacone',
+              currentTime: this.state.currentTime
+            },
+        })
+      }, 5000)
       // Aktywne miejsce
       const activePalce = this.state.place.filter(item => item.isActive)
       console.log(activePalce[0].place)
@@ -945,6 +959,9 @@ class App extends Component {
     let cstreet2 = this.state.street;
     let chome2 = this.state.numberHome;
 
+    let cDate = this.state.date;
+    let cTime = this.state.time;
+
     //
 
     // 1.
@@ -1092,19 +1109,34 @@ class App extends Component {
         valid10: true,
       })
     }
-
-    if(this.state.valid1 === true && this.state.valid2 === true && this.state.valid3 === true && this.state.valid4 === true && this.state.valid5 === true
-        && (this.state.valid6 === true && this.state.valid7 === true && this.state.valid8 === true && this.state.valid10 === true)
-      ){       // Aktualizacja state saveForm
-        this.setState({
-          // saveForm: !this.state.saveForm,
-          saveForm: true,
-        })
-    } else{
+    // 5. Sprawdzenie czy data jest pusta
+    if( cDate === '' || cTime === ''){
+      alert('Uzupełnij datę i godzinę')
       this.setState({
-        saveForm: false
+        validdate: false,
+        validtime: false
       })
-    }
+    }else (
+      this.setState({
+        validdate: true,
+        validtime: true
+      })
+    )
+      setTimeout(() =>{
+
+        if((this.state.valid1 === true && this.state.valid2 === true && this.state.valid3 === true && this.state.valid4 === true && this.state.valid5 === true  && this.state.validdate === true && this.state.validtime === true)
+            && (this.state.valid6 === true && this.state.valid7 === true && this.state.valid8 === true && this.state.valid10 === true)
+          ){       // Aktualizacja state saveForm
+            this.setState({
+              // saveForm: !this.state.saveForm,
+              saveForm: true,
+            })
+        } else{
+          this.setState({
+            saveForm: false
+          })
+        }
+      }, 500)
     // 
   //   if(this.state.valid6 === true && this.state.valid7 === true && this.state.valid8 === true && this.state.valid10 === true){       // Aktualizacja state saveForm
   //     this.setState({
@@ -1263,7 +1295,8 @@ class App extends Component {
         thirdBlikNumber:'',
         fourthBlikNumber:'',
         blikResult: false,
-        deliveryTime:''
+        deliveryTime:'',
+        isLoadingCooking: false,
       })
       this.handleActionNotification()
     }
@@ -1687,6 +1720,7 @@ class App extends Component {
                 handlePaymentAtLocation={this.handlePaymentAtLocation}
                 isYourOrder={this.state.isYourOrder}
                 handleCancelSaveForm={this.handleCancelSaveForm}
+                isLoadingCooking={this.state.isLoadingCooking}
               /> : null}
               
             
