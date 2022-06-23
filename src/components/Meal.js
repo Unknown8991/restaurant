@@ -29,12 +29,12 @@ const Meal = (props) => {
             </div>
             </div>
             
-        <div className='text-pizza'>{props.name}</div>
+        <div className='text-pizza container'>{props.name}</div>
         <div className='images-pizza'>
             <img className='images-pizza__item' src={props.image} alt="" />
         </div>
         <div className="col-12 info-section-wrapper">
-            <div className="col-2">
+            <div className="col-2 container">
                 <div className="more-information" onClick={()=> props.handleShowInfoAboutMeal(props.id)}>
                  i
                 </div>

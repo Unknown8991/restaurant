@@ -28,7 +28,7 @@ const SummaryOrder = (props) => {
     return ( 
         <div className='summary'>
             {/* <div className='summary__close col-12' onClick={props.handleCloseSummary}>X</div> */}
-            <div className='summary__header'>Zamówienie zatwierdzone</div>
+            <div className='summary__header'>Płatność potwierdzona</div>
             {activePlace[0].place === 'W restauracji' ?
                 <div className='summary__items container col-12'>
                     <div className='summary__text'>

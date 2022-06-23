@@ -26,12 +26,12 @@ class App extends Component {
     // false default
     administrator: false,
     //  false default pominięcie logowania
-    client: true,
+    client: false,
     // defaultowo loginName oraz loginPassword puste powinno być
-    loginName:'jkowalski',
-    loginPassword:'123qwe',
+    loginName:'',
+    loginPassword:'',
     // To id powinno być '', na czas pisania aplikacji default np. 1
-    clientId:1,
+    clientId:'',
     // false default
     isCorrectLogin: false,
     // false default
@@ -41,15 +41,15 @@ class App extends Component {
     // rejestracja użytkownika
     isRegister: false,
     account:[
-      {id:1, login: 'admin', password: '123qwe'},
-      {id:2, clientId:1, login: 'jkowalski', password: '123qwe'},
-      {id:3, clientId:2, login: 'pnowak', password: '123qwe'},
-      {id:4, clientId:3, login: 'jkret', password: '123qwe'},
+      {id:1, clientId:1, login: 'admin', password: '123qwe'},
+      {id:2, clientId:2, login: 'jkowalski', password: '123qwe'},
+      {id:3, clientId:3, login: 'pnowak', password: '123qwe'},
+      {id:4, clientId:4, login: 'jkret', password: '123qwe'},
     ],
     // Powiadomienia nie mogą być kasowane po zmianie klient -> admin
     notifications:[
-      {id: 0, clientId: 1, text: 'Twoje zamówienie zostało opłacone', currentTime:'10:20' },
-      {id: 1, clientId: 1, text: 'Twoje zamówienie zostało opłacone', currentTime:'13:10' },
+      {id: 0, clientId: 2, text: 'Twoje zamówienie zostało opłacone', currentTime:'10:20' },
+      {id: 1, clientId: 2, text: 'Twoje zamówienie zostało opłacone', currentTime:'13:10' },
     ],
     textNotification: '',
     // Counter ustawiony ma być w zależności ile domyślnie bedzie obiektów w notifications
@@ -85,10 +85,10 @@ class App extends Component {
       {id:9, name: 'Lemoniada', type: 'drink', price: 10, description:'lemoniada', img:coffee, showInfoMeal: false, showInfoFromSearch:false, number:1, isChecked: false, isVege: false,},
     ],
     orders:[
-      {id:1, orderID:51, nameOrder: 'Prosciutto Cotto', orderPlace:'W restauracji', orderTableNumber:2, price:20, orderPrice: 40, orderNumber: 2, orderClientId: 1,  orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'18:20', orderStatus: 0, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza2, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
-      {id:2, orderID:52, nameOrder: 'Nepoletana', orderPlace:'W restauracji', orderTableNumber:2, price:45, orderPrice: 90, orderNumber: 2, orderClientId: 1,  orderDateOfRelease:'Wed 29 2022', orderTimeOfRelease:'18:25', orderStatus: 1, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza1, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
-      {id:3, orderID:53, nameOrder: 'Margherita', orderPlace:'W domu', orderTableNumber:null, price:10, orderPrice: 20, orderNumber: 2, orderClientId: 2,  orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'17:30', orderStatus: 2, orderIsChangeStatus:false, orderCityClient: 'Kraków', orderStreetClient:'Krakowska', orderHomeClient: '13', orderImg:pizza3, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
-      {id:4, orderID:54, nameOrder: 'Nepoletana', orderPlace:'W restauracji', orderTableNumber:9, price:45, orderPrice: 90, orderNumber: 2, orderClientId: 3, orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'18:05', orderStatus: 3, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza1, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
+      {id:1, orderID:51, nameOrder: 'Prosciutto Cotto', orderPlace:'W restauracji', orderTableNumber:2, price:20, orderPrice: 40, orderNumber: 2, orderClientId: 2,  orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'18:20', orderStatus: 0, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza2, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
+      {id:2, orderID:52, nameOrder: 'Nepoletana', orderPlace:'W restauracji', orderTableNumber:2, price:45, orderPrice: 90, orderNumber: 2, orderClientId: 2,  orderDateOfRelease:'Wed 29 2022', orderTimeOfRelease:'18:25', orderStatus: 1, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza1, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
+      {id:3, orderID:53, nameOrder: 'Margherita', orderPlace:'W domu', orderTableNumber:null, price:10, orderPrice: 20, orderNumber: 2, orderClientId: 3,  orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'17:30', orderStatus: 2, orderIsChangeStatus:false, orderCityClient: 'Kraków', orderStreetClient:'Krakowska', orderHomeClient: '13', orderImg:pizza3, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
+      {id:4, orderID:54, nameOrder: 'Nepoletana', orderPlace:'W restauracji', orderTableNumber:9, price:45, orderPrice: 90, orderNumber: 2, orderClientId: 4, orderDateOfRelease:'Tue 28 2022', orderTimeOfRelease:'18:05', orderStatus: 3, orderIsChangeStatus:false, orderCityClient: '', orderStreetClient:'', orderHomeClient: '', orderImg:pizza1, orderNameClient: 'testoweImie', orderSurnameClient: 'testoweNazwisko', orderPhoneNumberClient: 'testowyNumerTel'},
       // {id:5, name: 'pięć', place:'W restauracji', tableNumber:1, price: 10, number: 2, clientId: 3, dateOfRelease:'Tue 28 2022', timeOfRelease:'10:05', status: 4, isChangeStatus:false,},
     ],
     tempOrders: [],
@@ -199,6 +199,7 @@ class App extends Component {
         activeUserLogin: this.state.loginName,
         activeUserPassword: this.state.loginPassword,
         adminActive: true,
+        administrator: true,
       })
    }else{
      console.log('hasło i login nie są poprawne')
@@ -214,7 +215,7 @@ class App extends Component {
     // console.log(findUserLogin[0].login)
     if(findUserLogin[0] !== undefined){
       // Jeśli dane logowania są prawidłowe hasło oraz login
-      if(findUserLogin[0].login === this.state.loginName && findUserLogin[0].password === this.state.loginPassword){
+      if(findUserLogin[0].login === this.state.loginName && findUserLogin[0].password === this.state.loginPassword && findUserLogin[0].clientId !== 1){
         console.log('Istnieje taki login oraz hasło')
         this.setState({
           adminActive: false,
@@ -285,6 +286,7 @@ class App extends Component {
     console.log('logowanie bez konta')
     this.setState({
       client: true,
+      clientId: 0,
     })
   }
   handleShowNotificationContent = () =>{
@@ -347,6 +349,7 @@ class App extends Component {
        console.log('hasło i login sa poprawne')
        this.setState({
          adminPanel: true,
+        //  administrator: true,
        })
     }else{
       console.log('hasło i login nie są poprawne')
@@ -1457,7 +1460,7 @@ class App extends Component {
     loginName:'',
     loginPassword:'',
     // To id powinno być '', na czas pisania aplikacji default np. 1
-    clientId:1,
+    clientId:'',
     // false default
     isCorrectLogin: false,
     // false default
@@ -1726,7 +1729,7 @@ class App extends Component {
             
       </div> : null }
       
-      {this.state.administrator ? 
+      {/* {this.state.administrator ? 
         <div className={this.state.adminPanel ? 'login-page--no-active' : 'container login-page'}>
           <div className='col-12 header-container-login'>
             <button onClick={this.handleBackToProfiles} className='button-back-login'>Back</button>
@@ -1747,7 +1750,7 @@ class App extends Component {
             </div>
           </div>
           
-        </div> : null}
+        </div> : null} */}
         {this.state.adminPanel ? 
           <AdministratorPanel  
             orders={this.state.orders} 

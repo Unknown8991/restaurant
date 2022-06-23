@@ -16,7 +16,8 @@ const LoginPanel = (props) => {
                 <div className='col-10'>
                     <input placeholder='hasło' name='pass' value={props.loginPassword} className='login__input' type="text" onChange={props.handleChangeInputLogin} />
                 </div>
-                <button className='login__btn-login' onClick={props.handleLoginProfile}>Zaloguj</button>
+                {/* <button className='login__btn-login' onClick={props.handleLoginProfile}>Zaloguj</button> */}
+                <button className='action-button action-button--revert' onClick={props.handleLoginProfile}>Zaloguj</button>
             </div>
             <div className='container col-12 login--center'>
                 {/* Jeśli nie posiadasz konta,   */}
@@ -30,7 +31,7 @@ const LoginPanel = (props) => {
                 <div className='col-5 user-choice__client' onClick={props.handleChoiceClient}>Klient bez logowania</div>
           </div> */}
         </div>
-        {props.isRegister ? 
+        {/* {props.isRegister ? 
         <div className='register'>
             <div className='container register__row'>
                 <div className='register__back' onClick={props.handleBackFromRegister}>Wróć</div>
@@ -48,7 +49,7 @@ const LoginPanel = (props) => {
 
         :
             null
-        }
+        } */}
         </>
      );
 }

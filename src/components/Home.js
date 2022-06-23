@@ -48,18 +48,33 @@ const Home = (props) => {
         <div className='logo'>
             <img src={hat} className="baker" alt="" />
         </div>
-        <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>
-            {/* <img className='icons-app' src={notify} alt="" /> */}
+        {props.clientId !== 0 ?
+            <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>
+                <i className="fa fa-bell-o" aria-hidden="true"></i>
+            </div>
+            :
+            null
+        }
+        {/* <div className='profile-box__notification' onClick={props.handleShowNotificationContent}>
+      
             <i className="fa fa-bell-o" aria-hidden="true"></i>
 
-        </div>
-        <div className='profile-box__counter'>
-            {/* {props.counterNotification} */}
+        </div> */}
+        {props.clientId !== 0 ?
+                <div className='profile-box__counter'>
+                {/* {props.counterNotification} */}
+                {counterNotificationUser}
+            </div>
+            :    
+            null
+        }
+        {/* <div className='profile-box__counter'>
+        
             {counterNotificationUser}
-        </div>
+        </div> */}
         {/* <div className='profile-box' onClick={props.handleProfileSettingActive}>P</div> */}
         {/* Wyswietlenie ustawień */}
-        {props.isProfileSettingsActive ? 
+        {props.isProfileSettingsActive  ? 
         <>
             <div className='profile-box profile-box--column-profile' onClick={props.handleProfileSettingActive}>
                 <div>
@@ -67,11 +82,17 @@ const Home = (props) => {
                     <i className="fa fa-user" aria-hidden="true"></i>
 
                 </div>
-                <div onClick={props.handleOpenHistory}>
-                    {/* <img className='icons-app' src={history} alt="" /> */}
+                { props.clientId !== 0 ?
+                        <div onClick={props.handleOpenHistory}>
+                            <i className="fa fa-history" aria-hidden="true"></i>
+                        </div>
+                    :    
+                    null
+                }
+                {/* <div onClick={props.handleOpenHistory}>
                     <i className="fa fa-history" aria-hidden="true"></i>
+                </div> */}
 
-                </div>
                 <div onClick={props.handleLogOut}>
                 {/* <img className='icons-app__big' src={logout} alt="" /> */}
                 <i className="fa fa-power-off" aria-hidden="true"></i>

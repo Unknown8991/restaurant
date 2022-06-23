@@ -15,7 +15,7 @@ const Order = (props) => {
             <div className={props.isChangeStatus ? 'col-12 order order__change-status' : 'col-12 order'}>
 
                 <div className='col-5 col-md-3 order--center' >
-                    <div className='col-8 col-md-11 order__picture'>
+                    <div className='col-11 col-md-11 order__picture'>
                         
                             <img className='image-admin' src={props.image} alt="" />
                         
@@ -31,9 +31,9 @@ const Order = (props) => {
                        ||
                        props.status === 1 ?<label className='status status--progress'>REALIZACJA</label>: null
                        ||
-                       props.status === 2 ?<label className='status status--prepared'>PRZYGOTOWANE</label>: null
+                       props.status === 2 ?<label className='status status--prepared'>GOTOWE</label>: null
                        ||
-                       props.status === 3 ?<label className='status status--delivery'>DOSTAWA/SERWIS</label>: null
+                       props.status === 3 ?<label className='status status--delivery'>DOSTAWA</label>: null
                        ||
                        props.status === 4 ?<label className='status status--done'>ZAKOŃCZONE</label>: null
                        }
