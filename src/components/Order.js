@@ -41,11 +41,11 @@ const Order = (props) => {
                     </div>
                     <div className='order__elements--info'>{props.place} </div>
                     <div className='order__elements--info'>Kwota: {props.price} PLN </div>
-                    {props.tableNumber !== null ? 
+                    {props.tableNumber !== null && props.tableNumber !== '' ? 
                         <div className='order__elements--info'>Numer stoliku: {props.tableNumber}</div> : null 
                     }
                     
-                    {props.tableNumber !== null ?
+                    {props.tableNumber !== null && props.tableNumber !== '' ?
                         <div className='order__elements--info'>Rezerwacja</div>
                         :
                         null

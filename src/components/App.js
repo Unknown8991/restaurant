@@ -1112,8 +1112,15 @@ class App extends Component {
         valid10: true,
       })
     }
+   
+    const actPlace = this.state.place.filter(item => item.isActive === true)
+
+    console.log(actPlace[0].place)
+
+
+    
     // 5. Sprawdzenie czy data jest pusta
-    if( cDate === '' || cTime === ''){
+    if( (cDate === '' || cTime === '') && actPlace[0].place === 'W restauracji'){
       alert('Uzupełnij datę i godzinę')
       this.setState({
         validdate: false,
@@ -1122,7 +1129,11 @@ class App extends Component {
     }else (
       this.setState({
         validdate: true,
-        validtime: true
+        validtime: true,
+        valid9: true,
+        valid4: true,
+        date: this.state.textDateForDelivery,
+        time: this.state.deliveryTime,
       })
     )
       setTimeout(() =>{
